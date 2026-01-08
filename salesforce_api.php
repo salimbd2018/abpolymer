@@ -8034,7 +8034,7 @@ function get_salesordersApproval($conn, $UserID) {
     }
 
     $sql = "
-    SELECT userid,
+     SELECT userid,
     ROW_NUMBER() OVER (ORDER BY SalesOrderID) AS SL, 
     SalesOrderID,
     Outstanding,
@@ -8084,13 +8084,31 @@ pertialchallanstatus,
     WHERE
     (
         OrderTypeID = 1 
-        AND Status IN (1,2) 
+        AND Status IN (1) 
         and
         AppStatus = (
     SELECT TOP 1 AppStatus FROM sndApprovals 
-    WHERE RoleID IN (SELECT RoleID FROM sndUserRoleMapping WHERE UserID = 2350) 
+    WHERE RoleID IN (SELECT RoleID FROM sndUserRoleMapping WHERE UserID = ?) 
     AND ApprovalTables = 'sndSalesOrders' 
-    AND AppStatusMeans = 'Authorized By'  and Userid = 2350
+    AND AppStatusMeans = 'Authorized By'  and Userid = ?
+)
+       
+        AND (
+            SELECT COUNT(*) 
+            FROM sndSalesOrderDetails sod 
+            WHERE sod.SalesOrderID = sndSalesOrders.SalesOrderID
+        ) > 0
+    )
+or
+(
+        OrderTypeID = 1 
+        AND Status IN (2) 
+        and
+        AppStatus = (
+    SELECT TOP 1 AppStatus FROM sndApprovals 
+    WHERE RoleID IN (SELECT RoleID FROM sndUserRoleMapping WHERE UserID = ?) 
+    AND ApprovalTables = 'sndSalesOrders' 
+    AND AppStatusMeans = 'Approved By'  and Userid = ?
 )
        
         AND (
@@ -8100,11 +8118,10 @@ pertialchallanstatus,
         ) > 0
     )
 
-
     ORDER BY SalesOrderID DESC
     ";
 
-    $params = [$UserID, $UserID, $UserID, $UserID];
+    $params = [$UserID, $UserID, $UserID, $UserID,$UserID, $UserID, $UserID, $UserID];
 
     $stmt = sqlsrv_query($conn, $sql, $params);
 
