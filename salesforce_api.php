@@ -8062,7 +8062,7 @@ pertialchallanstatus,
             SELECT TOP 1 AppStatus FROM sndApprovals 
             WHERE RoleID IN (SELECT RoleID FROM sndUserRoleMapping WHERE UserID = ?) 
             AND ApprovalTables = 'sndSalesOrders' 
-            AND AppStatusMeans = 'Authorized By'
+            AND AppStatusMeans = 'Authorized By' and Userid = ?
         )
     THEN 'Authorized'
     ELSE 'Not Authorized'
@@ -8073,7 +8073,7 @@ pertialchallanstatus,
             SELECT TOP 1 AppStatus FROM sndApprovals 
             WHERE RoleID IN (SELECT RoleID FROM sndUserRoleMapping WHERE UserID = ?) 
             AND ApprovalTables = 'sndSalesOrders' 
-            AND AppStatusMeans = 'Approved By'
+            AND AppStatusMeans = 'Approved By'  and Userid = ?
         )
     THEN 'Authorized'
     ELSE 'Not Authorized'
