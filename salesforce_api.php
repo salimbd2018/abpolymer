@@ -8085,41 +8085,21 @@ pertialchallanstatus,
     (
         OrderTypeID = 1 
         AND Status IN (1,2) 
-        AND userid IN (SELECT userid FROM sndUsers WHERE ReportingToUserID = ?)
-        AND (
-            SELECT COUNT(*) 
-            FROM sndSalesOrderDetails sod 
-            WHERE sod.SalesOrderID = sndSalesOrders.SalesOrderID
-        ) > 0
-    )
-
-    OR
-    (
-    OrderTypeID = 1 
-    AND Status IN (1,2) 
-    AND (
-        SELECT COUNT(*) 
-        FROM sndSalesOrderDetails sod 
-        WHERE sod.SalesOrderID = sndSalesOrders.SalesOrderID
-    ) > 0
+        and
+        AppStatus = (
+    SELECT TOP 1 AppStatus FROM sndApprovals 
+    WHERE RoleID IN (SELECT RoleID FROM sndUserRoleMapping WHERE UserID = 2350) 
+    AND ApprovalTables = 'sndSalesOrders' 
+    AND AppStatusMeans = 'Authorized By'  and Userid = 2350
 )
-or
-
-    (
-        OrderTypeID = 1 
-        AND Status IN (1,2) 
-        AND userid IN (
-            SELECT userid FROM sndUsers 
-            WHERE ReportingToUserID IN (
-                SELECT userid FROM sndUsers WHERE ReportingToUserID = ?
-            )
-        )
+       
         AND (
             SELECT COUNT(*) 
             FROM sndSalesOrderDetails sod 
             WHERE sod.SalesOrderID = sndSalesOrders.SalesOrderID
         ) > 0
     )
+
 
     ORDER BY SalesOrderID DESC
     ";
