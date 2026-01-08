@@ -8103,16 +8103,13 @@ function get_salesordersApproval($conn, $UserID)
 
     $stmt = sqlsrv_query($conn, $sql, $params);
 
-    if ($stmt === false) {
-        echo json_encode(["error" => sqlsrv_errors()]);
-        return;
+    do {
+    if (sqlsrv_has_rows($stmt)) {
+        break; // this is the SELECT we want
     }
+} while (sqlsrv_next_result($stmt));
 
-    $orders = [];
-    while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-        $orders[] = $row;
-    }
-
+   
     echo json_encode($orders);
 }
 
