@@ -1,0 +1,91 @@
+Android Code (Java)
+Steps:
+
+Input latitude and longitude.
+Click the button to open Google Maps with a marker.
+java
+Copy
+Edit
+package com.example.maplocation;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    private EditText latitudeInput, longitudeInput;
+    private Button openMapButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        latitudeInput = findViewById(R.id.latitudeInput);
+        longitudeInput = findViewById(R.id.longitudeInput);
+        openMapButton = findViewById(R.id.openMapButton);
+
+        openMapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openGoogleMaps();
+            }
+        });
+    }
+
+    private void openGoogleMaps() {
+        String lat = latitudeInput.getText().toString();
+        String lng = longitudeInput.getText().toString();
+
+        if (!lat.isEmpty() && !lng.isEmpty()) {
+            String geoUri = "geo:0,0?q=" + lat + "," + lng + "(Selected Location)";
+            Uri gmmIntentUri = Uri.parse(geoUri);
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+            mapIntent.setPackage("com.google.android.apps.maps");
+
+            if (mapIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(mapIntent);
+            }
+        }
+    }
+}
+XML Layout (activity_main.xml)
+xml
+Copy
+Edit
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/latitudeInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Latitude"
+        android:inputType="numberDecimal"/>
+
+    <EditText
+        android:id="@+id/longitudeInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Longitude"
+        android:inputType="numberDecimal"/>
+
+    <Button
+        android:id="@+id/openMapButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Open Google Maps"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>
+How It Works
+User enters latitude and longitude in the text fields.
+Clicking the "Open Google Maps" button opens Google Maps at the specified location with a marker.

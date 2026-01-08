@@ -1,0 +1,265 @@
+3. Get a MoneyReceiptNo:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=generate_new_money_receipt_number
+
+Method: POST (based on your implementation).
+
+Output
+
+{
+    "NewMRNo": "MR-1001/01-25"
+}
+
+
+### API Endpoint Examples Using Sample Data
+
+1. Create a New Receipt
+Endpoint: `POST https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_moneyreceipt
+
+Postman API Examples for create_moneyreceipt
+1. Multipart/Form-Data (With File Upload)
+Request Setup:
+Method: POST
+
+URL: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_moneyreceipt
+
+Body: Select form-data
+
+Postman Form Data Input:
+Key	Value	Type
+MRNo	MR2024001	Text
+PartyID	123	Text
+MRDate	2024-01-15	Text
+AmountReceived	15000.50	Text
+InWord	Fifteen Thousand Fifty Paise Only	Text
+PaymentMethodID	2	Text
+PaymentMethodDetailsID	3	Text
+ReceivedByUserID	45	Text
+AccName	John Doe	Text
+AccNumber	1234567890	Text
+ChequeNumber	CHQ12345	Text
+ChequeDate	2024-01-10	Text
+Remarks	Advance Payment	Text
+BranchName	Main Branch	Text
+TranNumber	TRX987654321	Text
+MobileNumber	+919876543210	Text
+DepositName	ABC Corporation	Text
+DepositSlip	[Select File]	File
+Sample File Upload:
+Click on DepositSlip key
+
+Change from "Text" to "File"
+
+Click "Select Files" and choose your file (PDF, JPG, PNG, DOCX)
+
+Expected Successful Response (JSON):
+json
+{
+    "success": "Receipt created successfully",
+    "MRID": 156,
+    "DepositSlipUploadPath": "/uploads/DepositSlip/DepositSlip_67890abc123.pdf"
+}
+---
+
+Please replace the following API
+From
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_moneyreceipts
+To
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_moneyreceipts_users&UserID=472
+
+
+ $stmt = sqlsrv_query($conn, $sql, [$UserID]);
+
+
+2. Retrieve All Receipts
+Endpoint: `GET https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_moneyreceipts
+
+Expected Response:
+```json
+[
+    {
+        "MRID": 32,
+        "MRInfo1": "MR-1017/01-25 2025-01-17 ",
+        "MRInfo2": "Dulal Book House-Farmgate",
+        "MRInfo3": "30399.00",
+        "MRNo": "MR-1017/01-25",
+        "PartyID": 204,
+        "MRDate": "2025-01-17 ",
+        "AmountReceived": "30399.00",
+        "InWord": "FS",
+        "PaymentMethodID": 1,
+        "PaymentMethod": "Cash",
+        "PaymentMethodDetails": "Central Cash Deposit",
+        "PaymentMethodDetailsAcc": null,
+        "ReceivedByUserID": 501,
+		"AccName": "ABC",
+		"AccNumber": "343",
+		"ChequeNumber": "S343",
+        "CreatedAt": "2025-01-17 ",
+        "ModifiedAt": "2025-01-17 "
+    }
+]
+```
+
+---
+
+AccName, AccNumber, ChequeNumber,Remarks,
+
+3. Retrieve a Specific Receipt
+Endpoint: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_moneyreceipt&MRID=56
+
+Expected Response:
+```json
+{
+    "receipt": {
+        "MRID": 156,
+        "MRInfo1": "MR2024001 2024-01-15",
+        "MRInfo2": "ABC Corporation",
+        "MRInfo3": "15,000.50",
+        "MRNo": "MR2024001",
+        "PartyID": 123,
+        "PartyName": "ABC Corporation",
+        "PartyAddress": "123 Main Street, City, Country",
+        "MRDate": "2024-01-15",
+        "AmountReceived": "15,000.50",
+        "InWord": "Fifteen Thousand Fifty Paise Only",
+        "AppStatus": 1,
+        "Status": "Active",
+        "PaymentMethodID": 2,
+        "PaymentMethod": "Bank Transfer",
+        "PaymentMethodDetailsID": 3,
+        "PaymentMethodDetails": "NEFT",
+        "PaymentMethodDetailsAcc": "Bank Account Details",
+        "AccName": "John Doe",
+        "AccNumber": "1234567890",
+        "ChequeNumber": "CHQ12345",
+        "Remarks": "Advance Payment",
+        "BranchName": "Main Branch",
+        "TranNumber": "TRX987654321",
+        "MobileNumber": "+919876543210",
+        "DepositName": "ABC Corporation",
+        "DepositSlipUploadPath": "/uploads/DepositSlip/DepositSlip_67890abc123.pdf",
+        "DepositSlipUploadPathURL": "https://asianabpolymer.com/abpolymer/uploads/DepositSlip/DepositSlip_67890abc123.pdf",
+        "ReceivedByUserID": 45,
+        "DepositEmpName": "Rajesh Kumar, Sales Executive",
+        "DepEmpName": "Rajesh Kumar",
+        "Designation": "Sales Executive",
+        "Location": "New Delhi, Delhi | Mumbai, Maharashtra",
+        "CreatedAt": "2024-01-15",
+        "ModifiedAt": null
+    },
+    "Approvals": {
+        "CheckedDate": "2024-01-15 14:30:00",
+        "CheckedBy": "Amit Sharma Manager",
+        "CheckedComments": "Verified",
+        "AuthDate": "2024-01-15 15:00:00",
+        "AuthBy": "Priya Singh Director",
+        "AuthComments": "Approved",
+        "AppDate": "2024-01-15 15:30:00",
+        "AppBy": "Rahul Verma CEO",
+        "AppComments": "Final approval",
+        "RejectDate": null,
+        "RejectBy": null,
+        "RejectComments": null,
+        "CancelledDate": null,
+        "CancelledBy": null,
+        "CanclledComments": null
+    }
+}
+
+
+4. Update a Receipt
+Endpoint: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_moneyreceipt&MRID=2
+
+Request Body:
+```json
+{
+    "PartyID": 7,
+    "MRDate": "2024-09-20",
+    "AmountReceived": 950.00,
+    "InWord": "Nine Humdred Only",
+    "PaymentMethodID": 1,
+	"PaymentMethodDetailsID": 1,
+    "ReceivedByUserID": 2
+}
+
+or
+
+{
+    "PartyID": 7,
+    "MRDate": "2024-09-20",
+    "AmountReceived": 950.00,
+    "InWord": "Nine Humdred Only",
+    "PaymentMethodID": 1,
+	"PaymentMethodDetailsID": 1,
+    "ReceivedByUserID": 2,
+	"AccName": "ABC",
+	"AccNumber": "343",
+	"ChequeNumber": "S343"
+}
+```
+
+Expected Response:
+```json
+{
+    "success": "Receipt updated successfully"
+}
+```
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_PaymentMethod
+
+[
+    {
+        "PaymentMethodID": 1,
+        "PMName": "Cash"
+    },
+    {
+        "PaymentMethodID": 2,
+        "PMName": "Bank"
+    }
+]
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_PaymentMethodCash&PaymentMethodID=1
+
+[
+    {
+        "PaymentMethodDetailsID": 1,
+        "PMDName": "Central Cash Deposit",
+        "PMDNameDetails": null
+    },
+    {
+        "PaymentMethodDetailsID": 2,
+        "PMDName": "Deposit for Salary",
+        "PMDNameDetails": null
+    },
+    {
+        "PaymentMethodDetailsID": 3,
+        "PMDName": "Deposit for TA/DA",
+        "PMDNameDetails": null
+    },
+    {
+        "PaymentMethodDetailsID": 4,
+        "PMDName": "Deposit for B.D. Exp.",
+        "PMDNameDetails": null
+    },
+    {
+        "PaymentMethodDetailsID": 5,
+        "PMDName": "Others",
+        "PMDNameDetails": null
+    }
+]
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_PaymentMethodCash&PaymentMethodID=2
+
+[
+    {
+        "PaymentMethodDetailsID": 6,
+        "PMDName": "Dutch Bangla Bank",
+        "PMDNameDetails": "A/C No. 39473878"
+    },
+    {
+        "PaymentMethodDetailsID": 7,
+        "PMDName": "City Bank Ltd",
+        "PMDNameDetails": "A/C No. 39473344"
+    }
+]

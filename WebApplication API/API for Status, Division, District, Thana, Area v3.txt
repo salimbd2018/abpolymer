@@ -1,0 +1,318 @@
+For Update update_sndUserStatus:
+
+API:
+create a PUT request.
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_sndUserStatus&UserID=10
+
+Go to the Body tab, select raw, and set it to JSON.
+Enter the following JSON in the body
+
+For Active
+
+{
+  "Status": true
+}
+
+For De-Active
+
+{
+  "Status": false
+}
+
+
+
+
+
+
+For Party & Institution
+
+1.	RegionDivision GET Request 
+
+   - URL: `https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_regionDivision`
+   - Method: `GET`
+   
+[{
+    "RegionID": 2,
+    "RegionName": "Dhaka Division"
+}, {
+    "RegionID": 3,
+    "RegionName": "Chittagong Division"
+}, {
+    "RegionID": 20,
+    "RegionName": "New Region"
+}]
+
+2.	RegionDistrict GET Request 
+
+   - URL: `https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_regionDistrict&ParentRegionID=2`
+   - Method: `GET`
+   
+[{
+    "RegionID": 1,
+    "RegionName": "Updated Region"
+}, {
+    "RegionID": 4,
+    "RegionName": "Dhaka District"
+}, {
+    "RegionID": 5,
+    "RegionName": "Gazipur District"
+}, {
+    "RegionID": 6,
+    "RegionName": "Narayanganj District"
+}]
+
+3.	RegionThana GET Request 
+
+   - URL: `https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_regionThana&ParentRegionID=16`   - Method: `GET`
+   
+[{
+    "RegionID": 9,
+    "RegionName": "Gulshan Thana"
+}, {
+    "RegionID": 10,
+    "RegionName": "Mirpur Thana"
+}]
+
+4.	RegionArea GET Request 
+
+   - URL: `https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_regionArea&ParentRegionID=9`   - 
+Method: `GET`
+[{
+    "RegionID": 14,
+    "RegionName": "Banani Area"
+}, {
+    "RegionID": 15,
+    "RegionName": "Baridhara Area"
+}, {
+    "RegionID": 21,
+    "RegionName": "any new Region"
+}]
+
+
+For Get Location List:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_location&RegionID=4
+
+{
+    "success": true,
+    "data": [
+        {
+            "DivisionID": 2,
+            "DivisionName": "Dhaka Division",
+            "DistrictID": 4,
+            "DistrictName": "Dhaka District",
+            "ThanaID": 9,
+            "ThanaName": "Gulshan Thana",
+            "AreaID": 35,
+            "AreaName": "link road",
+            "RegionTypeID": 91
+        },
+        {
+            "DivisionID": 2,
+            "DivisionName": "Dhaka Division",
+            "DistrictID": 4,
+            "DistrictName": "Dhaka District",
+            "ThanaID": 10,
+            "ThanaName": "Mirpur Thana",
+            "AreaID": 39,
+            "AreaName": "Dhanmondi Area",
+            "RegionTypeID": 91
+        },
+        {
+            "DivisionID": 2,
+            "DivisionName": "Dhaka Division",
+            "DistrictID": 4,
+            "DistrictName": "Dhaka District",
+            "ThanaID": 10,
+            "ThanaName": "Mirpur Thana",
+            "AreaID": 29,
+            "AreaName": "kafrul Area",
+            "RegionTypeID": 91
+        },
+        {
+            "DivisionID": 3,
+            "DivisionName": "Chittagong Division",
+            "DistrictID": 7,
+            "DistrictName": "Chittagong District",
+            "ThanaID": 12,
+            "ThanaName": "Chittagong Sadar Thana",
+            "AreaID": 40,
+            "AreaName": "Rajshahi Area",
+            "RegionTypeID": 91
+        },
+        {
+            "DivisionID": 3,
+            "DivisionName": "Chittagong Division",
+            "DistrictID": 7,
+            "DistrictName": "Chittagong District",
+            "ThanaID": 12,
+            "ThanaName": "Chittagong Sadar Thana",
+            "AreaID": 33,
+            "AreaName": "rongpur Area",
+            "RegionTypeID": 91
+        },
+        {
+            "DivisionID": 3,
+            "DivisionName": "Chittagong Division",
+            "DistrictID": 7,
+            "DistrictName": "Chittagong District",
+            "ThanaID": 12,
+            "ThanaName": "Chittagong Sadar Thana",
+            "AreaID": 38,
+            "AreaName": "sutrapur",
+            "RegionTypeID": 91
+        }
+    ]
+}
+
+For Get UserView
+
+
+For NSM Designation View
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_desig&ID=1515
+Output
+{
+    "ID": 1534,
+    "CategoryName": "Regional Sales Manager (Selection Grade)"
+}
+
+For NSM 
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_userview&PDesignationID=1501
+
+        {
+            "UserID": 498,
+            "EmployeeID": "KBL-1826",
+            "EmpName": "Md. Nazmul Islam",
+            "DesignationID": "1515",
+            "Designation": "National Sales Manager",
+            "UserRoleName": "NSM"
+        }
+
+
+For RSM List
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_userview&PDesignationID=1515
+
+Output
+
+{
+            "UserID": 344,
+            "EmployeeID": "KBL-0048",
+            "EmpName": "Md. Jahangir Alam",
+            "DesignationID": "1517",
+            "Designation": "Regional Sales Manager",
+            "UserRoleName": "RSM"
+        }
+
+For DSM List
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_userview&PDesignationID=1517
+
+{
+            "UserID": 496,
+            "EmployeeID": "KBL-0049",
+            "EmpName": "Md. Nazmul Islam",
+            "DesignationID": "1528",
+            "Designation": "Divisional Sales Manager",
+            "UserRoleName": "DSM"
+        }
+
+For ASM List
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_userview&PDesignationID=1528
+
+{
+            "UserID": 247,
+            "EmployeeID": "KBL-1547",
+            "EmpName": "Md. Al-Amin",
+            "DesignationID": "1502",
+            "Designation": "Area Sales Manager",
+            "UserRoleName": "ASM"
+        }
+		
+For ZSM List
+
+{
+            "UserID": 295,
+            "EmployeeID": "KBL-0486",
+            "EmpName": "Md. Amirul Islam",
+            "DesignationID": "1522",
+            "Designation": "Zonal Sales Manager",
+            "UserRoleName": "ZSM"
+        }
+
+		
+
+For NSM View
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_userview&PDesignationID=1501
+{
+    "success": true,
+    "data": [
+        {
+            "UserID": 498,
+            "EmployeeID": "KBL-1826",
+            "EmpName": "Md. Nazmul Islam",
+			"DesignationID": "1515",
+            "Designation": "National Sales Manager",
+            "UserRoleName": "NSM"
+        }
+ ]
+}
+
+For RSM List
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_userview&PDesignationID=1515
+{
+    "success": true,
+    "data": [
+        {
+            "UserID": 344,
+            "EmployeeID": "KBL-0048",
+            "EmpName": "Md. Jahangir Alam",
+            "DesignationID": "1517",
+            "Designation": "Regional Sales Manager",
+            "UserRoleName": "RSM"
+        },
+        {
+            "UserID": 345,
+            "EmployeeID": "KBL-0047",
+            "EmpName": "Md. Altaf Hossain",
+            "DesignationID": "1517",
+            "Designation": "Regional Sales Manager",
+            "UserRoleName": "RSM"
+        },
+        {
+            "UserID": 354,
+            "EmployeeID": "KBL-0006",
+            "EmpName": "Sarajit Kumar Bardhan",
+            "DesignationID": "1517",
+            "Designation": "Regional Sales Manager",
+            "UserRoleName": "RSM"
+        },
+        {
+            "UserID": 298,
+            "EmployeeID": "KBL-0457",
+            "EmpName": "Md. Hafizur Rahman",
+            "DesignationID": "1517",
+            "Designation": "Regional Sales Manager",
+            "UserRoleName": "RSM"
+        },
+        {
+            "UserID": 472,
+            "EmployeeID": "KBL-1570",
+            "EmpName": "Md. Sohrab Ali",
+            "DesignationID": "1534",
+            "Designation": "Regional Sales Manager (Selection Grade)",
+            "UserRoleName": null
+        }
+    ]
+}
+
+For View After save:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_usermapregion&UserID=457
+
+{"success":true,"data":[{"EmployeeID":"KBL-1339","EmpName":"Md. Mithu","Designation":"Zonal Sales Manager","UserRoleName":"ZSM","District":"Dhaka District","Thana":"Mirpur Thana","Area":"kafrul Area"}]}
+

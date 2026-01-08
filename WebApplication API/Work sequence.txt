@@ -1,0 +1,36 @@
+Sequencial Works:
+2	§ Product Receipt
+3	§ Sales Order
+4	§ Sales Order Approval
+5	§ Sales Return
+6	§ Delivery Challan
+7	§ Delivery Challan Approval
+8	§ Invoice/Bill
+9	§ Invoice/Bill Approval
+10	§ Money Receipt
+11	§ Money Receipt Approval
+
+Single Indipendent Works:
+1	§ Inventory Transfer
+2	§ Inventory Transfer Approval
+3	§ Specimen Order
+4	§ Specimen Approval
+5	§ BD Expense Requisition
+6   § BD Expense Approval
+
+Sequencial Works:
+1	§ Assign Visit Plans
+2	§ Visit Plan Approval
+3	§ Visit Entry
+4	§ Visit Approval
+
+1	Dashboard: Target VS Achievement
+2	Push Notificaiton
+
+Reports:
+1	§ Inventory Stock Report
+2	§ Target VS Achievement Report
+3	§ Sales VS Return Report
+4	§ Business Dev. Exp. & Specimen Exp. Report
+5	§ Total Visit Report
+6	§ Outstanding Report

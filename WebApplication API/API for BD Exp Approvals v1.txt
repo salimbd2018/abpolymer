@@ -1,0 +1,220 @@
+1. Get All For BDExpReq:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_BDExpReqApproval&UserID=501
+
+Output:
+
+[
+    {
+        "BDExpReqID": 55,
+        "BDExpInfo1": "BDE-1005/01-25",
+        "BDExpInfo2": "2025-01-14 ",
+        "BDExpInfo3": "ভাঙ্গাভাঙ্গী সরকারি প্রাথমিক বিদ্যালয়",
+        "BDExpReqNo": "BDE-1005/01-25",
+        "BDExpReqDate": "2025-01-14 ",
+        "InstitutionID": 2746,
+        "InstitutionTypeID": 11,
+        "InstitutionType": "Primary-School",
+        "InstituteName": "ভাঙ্গাভাঙ্গী সরকারি প্রাথমিক বিদ্যালয়",
+        "Status": "Pending Checked",
+        "AppStatus": 1,
+        "TotalAmount": "10000.00",
+        "BDExpUserName": "Md. Anowar Hasan Salim",
+        "LogUserName": "Md. Anowar Hasan Salim",
+        "UserCheckedStatus": "Checked",
+        "UserAuthorizedStatus": "Not Authorized",
+        "UserApprovalStatus": "Not Approved"
+    }
+     {
+        "BDExpReqID": 54,
+        "BDExpInfo1": "BDE-1004/01-25",
+        "BDExpInfo2": "2025-01-14 ",
+        "BDExpInfo3": null,
+        "BDExpReqNo": "BDE-1004/01-25",
+        "BDExpReqDate": "2025-01-14 ",
+        "InstitutionID": 0,
+        "InstitutionTypeID": 12,
+        "InstitutionType": "High-School",
+        "InstituteName": null,
+        "Status": "Pending Checked",
+        "AppStatus": 1,
+        "TotalAmount": ".00",
+        "BDExpUserName": "Md. Anowar Hasan Salim",
+        "LogUserName": "Md. Anowar Hasan Salim",
+        "UserCheckedStatus": "Not Checked",
+        "UserAuthorizedStatus": "Not Authorized",
+        "UserApprovalStatus": "Not Approved"
+    }
+}
+
+Comments Information:
+
+Get BDExp
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_BDExpReqAll&BDExpReqID=4
+
+{
+    "BDExpReq": {
+        "BDExpReqID": 4,
+        "BDExpReqNo": "BDE-1001/01-25",
+        "BDExpUserID": 501,
+        "BDExpReqDate": "2025-01-07 ",
+        "InstitutionTypeID": 11,
+        "InstitutionTypeName": "Primary-School",
+        "InstitutionID": 169,
+        "InstitutionName": "Gopalpur Govt. Primary School ",
+        "TotalAmount": "5000.00",
+        "UserID": 501
+    },
+    "BDExpReqDetails": [
+        {
+            "BDExpReqDetailsID": 1,
+            "BDExpReqID": 4,
+            "TeacherName": "Mr. Hasan",
+            "Designation": "Teacher",
+            "ContactPhone": "9934343",
+            "BooksGroupID": 160,
+            "BooksGroup": "Primary-School",
+            "ProductID": 2,
+            "ProductName": "অনুপম একের ভিতর সব (দ্বিতীয় শ্রেণি)",
+            "StudentsCount": 300,
+            "DonationAmount": "3000.00"
+        }
+    ]
+}
+
+2. Get get_BDExpReqCompleteRejectCancelled
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_BDExpReqCompleteRejectCancelled&UserID=501
+
+Output:
+[
+    {
+        "BDExpReqID": 57,
+        "BDExpInfo1": "BDE-1007/01-25",
+        "BDExpInfo2": "2025-01-14 ",
+        "BDExpInfo3": "প্রাইভেট প্রোগ্রাম কোচিং সেন্টার",
+        "BDExpReqNo": "BDE-1007/01-25",
+        "BDExpReqDate": "2025-01-14 ",
+        "InstitutionID": 2621,
+        "InstitutionTypeID": 179,
+        "InstitutionType": "Coaching Center",
+        "InstituteName": "প্রাইভেট প্রোগ্রাম কোচিং সেন্টার",
+        "Status": "Approved",
+        "AppStatus": 4,
+        "TotalAmount": "20000.00",
+        "BDExpUserName": "Md. Anowar Hasan Salim",
+        "LogUserName": "Md. Anowar Hasan Salim"
+    },
+    {
+        "BDExpReqID": 56,
+        "BDExpInfo1": "BDE-1006/01-25",
+        "BDExpInfo2": "2025-01-14 ",
+        "BDExpInfo3": "পারচর সরকারি প্রাথমিক বিদ্যালয়",
+        "BDExpReqNo": "BDE-1006/01-25",
+        "BDExpReqDate": "2025-01-14 ",
+        "InstitutionID": 2737,
+        "InstitutionTypeID": 11,
+        "InstitutionType": "Primary-School",
+        "InstituteName": "পারচর সরকারি প্রাথমিক বিদ্যালয়",
+        "Status": "BD Ex Cancelled",
+        "AppStatus": 6,
+        "TotalAmount": "30000.00",
+        "BDExpUserName": "Md. Anowar Hasan Salim",
+        "LogUserName": "Md. Anowar Hasan Salim"
+    }
+]
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_sndApprovalDetailsBDExpReq&BDExpReqID=4
+
+2. Request Type:
+POST
+
+3. Headers:
+Set the content type to JSON:
+
+bash
+Copy code
+Content-Type: application/json
+4. Body (Raw JSON):
+Use the following JSON for testing:
+
+Test Case 1: For AppStatus = 1 (Checked)
+json
+Copy code
+{
+    "BDExpReqID": 4,
+	"CheckedComments": "Checked for further processing",
+    "AuthComments": null,
+    "AppComments": null,
+    "UserID": 501
+}
+Test Case 2: For AppStatus = 2 (Authorized)
+json
+Copy code
+{
+     "BDExpReqID": 4,
+	"CheckedComments": null,
+    "AuthComments": "Authorized for further processing",
+    "AppComments": null,
+    "UserID": 501
+}
+Test Case 3: For AppStatus = 3 (Approval)
+json
+Copy code
+{
+     "BDExpReqID": 4,
+	"CheckedComments": null,
+    "AuthComments": null,
+    "AppComments": "Approval for further processing",
+    "UserID": 501
+}
+5. Expected Responses:
+Success Response (Example):
+For a successful operation:
+
+json
+Copy code
+{
+    "success": true,
+    "message": "Approval details created and BDExpReq updated successfully."
+}
+
+6. Testing Steps in Postman:
+Open Postman and create a new request.
+Set the method to POST.
+Enter the endpoint URL.
+Go to the Headers tab and add the Content-Type: application/json header.
+Go to the Body tab, select raw, and paste the JSON for the test case.
+Click Send.
+Verify the response.
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_sndApprovalRejected_CancelledBDExpReq
+
+2. Request Type:
+POST
+
+3. Headers:
+Set the content type to JSON:
+
+Test Case 1: For AppStatus = 1 (Cancelled)
+json
+Copy code
+{
+    "BDExpReqID": 13,
+    "CanclledComments": "BDExpReq is cancelled due to...",
+    "UserID": 501
+}
+Test Case 2: For AppStatus = 2 (Rejected)
+json
+Copy code
+{
+    "BDExpReqID": 13,
+    "RejectComments": "Rejected due to ...",
+    "UserID": 501
+}
+
+
+

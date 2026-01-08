@@ -1,0 +1,361 @@
+Product Receipt
+
+ INSERT INTO [dbo].[sndProductReceipt]
+           ([ProductReceiptNo]
+           ,[ReceiptDate]
+           ,[BindingPartyID]
+           ,[PrintEdition]
+           ,[ChallanNumber]
+           ,[ChallanCopyPath]
+           ,[ProductionOrderQty]
+           ,[UserID]
+           ,[CreatedAt]
+           ,[ModifiedAt])
+     VALUES
+           (<ProductReceiptNo, varchar(100),>
+           ,<ReceiptDate, date,>
+           ,<BindingPartyID, int,>
+           ,<PrintEdition, varchar(150),>
+           ,<ChallanNumber, nvarchar(100),>
+           ,<ChallanCopyPath, nvarchar(150),>
+           ,<ProductionOrderQty, int,>
+           ,<UserID, int,>
+           ,<CreatedAt, datetime,>
+           ,<ModifiedAt, datetime,>)
+
+INSERT INTO [dbo].[sndProductReceiptDetails]
+           ([ProductReceiptID]
+           ,[FinancialYearID]
+           ,[ProductCategoryID]
+           ,[ProductID]
+           ,[Quantity]
+           ,[Rate]
+           ,[Total])
+     VALUES
+           (<ProductReceiptID, int,>
+           ,<FinancialYearID, int,>
+           ,<ProductCategoryID, int,>
+           ,<ProductID, int,>
+           ,<Quantity, int,>
+           ,<Rate, numeric(18,2),>
+           ,<Total, numeric(18,2),>)
+		   
+Get List of the Receipt
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_ppreceipts
+
+    [
+    {
+        "ProductReceiptID": 14,
+        "ProductReceiptNo": "GRN-1010/12-24",
+        "ReceiptDate": "2024-12-14 ",
+        "BindingPartyID": 2,
+        "BindingPartyName": "Abu Daud Book Binders-Sutrapur",
+        "PrintEdition": "4",
+        "ChallanNumber": "8757656234",
+        "ChallanCopyPath": "https://asianabpolymer.com/abpolymer/D:\\xampp\\htdocs\\DLogicKBL/uploads/ChallanCopyPath/8757656234.jpg"
+		"DetailsStatus": "True"
+    }
+	]
+Get a single data from Receipt
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_ppreceipt&ProductReceiptID=14
+
+{
+    "ProductReceiptNo": "GRN-1010/12-24",
+    "ReceiptDate": "2024-12-14 ",
+    "BindingPartyID": 2,
+    "BindingPartyName": "Abu Daud Book Binders-Sutrapur",
+    "PrintEdition": "4",
+    "ChallanNumber": "8757656234",
+    "ChallanCopyPath": "https://asianabpolymer.com/abpolymer/uploads/ChallanCopyPath/8757656234.jpg"
+}
+
+Get a single data from Receipt all
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_ppreceiptall&ProductReceiptID=24
+
+{
+    "success": true,
+    "receipt": {
+        "ProductReceiptNo": "GRN-1020/12-24",
+        "ReceiptDate": {
+            "date": "2024-12-12 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "BindingPartyID": 101,
+        "BindingPartyName": null,
+        "PrintEdition": "ww",
+        "ChallanNumber": "CN98765",
+        "ChallanCopyPath": "https://asianabpolymer.com/abpolymer/uploads/ChallanCopyPath/CN98765.jpg",
+        "ProductionOrderQty": 0,
+        "UserID": 1,
+        "CreatedBy": null,
+        "CreatedAt": {
+            "date": "2024-12-19 04:01:36.050000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "ModifiedAt": {
+            "date": "2024-12-19 04:01:36.050000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        }
+    },
+    "details": [
+        {
+            "ProductReceiptDetailsID": 24,
+            "ProductReceiptID": 24,
+            "FinancialYearID": 13221771,
+            "ProductCategoryID": 176,
+            "ProductCategoryName": "Test Paper SSC",
+            "ProductID": 327,
+            "ProductName": "এস.এস.সি. টেস্ট পেপারস্ বাংলাদেশ ও বিশ্বপরিচয়",
+            "Quantity": 50,
+            "Rate": "100.00",
+            "Total": "5000.00"
+        },
+        {
+            "ProductReceiptDetailsID": 25,
+            "ProductReceiptID": 24,
+            "FinancialYearID": 13221771,
+            "ProductCategoryID": 176,
+            "ProductCategoryName": "Test Paper SSC",
+            "ProductID": 327,
+            "ProductName": "এস.এস.সি. টেস্ট পেপারস্ বাংলাদেশ ও বিশ্বপরিচয়",
+            "Quantity": 50,
+            "Rate": "100.00",
+            "Total": "5000.00"
+        }
+    ]
+}
+
+
+3. **Get a new_product_receipt_number**:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=generate_new_product_receipt_number
+
+Method: POST (based on your implementation).
+
+Output
+
+{
+    "NewProductReceiptNo": "GRN-1008/12-24"
+}
+
+Create Receipt all
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_ppreceiptall
+
+1. Set Up the Request
+Method: POST
+URL: Enter the endpoint URL where the create_ppreceiptall function is hosted, for example:
+arduino
+Copy code
+
+
+2. Configure Headers
+Add the following headers if needed:
+Key: Content-Type
+Value: multipart/form-data
+3. Add the Body
+Mode: form-data
+Add the following fields in the Key column of the form-data tab:
+Main Product Receipt Data:
+Key	Value (Example)	Type
+ProductReceiptNo	PR-001	Text
+ReceiptDate	2024-12-21	Text
+BindingPartyID	101	Text
+PrintEdition	First Edition	Text (optional)
+ChallanNumber	CH-2024-01	Text (optional)
+ProductionOrderQty	500	Text
+UserID	1	Text
+Challan Copy Path (File Upload):
+Key	Value (Example)	Type
+ChallanCopyPath	Choose a file (PDF/Image)	File
+Product Receipt Details (JSON Array):
+Key	Value (Example)	Type
+Details	[{"FinancialYearID":1, "ProductCategoryID":2, "ProductID":3, "Quantity":100, "Rate":50.25}]	Text
+4. Send the Request
+Click Send in Postman.
+5. Analyze the Response
+Check the response from the API in the response tab:
+
+Success Response
+json
+Copy code
+{
+    "message": "Product receipt and details created successfully",
+    "ProductReceiptID": 123,
+    "ChallanCopyPath": "https://asianabpolymer.com/abpolymer/uploads/ChallanCopyPath/Challan_676917ef6d2ee5.11568405.jpg"
+}
+
+
+
+
+Create Receipt master
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_ppreceipt
+	
+Input
+
+
+Headers
+Content-Type: multipart/form-data
+Body
+Use the form-data option:
+
+Key					Value	Type
+ProductReceiptNo	PR12345	Text
+ReceiptDate			2024-12-12	Text
+BindingPartyID		101	Text
+ChallanNumber		CN98765	Text
+PrintEdition		1	Text (optional)
+ProductionOrderQty	Leave empty or provide value	Text (optional)
+UserID				1	Text (optional)
+ChallanCopyPath		Choose File	File
+
+Sample Data:
+
+ProductReceiptNo: "PR12345"
+ReceiptDate: "2024-12-12"
+BindingPartyID: "101"
+ChallanNumber: "CN98765"
+PrintEdition: "ww"
+ProductionOrderQty: ""
+UserID: "1"
+ChallanCopyPath: undefined
+
+Output:
+
+{
+    "message": "Product receipt and details created successfully",
+    "ProductReceiptID": 56,
+    "ChallanCopyPath": "https://asianabpolymer.com/abpolymer/uploads/ChallanCopyPath/Challan_6769dd491fc24.jpg"
+}
+
+Create ReceiptDetails
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_ppreceiptdetails
+
+        {
+            "ProductReceiptID": 24,
+            "FinancialYearID": 13221771,
+            "ProductCategoryID": 176,
+            "ProductID": 327,
+            "Quantity": 50,
+            "Rate": 100,
+            "Total": 5000
+        }
+        
+
+
+
+Getting BindingPartyName Combo box data
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_bindingparties
+
+[
+    {
+        "BindingPartyID": 1,
+        "PartyName": "Alpha Bindings"
+    },
+    {
+        "BindingPartyID": 2,
+        "PartyName": "Beta Publishing"
+    }
+]
+
+
+Get Financial Year
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_financialyear
+
+[
+    {
+        "id": 13221771,
+        "name": "Fiscal Year-2024"
+    }
+]
+
+
+Books Group Select:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_bookscategorys
+
+[
+    {
+        "ID": 158,
+        "CategoryName": "English Grammar"
+    },
+    {
+        "ID": 159,
+        "CategoryName": "High-School"
+    }
+]
+
+Books Name Categorywise
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_productcategorywise&Categoryid=176
+
+[
+    {
+        "ProductID": 317,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্  রসায়ন"
+    },
+    {
+        "ProductID": 318,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ ইসলাম ও নৈতিক শিক্ষা"
+    },
+    {
+        "ProductID": 319,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ উচ্চতর গণিত"
+    },
+    {
+        "ProductID": 320,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ ও মেইড ইজি ইংরেজি (১ম ও ২য় পত্র)"
+    }
+]
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=delete_preceiptdetails&ProductReceiptDetailsID=29
+
+Method: Delete
+
+Output:
+{
+    "message": "ProductReceiptDetails deleted successfully"
+}
+
+update Product Receipt
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_ppreceiptall&ProductReceiptID=62
+Method: PUT
+
+Headers: Content-Type: application/json
+
+{
+    "ReceiptDate": "2024-12-20",
+    "BindingPartyID": 101,
+    "PrintEdition": "Second Edition",
+    "ChallanNumber": "CN56789",
+    "ProductionOrderQty": 500,
+    "UserID": 298,
+    "Details": [
+        {
+            "FinancialYearID": 2024,
+            "ProductCategoryID": 176,
+            "ProductID": 327,
+            "Quantity": 200,
+            "Rate": 50.75
+        },
+        {
+            "FinancialYearID": 2024,
+            "ProductCategoryID": 176,
+            "ProductID": 327,
+            "Quantity": 300,
+            "Rate": 40.50
+        }
+    ]
+}
+

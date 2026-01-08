@@ -1,0 +1,476 @@
+
+INSERT INTO [dbo].[sndBDExpReq]
+           ([BDExpReqNo]
+           ,[BDExpUserID]
+           ,[BDExpReqDate]
+           ,[InstitutionTypeID]
+           ,[InstitutionID]
+           ,[TotalAmount]
+           ,[UserID]
+           ,[CreatedAt]
+           ,[ModifiedAt])
+     VALUES
+           (<BDExpReqNo, varchar(255),>
+           ,<BDExpUserID, int,>
+           ,<BDExpReqDate, datetime,>
+           ,<InstitutionTypeID, int,>
+           ,<InstitutionID, int,>
+           ,<TotalAmount, decimal(10,2),>
+           ,<UserID, int,>
+           ,<CreatedAt, datetime,>
+           ,<ModifiedAt, datetime,>)
+GO
+
+INSERT INTO [dbo].[sndBDExpReqDetails]
+           ([BDExpReqID]
+           ,[TeacherName]
+           ,[Designation]
+           ,[ContactPhone]
+           ,[BooksGroupID]
+           ,[ProductID]
+           ,[StudentsCount]
+           ,[DonationAmount]
+           ,[CreatedAt]
+           ,[ModifiedAt])
+     VALUES
+           (<BDExpReqID, int,>
+           ,<TeacherName, varchar(150),>
+           ,<Designation, varchar(150),>
+           ,<ContactPhone, varchar(25),>
+           ,<BooksGroupID, int,>
+           ,<ProductID, int,>
+           ,<StudentsCount, int,>
+           ,<DonationAmount, decimal(10,2),>
+           ,<CreatedAt, datetime,>
+           ,<ModifiedAt, datetime,>)
+GO
+
+For Get get_BDExpReq List
+
+Please replace the following API
+From
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_BDExpReqs
+
+To
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_BDExpReqs_users&UserID=583
+
+
+[
+    {
+        "BDExpInfo1": "BDE-1001/01-25",
+        "BDExpInfo2": "2025-01-11 ",
+        "BDExpInfo3": "victoria high school. primary section.",
+        "BDExpReqID": 4,
+        "BDExpReqNo": "BDE-1001/01-25",
+        "BDExpUserID": 501,
+        "BDExpReqDate": "2025-01-11 ",
+        "InstitutionTypeID": 11,
+        "InstitutionTypeName": "Primary-School",
+        "InstitutionID": 579,
+        "InstitutionName": "victoria high school. primary section.",
+        "TotalAmount": "85000.00",
+        "UserID": 501,
+        "DetailsStatus": "True"
+    }
+]
+
+
+
+For Get get_BDExpReqAll ---- Teacher Info - Need to correction
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_BDExpReqAll&BDExpReqID=4
+
+{
+    "BDExpReq": {
+        "BDExpReqID": 4,
+        "BDExpReqNo": "BDE-1001/01-25",
+        "BDExpUserID": 501,
+        "BDExpReqDate": "2025-01-11 ",
+        "InstitutionTypeID": 11,
+        "InstitutionTypeName": "Primary-School",
+        "InstitutionID": 579,
+        "InstitutionName": "victoria high school. primary section.",
+        "TotalAmount": "85000.00",
+        "UserID": 501
+    },
+    "BDExpReqDetails": [
+        {
+            "SL": "1",
+            "BDExpReqDetailsID": 1,
+            "BDExpReqID": 4,
+            "BDEDetails1": "Mr. Hasan",
+            "BDEDetails2": "অনুপম একের ভিতর সব (দ্বিতীয় শ্রেণি)",
+            "BDEDetails3": 300,
+            "TeacherName": "Mr. Hasan",
+            "Designation": "Teacher",
+            "ContactPhone": "9934343",
+            "FinancialYearID": 13221771,
+            "BooksGroupID": 160,
+            "BooksGroup": "Primary-School",
+            "ProductID": 2,
+            "ProductName": "অনুপম একের ভিতর সব (দ্বিতীয় শ্রেণি)",
+            "StudentsCount": 300,
+            "DonationAmount": "3000.00"
+        },
+        {
+            "SL": "2",
+            "BDExpReqDetailsID": 14,
+            "BDExpReqID": 4,
+            "BDEDetails1": "বিকাশ চন্দ্র রায়",
+            "BDEDetails2": "English Grammar Today (Class-3)",
+            "BDEDetails3": 200,
+            "TeacherName": "বিকাশ চন্দ্র রায়",
+            "Designation": "সহকারী শিক্ষক",
+            "ContactPhone": "01758362005",
+            "FinancialYearID": 13221771,
+            "BooksGroupID": 158,
+            "BooksGroup": "English Grammar",
+            "ProductID": 30,
+            "ProductName": "English Grammar Today (Class-3)",
+            "StudentsCount": 200,
+            "DonationAmount": "40000.00"
+        },
+        {
+            "SL": "3",
+            "BDExpReqDetailsID": 15,
+            "BDExpReqID": 4,
+            "BDEDetails1": "মোঃ মোরসেদুজ্জামান",
+            "BDEDetails2": "অনুপম একের ভিতর সব (ষষ্ঠ শ্রেণি)",
+            "BDEDetails3": 200,
+            "TeacherName": "মোঃ মোরসেদুজ্জামান",
+            "Designation": "সহকারী শিক্ষক",
+            "ContactPhone": "01719029050",
+            "FinancialYearID": 13221771,
+            "BooksGroupID": 159,
+            "BooksGroup": "High-School",
+            "ProductID": 6,
+            "ProductName": "অনুপম একের ভিতর সব (ষষ্ঠ শ্রেণি)",
+            "StudentsCount": 200,
+            "DonationAmount": "40000.00"
+        }
+    ],
+    "BDExpReqApprovals": {
+        "CheckedDate": "2025-01-10 02:19:53",
+        "CheckedBy": "Md. Anowar Hasan Salim Divisional Sales Manager",
+        "CheckedComments": "Checked for further processing",
+        "AuthDate": "2025-01-10 02:32:39",
+        "AuthBy": "Md. Anowar Hasan Salim Divisional Sales Manager",
+        "AuthComments": "Authorized for further processing",
+        "AppDate": "2025-01-10 02:33:01",
+        "AppBy": "Md. Anowar Hasan Salim Divisional Sales Manager",
+        "AppComments": "Approval for further processing",
+        "RejectDate": null,
+        "RejectBy": null,
+        "RejectComments": null,
+        "CancelledDate": null,
+        "CancelledBy": null,
+        "CanclledComments": null
+    }
+}
+
+Create BDExpReqAll
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_BDExpReqAll
+
+Input:
+{
+
+    "BDExpReq": {
+        "BDExpReqNo": "BDE-1009/01-25",
+        "BDExpUserID": 501,
+        "BDExpReqDate": "2025-01-08",
+        "InstitutionTypeID": 11,
+        "InstitutionID": 169,
+        "TotalAmount": 8000,
+        "UserID": 501
+    },
+    "BDExpReqDetails": [
+        {
+            "TeacherName": "Alice Johnson",
+            "Designation": "Head Teacher",
+            "ContactPhone": "123456789",
+             "FinancialYearID": 2025,
+            "BooksGroupID": 160,
+            "ProductID": 2,
+            "StudentsCount": 4000,
+            "DonationAmount": 10000
+        },
+        {
+            "TeacherName": "Bob Williams",
+            "Designation": "Assistant Teacher",
+            "ContactPhone": "987654321",
+             "FinancialYearID": 2025,
+            "BooksGroupID": 160,
+            "ProductID": 3,
+            "StudentsCount": 200,
+            "DonationAmount": 2000
+        }
+    ]
+}
+
+
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_BDExpReqMaster
+Input:
+{
+    "BDExpReqNo": "BDE-1003/01-25",
+    "BDExpUserID": 501,
+    "BDExpReqDate": "2025-01-04",
+    "InstitutionTypeID": 11,
+    "InstitutionID": 169,
+    "UserID": 501
+}
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_BDExpReqDetails
+Input:
+{
+    "BDExpReqID": 14,
+    "TeacherName": "John Doe",
+    "Designation": "Professor",
+    "ContactPhone": "123456789",
+    "BooksGroupID": 11,
+    "ProductID": 3,
+    "StudentsCount": 50,
+    "DonationAmount": 5000
+}
+
+Delete BDExpReqDetails
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=delete_BDExpReqDetails&BDExpReqDetailsID=14
+
+
+Update BDExpReqAll
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=Update_BDExpReqAll
+
+{
+    
+    "BDExpReq": {
+        "BDExpReqID": 36,
+        "BDExpReqNo": "BDE-1002/01-25",
+        "BDExpUserID": 501,
+        "BDExpReqDate": "2025-01-08",
+        "InstitutionTypeID": 11,
+        "InstitutionID": 169,
+        "TotalAmount": 8000,
+        "UserID": 501
+    },
+    "BDExpReqDetails": [
+        {
+            "TeacherName": "ABC Johnson",
+            "Designation": "Head Teacher",
+            "ContactPhone": "123456789",
+            "BooksGroupID": 160,
+			"FinancialYearID": 2025,
+            "ProductID": 2,
+            "StudentsCount": 4000,
+            "DonationAmount": 10000
+        },
+        {
+            "TeacherName": "BDC Williams",
+            "Designation": "Assistant Teacher",
+            "ContactPhone": "987654321",
+            "BooksGroupID": 160,
+			"FinancialYearID": 2025,
+            "ProductID": 3,
+            "StudentsCount": 200,
+            "DonationAmount": 2000
+        }
+    ]
+}
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=Update_BDExpReq
+
+{
+    
+        "BDExpReqID": 13,
+        "BDExpUserID": 501,
+        "BDExpReqDate": "2025-01-08",
+        "InstitutionTypeID": 11,
+        "InstitutionID": 169,
+        "UserID": 501
+}
+
+For Get get_BDExpReq
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_BDExpReq&BDExpReqID=4
+
+{
+    "BDExpReqID": 4,
+    "BDExpReqNo": "BDE-1001/01-25",
+    "BDExpUserID": 501,
+    "BDExpReqDate": "2025-01-07 ",
+    "InstitutionTypeID": 11,
+    "InstitutionTypeName": "Primary-School",
+    "InstitutionID": 169,
+    "InstitutionName": "Gopalpur Govt. Primary School ",
+    "TotalAmount": "5000.00",
+    "UserID": 501
+}
+
+For Get get_BDExpReqDetails
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_BDExpReqDetails&BDExpReqDetailsID=1
+
+{
+    "BDExpReqDetailsID": 1,
+    "BDExpReqID": 4,
+    "TeacherName": "Mr. Hasan",
+    "Designation": "Teacher",
+    "ContactPhone": "9934343",
+    "BooksGroupID": 160,
+    "BooksGroup": "Primary-School",
+    "ProductID": 2,
+    "ProductName": "অনুপম একের ভিতর সব (দ্বিতীয় শ্রেণি)",
+    "StudentsCount": 300,
+    "DonationAmount": "3000.00"
+}
+
+
+1. **Get a BD Exp Req Number**:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=generate_new_BDExpReq_number
+
+Output
+
+{
+    "newBDExpReqNo": "BDE-1002/01-25"
+}
+
+For all institution types, use:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_institutiontypes
+
+
+[
+    {
+        "ID": 10,
+        "CategoryType": "institution-type",
+        "CategoryName": "School"
+    }
+]
+
+For Get All Institutions
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_institutionName&InstitutionTypeID=198
+
+[
+    {
+        "InstitutionID": 240,
+        "InstitutionName": "মোঃপুর সরকারি প্রাথমিক বিদ্যালয় ১"
+    },
+    {
+        "InstitutionID": 219,
+        "InstitutionName": "jahanarabad govt primary school "
+    }
+]
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_institutionNameUsers&InstitutionTypeID=11&UserID=501
+
+
+
+
+For Get Teacher Information
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_institutionTeacher&InstitutionID=242
+
+[
+    {
+        "InstitutionDetailsID": 224,
+        "TeacherName": "বিকাশ চন্দ্র রায়",
+        "Designation": "সহকারী শিক্ষক",
+        "ContactPhone": "01758362005"
+    },
+    {
+        "InstitutionDetailsID": 221,
+        "TeacherName": "মোঃ মোরসেদুজ্জামান",
+        "Designation": "সহকারী শিক্ষক",
+        "ContactPhone": "01719029050"
+    }
+]
+
+For Get Teacher Designation & Mobile No 
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=Get_InstitutionTeacherDesigMobile&InstitutionDetailsID=224
+
+{
+    "TeacherInfo": [
+        {
+            "Designation": "সহকারী শিক্ষক",
+            "ContactPhone": "01758362005"
+        }
+    ]
+}
+
+
+Books Group Select:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_bookscategorys
+
+[
+    {
+        "ID": 158,
+        "CategoryName": "English Grammar"
+    },
+    {
+        "ID": 159,
+        "CategoryName": "High-School"
+    }
+]
+
+Books Name Categorywise
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_productcategorywise&Categoryid=176
+
+[
+    {
+        "ProductID": 317,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্  রসায়ন"
+    },
+    {
+        "ProductID": 318,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ ইসলাম ও নৈতিক শিক্ষা"
+    },
+    {
+        "ProductID": 319,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ উচ্চতর গণিত"
+    },
+    {
+        "ProductID": 320,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ ও মেইড ইজি ইংরেজি (১ম ও ২য় পত্র)"
+    },
+    {
+        "ProductID": 321,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ ও মেইড ইজি-তথ্য ও যোগাযোগ প্রযুক্তি"
+    },
+    {
+        "ProductID": 322,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ গণিত"
+    },
+    {
+        "ProductID": 323,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ জীববিজ্ঞান"
+    },
+    {
+        "ProductID": 324,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ পদার্থবিজ্ঞান"
+    },
+    {
+        "ProductID": 325,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ বাংলা (দ্বিতীয় পত্র)"
+    },
+    {
+        "ProductID": 326,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ বাংলা (প্রথম পত্র)"
+    },
+    {
+        "ProductID": 327,
+        "ProductName": "এস.এস.সি. টেস্ট পেপারস্ বাংলাদেশ ও বিশ্বপরিচয়"
+    }
+]

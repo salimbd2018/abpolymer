@@ -1,0 +1,394 @@
+1. Get All For Money Receipt:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_MoneyReceiptApproval&UserID=501
+
+Output:
+
+[
+    {
+        "MRID": 20,
+        "MRNo": "MR-1005/01-25",
+        "MRDate": "2025-01-04 ",
+        "PartyID": 6,
+        "RegionID": 902,
+        "PartyName": "Adi Nurjahan Library-Borguna",
+        "Status": "Pending Checked",
+        "AppStatus": 1,
+        "AmountReceived": "50000.00",
+        "LogUserName": "Md. Anowar Hasan Salim",
+        "UserCheckedStatus": "Checked",
+        "UserAuthorizedStatus": "Not Authorized",
+        "UserApprovalStatus": "Not Approved"
+    },
+    {
+        "MRID": 14,
+        "MRNo": "MR-1004/01-25",
+        "MRDate": "2025-01-02 ",
+        "PartyID": 5,
+        "RegionID": 900,
+        "PartyName": "Adi Nurjahan Library-Borguna",
+        "Status": "Pending Checked",
+        "AppStatus": 1,
+        "AmountReceived": "80.00",
+        "LogUserName": "Md. Anowar Hasan Salim",
+        "UserCheckedStatus": "Checked",
+        "UserAuthorizedStatus": "Not Authorized",
+        "UserApprovalStatus": "Not Approved"
+    },
+	
+    {
+        "MRID": 45,
+        "MRNo": "MR-1028/01-25",
+        "MRDate": "2025-01-24 ",
+        "PartyID": 4,
+        "RegionID": 900,
+        "PartyName": "Adi Nurjahan Library-Borguna",
+        "Status": "Pending Checked",
+        "AppStatus": 1,
+        "AmountReceived": "4000.00",
+        "LogUserName": "Md. Anowar Hasan Salim",
+        "UserCheckedStatus": "Checked",
+        "UserAuthorizedStatus": "Not Authorized",
+        "UserApprovalStatus": "Not Approved"
+    },
+    {
+        "MRID": 13,
+        "MRNo": "MR-1003/01-25",
+        "MRDate": "2025-01-02 ",
+        "PartyID": 5,
+        "RegionID": 900,
+        "PartyName": "Adi Nurjahan Library-Borguna",
+        "Status": "Pending Authorized",
+        "AppStatus": 2,
+        "AmountReceived": "80.00",
+        "LogUserName": "Md. Anowar Hasan Salim",
+        "UserCheckedStatus": "Not Checked",
+        "UserAuthorizedStatus": "Authorized",
+        "UserApprovalStatus": "Not Approved"
+    }
+]
+
+3. Retrieve a Specific Receipt
+Endpoint: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_moneyreceipt&MRID=22
+
+Expected Response:
+```json
+{
+    "receipt": {
+        "MRID": 22,
+        "MRInfo1": "MR-1007/01-25 2025-01-10 ",
+        "MRInfo2": null,
+        "MRInfo3": "3000.00",
+        "MRNo": "MR-1007/01-25",
+        "PartyID": 591,
+        "PartyName": null,
+        "MRDate": "2025-01-10 ",
+        "AmountReceived": "3000.00",
+        "InWord": "Three Thousand Only",
+        "PaymentMethodID": 1,
+        "PaymentMethod": "Cash Collection",
+        "PaymentMethodDetailsID": 3,
+        "PaymentMethodDetails": "Deposit for TA/DA",
+        "PaymentMethodDetailsAcc": null,
+        "AccName": null,
+        "AccNumber": null,
+        "Cheque_Number": null,
+        "ReceivedByUserID": 501,
+        "CreatedAt": "2025-01-11 ",
+        "ModifiedAt": "2025-01-11 "
+    },
+    "Approvals": {
+        "CheckedDate": "2025-01-10 19:37:55",
+        "CheckedBy": "Md. Anowar Hasan Salim Divisional Sales Manager",
+        "CheckedComments": "ok",
+        "AuthDate": "2025-01-10 19:38:09",
+        "AuthBy": "Md. Anowar Hasan Salim Divisional Sales Manager",
+        "AuthComments": "ww",
+        "AppDate": "2025-01-10 19:38:16",
+        "AppBy": "Md. Anowar Hasan Salim Divisional Sales Manager",
+        "AppComments": "www",
+        "RejectDate": null,
+        "RejectBy": null,
+        "RejectComments": null,
+        "CancelledDate": null,
+        "CancelledBy": null,
+        "CanclledComments": null
+    }
+}
+
+2. Get get_MoneyReceiptComplete
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_MoneyReceiptComplete&UserID=501
+
+Output:
+[
+    {
+        "MRID": 12,
+        "MRNo": "MR-1002/01-25",
+        "MRDate": "2025-01-02 ",
+        "PartyID": 5,
+        "RegionID": 900,
+        "partyname": "Adi Nurjahan Library-Borguna",
+        "status": 4,
+        "Status": "Approved",
+        "AppStatus": "Completed",
+        "AmountReceived": "80.00"
+    },
+    {
+        "MRID": 11,
+        "MRNo": "MR-1001/01-25",
+        "MRDate": "2025-01-02 ",
+        "PartyID": 5,
+        "RegionID": 900,
+        "partyname": "Adi Nurjahan Library-Borguna",
+        "status": 4,
+        "Status": "Approved",
+        "AppStatus": "Completed",
+        "AmountReceived": "80.00"
+    }
+]
+
+
+2. Get get_MoneyReceiptReject
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_MoneyReceiptReject&UserID=501
+
+Output:
+[
+    {
+        "MRID": 12,
+        "MRNo": "MR-1002/01-25",
+        "MRDate": "2025-01-02 ",
+        "PartyID": 5,
+        "RegionID": 900,
+        "partyname": "Adi Nurjahan Library-Borguna",
+        "status": 4,
+        "Status": "Approved",
+        "AppStatus": "Completed",
+        "AmountReceived": "80.00"
+    },
+    {
+        "MRID": 11,
+        "MRNo": "MR-1001/01-25",
+        "MRDate": "2025-01-02 ",
+        "PartyID": 5,
+        "RegionID": 900,
+        "partyname": "Adi Nurjahan Library-Borguna",
+        "status": 4,
+        "Status": "Approved",
+        "AppStatus": "Completed",
+        "AmountReceived": "80.00"
+    }
+]
+
+2. Get get_MoneyReceiptCancelled
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_MoneyReceiptCancelled&UserID=501
+
+Output:
+[
+    {
+        "MRID": 12,
+        "MRNo": "MR-1002/01-25",
+        "MRDate": "2025-01-02 ",
+        "PartyID": 5,
+        "RegionID": 900,
+        "partyname": "Adi Nurjahan Library-Borguna",
+        "status": 4,
+        "Status": "Approved",
+        "AppStatus": "Completed",
+        "AmountReceived": "80.00"
+    },
+    {
+        "MRID": 11,
+        "MRNo": "MR-1001/01-25",
+        "MRDate": "2025-01-02 ",
+        "PartyID": 5,
+        "RegionID": 900,
+        "partyname": "Adi Nurjahan Library-Borguna",
+        "status": 4,
+        "Status": "Approved",
+        "AppStatus": "Completed",
+        "AmountReceived": "80.00"
+    }
+]
+
+
+2. Get get_MoneyReceiptCompleteRejectCancelled  - Not need
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_MoneyReceiptCompleteRejectCancelled&UserID=501
+
+Output:
+[
+    {
+        "MRID": 12,
+        "MRNo": "MR-1002/01-25",
+        "MRDate": "2025-01-02 ",
+        "PartyID": 5,
+        "RegionID": 900,
+        "partyname": "Adi Nurjahan Library-Borguna",
+        "status": 4,
+        "Status": "Approved",
+        "AppStatus": "Completed",
+        "AmountReceived": "80.00"
+    },
+    {
+        "MRID": 11,
+        "MRNo": "MR-1001/01-25",
+        "MRDate": "2025-01-02 ",
+        "PartyID": 5,
+        "RegionID": 900,
+        "partyname": "Adi Nurjahan Library-Borguna",
+        "status": 4,
+        "Status": "Approved",
+        "AppStatus": "Completed",
+        "AmountReceived": "80.00"
+    }
+]
+
+
+3. Retrieve a Specific Receipt
+Endpoint: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_moneyreceipt&MRID=41
+
+Expected Response:
+```json
+{
+    "MoneyReceipt": {
+        "MRID": 11,
+        "MRInfo1": "MR-1001/01-25 2025-01-02 ",
+        "MRInfo2": "Adi Nurjahan Library-Borguna",
+        "MRInfo3": "80.00",
+        "MRNo": "MR-1001/01-25",
+        "PartyID": 5,
+        "PartyName": "Adi Nurjahan Library-Borguna",
+        "MRDate": "2025-01-02 ",
+        "AmountReceived": "80.00",
+        "InWord": "Eighty Taka Only",
+        "PaymentMethodID": 2,
+        "PaymentMethod": "Bank",
+        "ReceivedByUserID": 501,
+        "CreatedAt": "2025-01-02 ",
+        "ModifiedAt": "2025-01-02 "
+    },
+    "Approvals": {
+        "CheckedDate": "2025-01-04 14:18:50",
+        "CheckedBy": "Md. Anowar Hasan Salim Divisional Sales Manager",
+        "CheckedComments": "Checked for further processing",
+        "AuthDate": "2025-01-04 14:19:33",
+        "AuthBy": "Md. Hafizur Rahman Regional Sales Manager",
+        "AuthComments": "Authorized for further processing",
+        "AppDate": "2025-01-04 14:20:15",
+        "AppBy": "Md. Hafizur Rahman Regional Sales Manager",
+        "AppComments": "Approval for further processing",
+        "RejectDate": null,
+        "RejectBy": null,
+        "RejectComments": null,
+        "CancelledDate": null,
+        "CancelledBy": null,
+        "CanclledComments": null
+    }
+}
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_sndApprovalDetailsChallan&ChallanID=1603
+
+{
+    "ChallanID": 1603,
+	"CheckedComments": "Checked for further processing",
+    "AuthComments": null,
+    "AppComments": null,
+    "UserID": 501
+}
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_sndApprovalDetailsMR&ChallanID=13
+
+2. Request Type:
+POST
+
+3. Headers:
+Set the content type to JSON:
+
+bash
+Copy code
+Content-Type: application/json
+4. Body (Raw JSON):
+Use the following JSON for testing:
+
+Test Case 1: For AppStatus = 1 (Checked)
+json
+Copy code
+{
+    "MRID": 11,
+	"CheckedComments": "Checked for further processing",
+    "AuthComments": null,
+    "AppComments": null,
+    "UserID": 501
+}
+Test Case 2: For AppStatus = 2 (Authorized)
+json
+Copy code
+{
+     "MRID": 13,
+	"CheckedComments": null,
+    "AuthComments": "Authorized for further processing",
+    "AppComments": null,
+    "UserID": 501
+}
+Test Case 3: For AppStatus = 3 (Approval)
+json
+Copy code
+{
+     "MRID": 25,
+	"CheckedComments": null,
+    "AuthComments": null,
+    "AppComments": "Approval for further processing",
+    "UserID": 298
+}
+5. Expected Responses:
+Success Response (Example):
+For a successful operation:
+
+json
+Copy code
+{
+    "success": true,
+    "message": "Approval details created and sales order updated successfully."
+}
+
+6. Testing Steps in Postman:
+Open Postman and create a new request.
+Set the method to POST.
+Enter the endpoint URL.
+Go to the Headers tab and add the Content-Type: application/json header.
+Go to the Body tab, select raw, and paste the JSON for the test case.
+Click Send.
+Verify the response.
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_sndApprovalRejected_CancelledMR&MRID=13
+
+2. Request Type:
+POST
+
+3. Headers:
+Set the content type to JSON:
+
+Test Case 1: For AppStatus = 1 (Cancelled)
+json
+Copy code
+{
+    "MRID": 13,
+    "CanclledComments": "Money Receipt is cancelled due to...",
+    "UserID": 501
+}
+Test Case 2: For AppStatus = 2 (Rejected)
+json
+Copy code
+{
+    "MRID": 41,
+    "RejectComments": "Rejected due to ...",
+    "UserID": 501
+}
+
+
+

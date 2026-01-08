@@ -1,0 +1,418 @@
+15.	Institution
+Notes:
+1.	Region/Area: Load all the region Area
+2.	Details Teacher Info: Here one teacher may can take multiple classes and also can add multiple teacher here.
+3.	List of the data can add, view & edit. No delete option.
+Notes:
+1.	List of the data can add, view & edit. No delete option.
+SQL: 
+SELECT InstitutionID,InstitutionTypeID,InstitutionName,TotalStudents,ContactPersonName,Designation,ContactPhone,Address,RegionID,InstitutionScanImagePath,status,CreatedAt,ModifiedAt  FROM dbo.sndInstitutions
+
+SELECT [InstitutionDetailsID] ,[InstitutionID],[TeacherName],[Designation],[ContactPhone],[sndClassID],[sndSubjectID]
+  FROM [dbo].[sndInstitutionDetails]
+For all Institution Infos, use:
+Choose GET method in Postman.
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_institutions
+ 
+[
+    {
+        "InstitutionID": 1,
+        "InstitutionName": "Example Institution",
+        "InstitutionTypeID": 2,
+        "InstitutionScanImagePath": "https://asianabpolymer.com/abpolymer/uploads/institution_images/Institution_12345.jpg",
+        "TotalStudents": 500,
+        "ContactPersonName": "John Doe",
+        "Designation": "Principal",
+        "ContactPhone": "0123456789",
+        "Address": "123 Main Street",
+        "RegionID": 3,
+        "CreatedAt": "2024-11-30T00:00:00",
+        "ModifiedAt": "2024-11-30T00:00:00"
+    },
+    {
+        "InstitutionID": 2,
+        "InstitutionName": "Another Institution",
+        "InstitutionTypeID": 3,
+        "InstitutionScanImagePath": null,
+        "TotalStudents": 300,
+        "ContactPersonName": "Jane Smith",
+        "Designation": "Head Teacher",
+        "ContactPhone": "9876543210",
+        "Address": "456 Elm Street",
+        "RegionID": 2,
+        "CreatedAt": "2024-11-29T00:00:00",
+        "ModifiedAt": "2024-11-30T00:00:00"
+    }
+]
+ 
+ 
+
+For a specific Institution Info by ID, use:
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_institution&institutionID=92
+
+Output:
+{
+    "InstitutionID": 92,
+    "InstitutionTypeID": 137,
+    "InstitutionName": "ABC Institue4477",
+    "TotalStudents": 300,
+    "ContactPersonName": "Mr. SAS",
+    "Designation": "SDF",
+    "ContactPhone": "3948398",
+    "Address": "Dhaka, Bangladesh",
+    "RegionID": 35,
+    "InstitutionScanImagePath": "uploads/institution_images/Institution_674b7b2157e754.71926424.jpg",
+    "status": 1,
+    "CreatedAt": {
+        "date": "2024-12-01 02:52:49.380000",
+        "timezone_type": 3,
+        "timezone": "Europe/Berlin"
+    },
+    "ModifiedAt": {
+        "date": "2024-12-01 02:52:49.380000",
+        "timezone_type": 3,
+        "timezone": "Europe/Berlin"
+    },
+    "InstitutionScanImageURL": "https://asianabpolymer.com/abpolymer/uploads/institution_images/Institution_674b7b2157e754.71926424.jpg",
+    "details": [
+        {
+            "InstitutionDetailsID": 41,
+            "InstitutionID": 92,
+            "TeacherName": "SDF",
+            "Designation": "SDF",
+            "ContactPhone": "3948398",
+            "sndClassID": 114,
+            "ClassName": "Class 16",
+            "sndSubjectID": 17,
+            "SubjectName": "math13"
+        }
+    ]
+}
+
+
+For a specific InstitutionDetails Info by ID, use:
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_institutionDetails&institutionDetailsID=3
+{
+    "InstitutionDetailsID": 3,
+    "InstitutionID": 2,
+    "TeacherName": "Shakil Hasan",
+    "Designation": "Science Teacher",
+    "ContactPhone": "01712345680",
+    "sndClassID": 2,
+    "ClassName": null,
+    "sndSubjectID": 3,
+    "SubjectName": "Science-test-40"
+}
+
+
+
+
+For Add New Institution Web Info:
+API:
+
+Online API Testing - Some online tools like Hoppscotch or Downloaded Desktop Postman Web allow uploading files 
+
+For With Image upload -
+1. Use Postman for File Upload
+Steps in Postman:
+Open Postman.
+Create a new request and set the method to POST.
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_institution
+
+Go to the Headers tab and ensure Content-Type is NOT manually set. (Postman will handle it automatically for form-data.)
+Go to the Body tab and select form-data.
+
+Add the following keys and values:
+Key					Value				Type
+institutionName		Test Institution	Text
+institutionTypeID	1					Text
+TotalStudents		500					Text
+ContactPersonName	John Doe			Text
+Designation			Principal			Text
+ContactPhone		123456789			Text
+Address				123 Main St			Text
+RegionID			2					Text
+InstitutionScanImage	(Upload an image file from your system, e.g., example.jpg)	File (Choose)
+details[0][TeacherName]: "Jane Smith"
+details[0][Designation]: "Math Teacher"
+details[0][ContactPhone]: "9876543210"
+details[0][sndClassID]: 3
+details[0][sndSubjectID]: 1
+details[1][TeacherName]: "Bob Johnson"
+details[1][Designation]: "Science Teacher"
+details[1][ContactPhone]: "1230984567"
+details[1][sndClassID]: 4
+details[1][sndSubjectID]: 2
+
+Testing Without Image
+
+
+Key-Value Pairs:
+institutionName: New Academy22
+institutionTypeID: 2
+TotalStudents: 200
+ContactPersonName: John Doe
+Designation: Principal
+ContactPhone: 1234567890
+Address: 456 Main Street, Townsville
+RegionID: 1
+details[0][TeacherName]: "Jane Smith"
+details[0][Designation]: "Math Teacher"
+details[0][ContactPhone]: "9876543210"
+details[0][sndClassID]: 3
+details[0][sndSubjectID]: 1
+details[1][TeacherName]: "Bob Johnson"
+details[1][Designation]: "Science Teacher"
+details[1][ContactPhone]: "1230984567"
+details[1][sndClassID]: 4
+details[1][sndSubjectID]: 2
+
+
+You should get a successful response with a null or empty InstitutionScanImagePath.
+
+Send the Request
+Click the Send button to make the API call.
+Step 8: Inspect the Response
+Check the response section at the bottom of Postman for the API's output.
+
+json
+Copy code
+{
+    "message": "Institution created successfully",
+    "InstitutionID": 101,
+    "InstitutionScanImagePath": "uploads/institution_images/Institution_64c9b8e97e6a9.jpg"
+}
+Error Response:
+
+json
+Copy code
+{
+    "error": "Error creating institution: Array..."
+}
+
+
+
+For Add New Institution in Android Info:
+API:
+
+Online API Testing - Some online tools like Hoppscotch or Downloaded Desktop Postman Web allow uploading files 
+
+For With Image upload -
+1. Use Postman for File Upload
+Steps in Postman:
+Open Postman.
+Create a new request and set the method to POST.
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_institutionAndroid
+
+Go to the Headers tab and ensure Content-Type is NOT manually set. (Postman will handle it automatically for form-data.)
+Go to the Body tab and select form-data.
+Add your fields:
+institutionName: New Academy22
+institutionTypeID: 2
+TotalStudents: 200
+ContactPersonName: John Doe
+Designation: Principal
+ContactPhone: 1234567890
+Address: 456 Main Street, Townsville
+RegionID: 1
+
+Add the image file:
+Key: InstitutionScanImage
+Value: Use the file picker to upload the image (e.g., Anupam.jpg).
+Send the request.
+
+Testing Without Image
+
+
+Key-Value Pairs:
+institutionName: New Academy22
+institutionTypeID: 2
+TotalStudents: 200
+ContactPersonName: John Doe
+Designation: Principal
+ContactPhone: 1234567890
+Address: 456 Main Street, Townsville
+RegionID: 1
+You should get a successful response with a null or empty InstitutionScanImagePath.
+
+
+
+For Add New InstitutionDetailsAndroid Info:
+API:
+Create a new POST request with the URL:
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_institutionDetailsAndroid
+Set the headers:
+Content-Type: application/json
+Set the Body: Select raw and choose JSON. Enter the following JSON data:
+{
+        "InstitutionID": 1,
+        "TeacherName": "Liza Akter",
+        "Designation": "English Teacher",
+        "ContactPhone": "01712345679",
+        "sndClassID": 1,
+        "sndSubjectID": 2
+    }
+
+For update_institution
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_institution&institutionID=22
+
+Key Updates
+Image Upload Logic:
+
+If a new image is uploaded, the script saves it and updates the path.
+If no image is uploaded, it retains the existing image path by querying the database.
+Form-Data Handling:
+
+Adjusted to handle $_POST for input and $_FILES for file uploads, as typically used in form submissions.
+Response:
+
+Includes the updated image path (InstitutionScanImagePath) in the response for confirmation.
+Database Update:
+
+Ensures only the provided fields are updated while retaining the previous image path if no new image is uploaded.
+API Expectations
+Use multipart/form-data for submissions to include both text and file inputs.
+The InstitutionScanImage file input is optional; it updates the image only if provided.
+Example Request (Using cURL)
+bash
+Copy code
+curl -X POST https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_institution \
+-H "Content-Type: multipart/form-data" \
+-F "institutionName=Updated Institution" \
+-F "institutionTypeID=2" \
+-F "TotalStudents=800" \
+-F "ContactPersonName=Jane Doe" \
+-F "Designation=Head" \
+-F "ContactPhone=0123456789" \
+-F "Address=New Address" \
+-F "RegionID=3" \
+-F "InstitutionScanImage=@path/to/new-image.jpg" \
+-F "details[0][TeacherName]=New Teacher" \
+-F "details[0][Designation]=Instructor" \
+-F "details[0][ContactPhone]=9876543210" \
+-F "details[0][sndClassID]=1" \
+-F "details[0][sndSubjectID]=2"
+This will update the institution data, replace the image (if provided), and update the related teacher details.
+
+
+For update_institutionAndroid 
+
+Step 1: Prepare the API Endpoint
+API Endpoint:
+
+bash
+Copy code
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_institutionAndroid&institutionID={INSTITUTION_ID}
+Replace {INSTITUTION_ID} with the ID of the institution you want to update.
+
+Step 2: Prepare the Request Tool
+Use tools like:
+
+Postman: A popular API testing tool.
+cURL: Command-line tool for API requests.
+Custom Frontend: A simple HTML form with a POST request.
+Step 3: Input Data
+Prepare the fields required by the API in multipart/form-data format to support file uploads.
+
+Example Input:
+Key-Value Pairs
+
+plaintext
+Copy code
+institutionTypeID: 5
+institutionName: Updated Institution Name
+TotalStudents: 200
+ContactPersonName: John Doe
+Designation: Principal
+ContactPhone: 123456789
+Address: 123 School St, City
+RegionID: 2
+InstitutionScanImage: (Select an image file)
+Step 4: Test with Postman
+Open Postman.
+
+Select POST as the HTTP method.
+
+Enter the endpoint:
+
+bash
+Copy code
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_institutionAndroid&institutionID=123
+In the Body tab, select form-data and enter the following key-value pairs:
+
+Key: institutionTypeID → Value: 5
+Key: institutionName → Value: Updated Institution Name
+Key: TotalStudents → Value: 200
+Key: ContactPersonName → Value: John Doe
+Key: Designation → Value: Principal
+Key: ContactPhone → Value: 123456789
+Key: Address → Value: 123 School St, City
+Key: RegionID → Value: 2
+Key: InstitutionScanImage → Upload an image file.
+Click Send.
+
+Step 5: Test with cURL
+Run the following cURL command in your terminal:
+
+bash
+Copy code
+curl -X POST "https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_institutionAndroid&institutionID=123" \
+-H "Content-Type: multipart/form-data" \
+-F "institutionTypeID=5" \
+-F "institutionName=Updated Institution Name" \
+-F "TotalStudents=200" \
+-F "ContactPersonName=John Doe" \
+-F "Designation=Principal" \
+-F "ContactPhone=123456789" \
+-F "Address=123 School St, City" \
+-F "RegionID=2" \
+-F "InstitutionScanImage=@/path/to/image.jpg"
+Replace /path/to/image.jpg with the actual file path of the image on your computer.
+
+Step 6: Check the API Response
+Expected Response (JSON):
+If successful:
+
+json
+Copy code
+{
+  "message": "Institution updated successfully",
+  "InstitutionScanImagePath": "https://asianabpolymer.com/abpolymer/uploads/institution_images/Institution_12345.jpg"
+}
+If there’s an error:
+
+json
+Copy code
+{
+  "error": "Error updating institution: [Detailed error message]"
+}
+Step 7: Verify the Update
+Call the get_institution API using the same institutionID to confirm the updates are reflected:
+bash
+Copy code
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_institution&institutionID=123
+Verify the image is uploaded and accessible at the URL in the InstitutionScanImagePath.
+
+
+
+
+For update_institutionDetailsAndroid 
+
+API:
+Update a PUT request.
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_institutionDetailsAndroid&institutionDetailsID=10011
+
+Go to the Body tab, select raw, and set it to JSON.
+Enter the following JSON in the body
+{
+        "InstitutionDetailsID": 10011,
+        "InstitutionID": 1,
+        "TeacherName": "Liza Akter",
+        "Designation": "English Teacher",
+        "ContactPhone": "01712345679",
+        "sndClassID": 1,
+        "sndSubjectID": 2
+    }
+
+

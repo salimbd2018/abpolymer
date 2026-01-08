@@ -1,0 +1,42 @@
+Basic 
+
+1. Instiution 
+   -> Not showing data & apps going to hang 
+   -> Need to paging system - that data will load only 20 row one page.
+   -> Searh filed user may put instution name or contact number or contact name or DivisionName then all of the match institution will show.
+   
+2. Party Management 
+   -> Not showing data & apps going to hang 
+   -> Need to paging system - that data will load only 20 row one page.
+   -> Searh filed user may put party name or contact number or contact name or DivisionName then all of the match party will show.
+
+3. Books Name
+	 -> Need to paging system - that data will load only 20 row one page.
+   -> Searh filed user may put books name or type then all of the match books will show.
+
+4. Sales Order Approval:
+	-> When Order and Speciment Authorization screen -> user can edit the Product Qty and save it.
+
+5. Money Receipt:
+	-> When Add Money Recipt -> Amount In Word -> it must be show right format in BDT aspect also words 1st letter will be Capital.
+	
+6. Money Receipt Approval - all stage
+	-> Show there Deposit Emp. Name: , Designation: & Location: District, Division.
+	-> When Authorization then auto sms will goto the party.
+	
+7. Product Receipt, Sales Order, Collection, BD Expense Requistion, Visit Plan Requistion, Visit Entry, Return System - 
+   All of those part need paging & searching system need here like which are showing in the display when goto to those pages. 
+
+8. Visit Entry   
+	1. Save & Close button need to add to replace save -> if user click here it must check teacher & TA/DA data is already entered.
+	  2. When Add TeacherInfo then data is not showing instantly
+		3. When Add TA/DA then data is not showing instantly
+		    4. In the complete visit list -> location is not showing & it must be admin can access or show this buttion.
+		
+9. Return System
+	1. When add - it takes total amount & in-word which is not need here -> it will automatically update when details data will insert.
+
+10. Inventory Transfer not yet done here. 
+
+
+

@@ -1,0 +1,274 @@
+To implement `get_institutionAndroid` and `update_institutionAndroid` with image handling in a **Next.js application**, you need to handle both fetching data (with images) and sending updated data (including images) to the server. Here's how you can set it up in your `page.js` file:
+
+---
+
+### 1. **Fetching Data (`get_institutionAndroid`)**
+
+The server API (`get_institutionAndroid`) should return all institution details, including image URLs. Use Next.js's `useEffect` to fetch this data and populate a form on the client side.
+
+```jsx
+import React, { useEffect, useState } from 'react';
+
+export default function InstitutionPage() {
+  const [institutionData, setInstitutionData] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  // Fetch data on component mount
+  useEffect(() => {
+    const fetchInstitutionData = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch('/api/get_institutionAndroid?InstitutionID=123'); // Replace with your API endpoint
+        const data = await response.json();
+        if (data && data.message) {
+          setInstitutionData(data.data);
+        } else {
+          console.error('Error fetching institution data:', data.error);
+        }
+      } catch (err) {
+        console.error('Fetch error:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchInstitutionData();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+
+  return institutionData ? (
+    <div>
+      <h1>Update Institution</h1>
+      <InstitutionForm institutionData={institutionData} />
+    </div>
+  ) : (
+    <p>No data found</p>
+  );
+}
+```
+
+---
+
+### 2. **Rendering the Form**
+
+The form allows users to update details, including uploading a new image.
+
+```jsx
+import React, { useState } from 'react';
+
+function InstitutionForm({ institutionData }) {
+  const [formData, setFormData] = useState({
+    ...institutionData,
+    imageFile: null, // For storing the new image file
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setFormData((prev) => ({ ...prev, imageFile: file }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const updatedData = new FormData();
+
+    // Append all data, including the image file if provided
+    Object.keys(formData).forEach((key) => {
+      if (key === 'imageFile' && formData.imageFile) {
+        updatedData.append('imageFile', formData.imageFile);
+      } else {
+        updatedData.append(key, formData[key]);
+      }
+    });
+
+    try {
+      const response = await fetch('/api/update_institutionAndroid', {
+        method: 'POST',
+        body: updatedData, // Send as FormData
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        alert('Institution updated successfully!');
+      } else {
+        console.error('Error updating institution:', result.error);
+      }
+    } catch (err) {
+      console.error('Submit error:', err);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>
+          Institution Name:
+          <input
+            type="text"
+            name="InstitutionName"
+            value={formData.InstitutionName || ''}
+            onChange={handleInputChange}
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          Address:
+          <input
+            type="text"
+            name="Address"
+            value={formData.Address || ''}
+            onChange={handleInputChange}
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          Institution Logo:
+          <input type="file" name="imageFile" onChange={handleFileChange} />
+          {formData.InstitutionLogoPath && (
+            <div>
+              <img
+                src={formData.InstitutionLogoPath}
+                alt="Institution Logo"
+                style={{ width: '150px', height: 'auto' }}
+              />
+            </div>
+          )}
+        </label>
+      </div>
+      <button type="submit">Update Institution</button>
+    </form>
+  );
+}
+```
+
+---
+
+### 3. **Server-Side API Implementation**
+
+#### Fetching Data (`get_institutionAndroid`)
+The server should send institution details, including image URLs.
+
+Example response:
+
+```json
+{
+  "message": "Institution fetched successfully",
+  "data": {
+    "InstitutionName": "ABC Institution",
+    "Address": "123 Main St",
+    "InstitutionLogoPath": "https://your-domain/uploads/institution_logo.png"
+  }
+}
+```
+
+---
+
+#### Updating Data (`update_institutionAndroid`)
+The server API should:
+1. Check if a new image file is uploaded.
+2. Delete the old image file if a new one is provided.
+3. Update the database with new details and image file path.
+
+---
+
+### 4. **API Routes (Next.js `pages/api`)**
+
+#### `/api/get_institutionAndroid`
+
+```javascript
+export default async function handler(req, res) {
+  if (req.method === 'GET') {
+    try {
+      const institutionID = req.query.InstitutionID;
+
+      // Fetch institution details from the database
+      const data = {
+        InstitutionName: "ABC Institution",
+        Address: "123 Main St",
+        InstitutionLogoPath: "https://your-domain/uploads/institution_logo.png",
+      };
+
+      res.status(200).json({ message: "Institution fetched successfully", data });
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch institution data" });
+    }
+  } else {
+    res.status(405).json({ error: "Method not allowed" });
+  }
+}
+```
+
+---
+
+#### `/api/update_institutionAndroid`
+
+```javascript
+import formidable from 'formidable';
+import fs from 'fs';
+import path from 'path';
+
+export const config = {
+  api: {
+    bodyParser: false, // Disable default body parser to handle FormData
+  },
+};
+
+export default async function handler(req, res) {
+  if (req.method === 'POST') {
+    const form = new formidable.IncomingForm();
+    const uploadDir = path.join(process.cwd(), '/public/uploads');
+
+    // Ensure upload directory exists
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir, { recursive: true });
+    }
+
+    form.uploadDir = uploadDir;
+    form.keepExtensions = true;
+
+    form.parse(req, async (err, fields, files) => {
+      if (err) {
+        return res.status(500).json({ error: "Error processing form data" });
+      }
+
+      try {
+        const { InstitutionName, Address } = fields;
+        let InstitutionLogoPath = fields.InstitutionLogoPath;
+
+        // Handle image upload
+        if (files.imageFile) {
+          const oldPath = files.imageFile.filepath;
+          const newPath = path.join(uploadDir, files.imageFile.originalFilename);
+          fs.renameSync(oldPath, newPath);
+          InstitutionLogoPath = `/uploads/${files.imageFile.originalFilename}`;
+        }
+
+        // Update the database (replace with actual DB call)
+        console.log({ InstitutionName, Address, InstitutionLogoPath });
+
+        res.status(200).json({ message: "Institution updated successfully" });
+      } catch (error) {
+        res.status(500).json({ error: "Error updating institution data" });
+      }
+    });
+  } else {
+    res.status(405).json({ error: "Method not allowed" });
+  }
+}
+```
+
+---
+
+### Conclusion
+
+1. **Fetch**: Use `fetch` in Next.js to retrieve institution data, including image URLs, and display it in the form.
+2. **Update**: Use `FormData` to send updated text fields and image files to the server.
+3. **Server API**: Use `formidable` for parsing form data and handling file uploads.
+
+This setup ensures smooth data flow between the client and server.

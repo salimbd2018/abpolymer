@@ -1,0 +1,277 @@
+1. Get All For Sales Orders:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_salesordersApproval&UserID=501
+
+Output:
+
+[
+    {
+        "SalesOrderID": 29,
+        "SalesOrderNo": "SO-1025/12-24",
+        "OrderDate": "2024-12-12 ",
+        "PartyID": 155,
+        "RegionID": 1035,
+        "PartyName": "Bina Pani Library-Pangsha,Rajbari",
+        "Status": "Pending Authorized",
+        "AppStatus": 1,
+        "TotalAmount": "66600.00",
+        "LogUserName": "Md. Rashedul Islam",
+        "UserAuthorizedStatus": "Authorized",
+        "UserApprovalStatus": "Not Authorized"
+    }
+]
+
+2. Get get_salesordersCompleteRejectCancelled
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_salesordersCompleteRejectCancelled&UserID=498
+
+Output:
+[
+    {
+        "SalesOrderID": 29,
+        "SalesOrderNo": "SO-1025/12-24",
+        "OrderDate": "2024-12-12 ",
+        "PartyID": 155,
+        "RegionID": 1035,
+        "partyname": "Bina Pani Library-Pangsha,Rajbari",
+        "status": 3,
+        "Status": "Approved",
+        "AppStatus": 3,
+        "TotalAmount": "66600.00",
+        "logUserName": "Md. Rashedul Islam",
+        "UserAuthorizedSatus": "Not Authorized",
+        "UserApprovalSatus": "Not Authorized"
+    },
+    {
+        "SalesOrderID": 24,
+        "SalesOrderNo": "SO-1020/12-24",
+        "OrderDate": "2024-12-18 ",
+        "PartyID": 155,
+        "RegionID": 1035,
+        "partyname": "Bina Pani Library-Pangsha,Rajbari",
+        "status": 4,
+        "Status": "Rejected",
+        "AppStatus": 4,
+        "TotalAmount": "40000.00",
+        "logUserName": "Md. Rashedul Islam",
+        "UserAuthorizedSatus": "Not Authorized",
+        "UserApprovalSatus": "Not Authorized"
+    },
+    {
+        "SalesOrderID": 18,
+        "SalesOrderNo": "SO-1014/12-24",
+        "OrderDate": "2024-03-12 ",
+        "PartyID": 155,
+        "RegionID": 1035,
+        "partyname": "Bina Pani Library-Pangsha,Rajbari",
+        "status": 5,
+        "Status": "Order Cancel",
+        "AppStatus": 5,
+        "TotalAmount": "2000.00",
+        "logUserName": "Md. Anowar Hasan Salim",
+        "UserAuthorizedSatus": "Not Authorized",
+        "UserApprovalSatus": "Not Authorized"
+    }
+]
+
+For Secimen List
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_salesordersSpecemenApproval&UserID=501
+
+Output:
+
+[
+    {
+        "SalesOrderID": 29,
+        "SalesOrderNo": "SO-1025/12-24",
+        "OrderDate": "2024-12-12 ",
+        "PartyID": 155,
+        "RegionID": 1035,
+        "PartyName": "Bina Pani Library-Pangsha,Rajbari",
+        "Status": "Pending Authorized",
+        "AppStatus": 1,
+        "TotalAmount": "66600.00",
+        "LogUserName": "Md. Rashedul Islam",
+        "UserAuthorizedStatus": "Authorized",
+        "UserApprovalStatus": "Not Authorized"
+    }
+]
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_salesordersSpecemanCompleteRejectCancelled&UserID=498
+
+Output:
+[
+    {
+        "SalesOrderID": 29,
+        "SalesOrderNo": "SO-1025/12-24",
+        "OrderDate": "2024-12-12 ",
+        "PartyID": 155,
+        "RegionID": 1035,
+        "partyname": "Bina Pani Library-Pangsha,Rajbari",
+        "status": 3,
+        "Status": "Approved",
+        "AppStatus": 3,
+        "TotalAmount": "66600.00",
+        "logUserName": "Md. Rashedul Islam",
+        "UserAuthorizedSatus": "Not Authorized",
+        "UserApprovalSatus": "Not Authorized"
+    },
+
+Get one Sales Order
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_order&SalesOrderID=46
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_salesordersAutorizationMIS&SalesOrderID=4
+
+
+[
+    {
+        "FinancialYear": "Financial Year-2025",
+        "ProductName": "অনুপম একের ভিতর সব (দ্বিতীয় শ্রেণি)",
+        "ProductsValue": "40 Pcs @ Tk. 300.00 = 12,000.00"
+    },
+    {
+        "FinancialYear": "Financial Year-2025",
+        "ProductName": "English Grammar Today (Class-3)",
+        "ProductsValue": "650 Pcs @ Tk. 285.00 = 185,250.00"
+    }
+]
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_salesordersAutorizationMISReturn&SalesOrderID=4
+
+
+[
+    {
+        "FinancialYear": "Financial Year-2025",
+        "ProductName": "অনুপম একের ভিতর সব (দ্বিতীয় শ্রেণি)",
+        "ProductsValue": "40 Pcs @ Tk. 300.00 = 12,000.00"
+    },
+    {
+        "FinancialYear": "Financial Year-2025",
+        "ProductName": "English Grammar Today (Class-3)",
+        "ProductsValue": "650 Pcs @ Tk. 285.00 = 185,250.00"
+    }
+]
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_sndApprovalDetails
+
+2. Request Type:
+POST
+
+3. Headers:
+Set the content type to JSON:
+
+bash
+Copy code
+Content-Type: application/json
+4. Body (Raw JSON):
+Use the following JSON for testing:
+
+Test Case 1: For AppStatus = 1 (Authorization)
+json
+Copy code
+{
+    "SalesOrderID": 25,
+    "DemandInfo": "Order for 100 units",
+    "ReturnInfo": null,
+    "AuthComments": "Authorized for further processing",
+    "AppComments": null,
+    "UserID": 298
+}
+Test Case 2: For AppStatus = 2 (Approval)
+json
+Copy code
+{
+    "SalesOrderID": 25,
+    "DemandInfo": "Order confirmed for 100 units",
+    "ReturnInfo": "Approved for 90 units due to stock limitations",
+    "AuthComments": null,
+    "AppComments": "Approved by management",
+    "UserID": 298
+}
+5. Expected Responses:
+Success Response (Example):
+For a successful operation:
+
+json
+Copy code
+{
+    "success": true,
+    "message": "Approval details created and sales order updated successfully."
+}
+
+6. Testing Steps in Postman:
+Open Postman and create a new request.
+Set the method to POST.
+Enter the endpoint URL.
+Go to the Headers tab and add the Content-Type: application/json header.
+Go to the Body tab, select raw, and paste the JSON for the test case.
+Click Send.
+Verify the response.
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_sndApprovalRejected_Cancelled
+
+2. Request Type:
+POST
+
+3. Headers:
+Set the content type to JSON:
+
+Test Case 1: For AppStatus = 1 (Cancelled)
+json
+Copy code
+{
+    "SalesOrderID": 25,
+    "CanclledComments": "Sales Voucher is cancelled due to...",
+    "UserID": 298
+}
+Test Case 2: For AppStatus = 2 (Rejected)
+json
+Copy code
+{
+    "SalesOrderID": 25,
+    "RejectComments": "Rejected due to ...",
+    "UserID": 298
+}
+
+{
+    "SalesOrderID": 25,
+    "CanclledComments": "Sales Voucher is cancelled due to...",
+    "UserID": 298
+}
+For Sales Order Authorization MIS
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_salesordersAutorizationMIS&SalesOrderID=27
+
+output:
+{
+    "DemandInfo": "Approved by management"
+}{
+    "ReturnInfo": "Approved by management"
+}{
+    "AuthComments": "Approved by management"
+}
+
+
+For Sales Order Approval MIS
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_salesordersAutorizationMIS&SalesOrderID=27
+
+output:
+{
+    "DemandInfo": "Approved by management"
+}{
+    "ReturnInfo": "Approved by management"
+}{
+    "AuthComments": "Approved by management"
+}
+
+
+
+
+
+
+

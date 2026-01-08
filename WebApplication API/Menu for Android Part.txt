@@ -1,0 +1,54 @@
+SL#	MENU
+1	§ Home/Management Dashboard
+	---------------------------------------------------
+Security & Settings
+2	§ Employee Registration
+3	Dashboard: Target VS Achievement
+4	Push Notificaiton
+	---------------------------------------------------
+Master Setup
+5	§ Financial year
+6	§ Designation
+7	§ Region Type
+8	§ Region Area
+9	§ Institution Type
+10	§ Institution
+11	§ Books Category
+12	§ Books/Products
+13	§ Party Management
+14	§ TA/DA & Others Allowance
+15	§ Purpose Category
+16	§ Class Information
+17	§ Subject Information
+	---------------------------------------------------
+
+18	§ Production Order
+19	§ Product Receipt
+20	§ Sales Order
+21	§ Sales Order Approval
+22	§ Sales Return
+23	§ Delivery Challan
+24	§ Delivery Challan Approval
+25	§ Invoice/Bill
+26	§ Invoice/Bill Approval
+27	§ Money Receipt
+28	§ Money Receipt Approval
+29	§ Inventory Transfer
+30	§ Inventory Transfer Approval
+31	§ Specimen Order
+32	§ Specimen Approval
+33	§ BD Expense Requisition
+34	§ BD Expense Approval
+35	§ Assign Visit Plans
+36	§ Visit Plan Approval
+37	§ Visit Entry
+38	§ Visit Approval
+	---------------------------------------------------
+39	§ Inventory Stock Report
+40	§ Target VS Achievement Report
+41	§ Sales VS Return Report
+42	§ Business Dev. Exp. & Specimen Exp. Report
+43	§ Total Visit Report
+44	§ Outstanding Report
+
+

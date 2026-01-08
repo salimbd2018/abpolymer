@@ -1,0 +1,187 @@
+Product Receipt
+
+           (<ProductReceiptNo, varchar(100),>
+           ,<ReceiptDate, date,>
+           ,<BindingPartyID, int,>
+           ,<PrintEdition, varchar(150),>
+           ,<FinancialYearID, int,>
+           ,<ProductCategoryID, int,>
+           ,<ProductID, int,>
+           ,<Quantity, int,>
+           ,<Rate, numeric(18,2),>
+           ,<ChallanNumber, nvarchar(100),>
+           ,<ChallanCopyPath, nvarchar(150),>
+           ,<ProductionOrderQty, int,>
+           ,<UserID, int,>
+		   
+Get List of the Receipt
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_preceipts
+
+ {
+        "ProductReceiptNo": "PRD-2024-001",
+        "ReceiptDate": "2024-09-10 ",
+        "BindingPartyID": null,
+        "BindingPartyName": null,
+        "PrintEdition": "First PrintEdition",
+        "FinancialYearID": 1,
+        "FinancialYearName": null,
+        "ProductCategoryID": null,
+        "ProductCategoryName": null,
+        "ProductID": 1,
+        "ProductName": null,
+        "Quantity": 1000,
+        "Rate": null,
+        "ChallanNumber": null
+    }
+	
+Get a single data from Receipt
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_preceipt&ProductReceiptID=7
+
+{
+    "ProductReceiptNo": "PR12345",
+    "ReceiptDate": "2024-12-12 ",
+    "BindingPartyID": 101,
+    "BindingPartyName": null,
+    "PrintEdition": "ww",
+    "FinancialYearID": 2024,
+    "FinancialYearName": null,
+    "ProductCategoryID": null,
+    "ProductCategoryName": null,
+    "ProductID": 23,
+    "ProductName": null,
+    "Quantity": 300,
+    "Rate": "34.60",
+    "ChallanNumber": "CN98765",
+    "ChallanCopyPath": "https://asianabpolymer.com/abpolymer/uploads/ChallanCopyPath/CN98765.jpg"
+}
+
+
+3. **Get a new_product_receipt_number**:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=generate_new_product_receipt_number
+
+Method: POST (based on your implementation).
+
+Output
+
+{
+    "NewProductReceiptNo": "GRN-1008/12-24"
+}
+
+
+Create Receipt
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_preceipt
+	
+Input
+
+
+Headers
+Content-Type: multipart/form-data
+Body
+Use the form-data option:
+
+Key					Value	Type
+ProductReceiptNo	PR12345	Text
+ReceiptDate			2024-12-12	Text
+BindingPartyID		101	Text
+ChallanNumber		CN98765	Text
+PrintEdition		1	Text (optional)
+FinancialYearID		2024	Text (optional)
+ProductCategoryID	5	Text (optional)
+ProductID			23	Text (optional)
+Quantity			1000	Text (optional)
+Rate				15.75	Text (optional)
+ProductionOrderQty	Leave empty or provide value	Text (optional)
+UserID				1	Text (optional)
+ChallanCopyPath		Choose File	File
+
+Sample Data:
+
+ProductReceiptNo: "PR12345"
+ReceiptDate: "2024-12-12"
+BindingPartyID: "101"
+ChallanNumber: "CN98765"
+PrintEdition: "ww"
+FinancialYearID: "2024"
+ProductCategoryID: "5"
+ProductID: "23"
+Quantity: "300"
+Rate: "34.6"
+ProductionOrderQty: ""
+UserID: "1"
+ChallanCopyPath: undefined
+
+Output:
+
+{
+    "success": "Product receipt created successfully"
+}
+
+Getting BindingPartyName Combo box data
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_bindingparties
+
+[
+    {
+        "BindingPartyID": 1,
+        "PartyName": "Alpha Bindings"
+    },
+    {
+        "BindingPartyID": 2,
+        "PartyName": "Beta Publishing"
+    }
+]
+
+
+Get Financial Year
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_financialyear
+
+[
+    {
+        "id": 13221771,
+        "name": "Fiscal Year-2024"
+    }
+]
+
+
+Books Group Select:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_bookscategorys
+
+[
+    {
+        "ID": 158,
+        "CategoryName": "English Grammar"
+    },
+    {
+        "ID": 159,
+        "CategoryName": "High-School"
+    }
+]
+
+Books Name Categorywise
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_productcategorywise&Categoryid=176
+
+[
+    {
+        "ProductID": 317,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্  রসায়ন"
+    },
+    {
+        "ProductID": 318,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ ইসলাম ও নৈতিক শিক্ষা"
+    },
+    {
+        "ProductID": 319,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ উচ্চতর গণিত"
+    },
+    {
+        "ProductID": 320,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ ও মেইড ইজি ইংরেজি (১ম ও ২য় পত্র)"
+    }
+]

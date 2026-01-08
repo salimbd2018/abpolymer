@@ -1,0 +1,168 @@
+For all region view: Get
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_regions
+
+{
+        "AreaID": 18,
+        "DivisionName": "Chittagong Division",
+        "DistrictName": "Chittagong District",
+        "ThanaName": "Chittagong Sadar Thana",
+        "AreaName": "Agrabad Area"
+}
+
+
+For single region view: must be in Area and pass area ID
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_regionview&AreaRegionID=16
+
+[
+    {
+        "AreaID": 16,
+        "DivisionName": "Dhaka Division",
+        "DistrictName": "Dhaka District",
+        "ThanaName": "Mirpur Thana",
+        "AreaName": "Pallabi Area"
+    }
+]
+
+For single region view: Get
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_parentregions&RegionTypeID=90
+
+{
+    "RegionID": 2,
+    "RegionName": "Dhaka Division"
+}
+
+
+
+For Region Entry - Region type combo box:
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_regiontype1
+
+For Parent Region API 
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_parentregions&RegionTypeID=88
+   - Method: `GET`
+{
+    "RegionID": 2,
+    "RegionName": "Dhaka Division"
+}
+
+1.	RegionDivision GET Request 
+
+   - URL: `https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_regionDivision`
+   - Method: `GET`
+   
+[{
+    "RegionID": 2,
+    "RegionName": "Dhaka Division"
+}, {
+    "RegionID": 3,
+    "RegionName": "Chittagong Division"
+}, {
+    "RegionID": 20,
+    "RegionName": "New Region"
+}]
+
+2.	RegionDistrict GET Request 
+
+   - URL: `https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_regionDistrict&ParentRegionID=2`
+   - Method: `GET`
+   
+[{
+    "RegionID": 1,
+    "RegionName": "Updated Region"
+}, {
+    "RegionID": 4,
+    "RegionName": "Dhaka District"
+}, {
+    "RegionID": 5,
+    "RegionName": "Gazipur District"
+}, {
+    "RegionID": 6,
+    "RegionName": "Narayanganj District"
+}]
+
+3.	RegionThana GET Request 
+
+   - URL: `https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_regionThana&ParentRegionID=4`   - Method: `GET`
+   
+[{
+    "RegionID": 9,
+    "RegionName": "Gulshan Thana"
+}, {
+    "RegionID": 10,
+    "RegionName": "Mirpur Thana"
+}]
+
+4.	RegionArea GET Request 
+
+   - URL: `https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_regionArea&ParentRegionID=9`   - 
+Method: `GET`
+[{
+    "RegionID": 14,
+    "RegionName": "Banani Area"
+}, {
+    "RegionID": 15,
+    "RegionName": "Baridhara Area"
+}, {
+    "RegionID": 21,
+    "RegionName": "any new Region"
+}]
+
+2. RegionTypeID GET Request - Single Region by ID:RegionTypeID
+   - URL: `https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_region&RegionID=2`
+   - Method: `GET`
+
+[{
+    "RegionID": 2,
+    "RegionName": "Dhaka Division",
+    "RegionTypeID": 88,
+    "ParentRegionID": 1,
+    "CreatedAt": {
+        "date": "2024-10-09 19:08:42.277000",
+        "timezone_type": 3,
+        "timezone": "Europe\/Berlin"
+    }]
+
+
+3. RegionTypeID POST Request - Create Region:RegionTypeID
+   - URL: `https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_region`
+   - Method: `POST`
+   - Body (JSON):
+     ```json
+     {
+       "RegionName": "New Region",
+       "RegionTypeID": 88,
+       "ParentRegionID": 1
+     }
+     ```
+
+4. RegionTypeID PUT Request - Update Region: RegionTypeID
+
+How It Works
+When you call update_region, it:
+Deletes the existing region.
+Adds a new entry with the updated data.
+Returns the RegionID of the new entry.
+
+   - URL: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_region&RegionID=1
+   - Method: `PUT`
+   - Headers: Content-Type: application/json
+   - Body (JSON):
+     ```json
+ 
+ {
+  "RegionName": "Updated Region Name",
+  "RegionTypeID": 90,
+  "ParentRegionID": 5
+}
+
+Output:
+
+{
+  "message": "Region updated successfully",
+  "NewRegionID": 1234
+}
+
+
+

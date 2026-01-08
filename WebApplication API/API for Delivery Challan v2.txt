@@ -1,0 +1,289 @@
+
+INSERT INTO [dbo].[sndDeliveryChallanMaster]
+           ([ChallanNo]
+           ,[ChallanDate]
+           ,[SalesOrderID]
+           ,[Status]
+           ,[NotificationStatus]
+           ,[UserID]
+           ,[CreatedAt]
+           ,[ModifiedAt])
+     VALUES
+           (<ChallanNo, varchar(50),>
+           ,<ChallanDate, datetime,>
+           ,<SalesOrderID, int,>
+           ,<Status, int,>
+           ,<NotificationStatus, int,>
+           ,<UserID, int,>
+           ,<CreatedAt, datetime,>
+           ,<ModifiedAt, datetime,>)
+GO
+
+
+INSERT INTO [dbo].[sndDeliveryChallanDetails]
+           ([ChallanID]
+           ,[FinancialYearID]
+           ,[ProductCategoryID]
+           ,[ProductID]
+           ,[OrderQty]
+           ,[ChallanQty]
+           ,[AvailQty]
+           ,[CreatedAt]
+           ,[ModifiedAt])
+     VALUES
+           (<ChallanID, int,>
+           ,<FinancialYearID, int,>
+           ,<ProductCategoryID, int,>
+           ,<ProductID, int,>
+           ,<OrderQty, int,>
+           ,<ChallanQty, int,>
+           ,<AvailQty, int,>
+           ,<CreatedAt, datetime,>
+           ,<ModifiedAt, datetime,>)
+GO
+
+
+Dalivery Challan List: Challan - Sales Order done
+
+
+Please replace the following API
+From
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_challansOrder
+To
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_challansOrder_users&UserID=687
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_challansOrder
+Output:
+[
+    {
+        "ChallanID": 1,
+        "ChallanNo": "CN-1001/12-24",
+        "ChallanDate": "2024-09-01 ",
+        "PartyID": 1,
+        "PartyName": "A Rahman Library-Singair Manikgonj",
+        "SalesOrderID": 46,
+        "SalesOrderTypeID": 1,
+        "SalesOrderType": "SalesOrder",
+        "Status": 0,
+        "StatusName": "Complete"
+    }
+]
+
+Dalivery Challan List: Challan - Sales Specimen done
+
+Please replace the following API
+From
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_challansSpecimen_users
+To
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_challansSpecimen_users&UserID=474
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_challansSpecimen
+Output:
+[
+    {
+        "ChallanID": 2,
+        "ChallanNo": "CN-1002/12-24",
+        "ChallanDate": "2024-09-02 ",
+        "PartyID": 2,
+        "PartyName": "Adarsha Library (Joypara)",
+        "SalesOrderID": 47,
+        "SalesOrderTypeID": 2,
+        "SalesOrderType": "SpecimenOrder",
+        "Status": 0,
+        "StatusName": "Complete"
+    }
+]
+
+Pending sales Order done
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_salesordersChallan
+
+Output:
+
+[
+    {
+        "SalesOrderID": 89,
+        "SalesOrderNo": "SO-1043/12-24",
+        "OrderDate": "2024-12-15 ",
+        "PartyID": 118,
+        "RegionID": 774,
+        "partyname": "Lucky Books & Stationery-Cantonment",
+        "status": 3,
+        "Status": "Approved",
+        "challanstatus": 0,
+        "challanstatusName": "Challan Pending",
+        "AppStatus": 3,
+        "TotalAmount": "11000.00",
+        "logUserName": "Md. Nazmul Islam"
+    }
+]
+
+Pending Specimen Orders: done
+
+   - URL: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_specimenordersChallan
+
+Output:
+
+[
+    {
+        "SalesOrderID": 82,
+        "SalesOrderNo": "SO-1036/01-25",
+        "OrderDate": "2025-01-21 ",
+        "PartyID": 4,
+        "RegionID": 900,
+        "partyname": "Adi Nurjahan Library-Borguna",
+        "status": 3,
+        "Status": "Approved",
+        "challanstatus": 1,
+        "challanstatusName": "Challan Complete",
+        "AppStatus": 3,
+        "TotalAmount": "5000.00",
+        "logUserName": "Md. Rasel Hossain"
+    }
+] 
+
+
+
+Get a Delivery Challan Number**: done
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=generate_new_Challan_number
+
+Output
+
+{
+    "NewChallanNo": "CN-1001/12-24"
+}
+
+
+2. Get a single order (GET):
+   - URL: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_orderforchallan&SalesOrderID=46
+   
+Output:
+
+{
+    "order": {
+        "SalesOrderID": 46,
+        "SalesOrderNo": "SO-1001/12-24",
+        "OrderDate": "2024-12-28 ",
+        "OrderTypeID": 1,
+        "PartyID": 174,
+        "PartyName": "Book House-Rajshahi",
+        "SpecimenUserID": null,
+        "SpecimenUserName": null,
+        "UserName": "Md. Rashedul Islam",
+        "TotalAmount": "105000.00",
+        "UserID": 241,
+        "Status": "Approved",
+        "AppStatus": "Completed",
+        "NotificationStatus": 1
+    },
+    "orderDetails": [
+        {
+            "SL": "1",
+            "SalesOrderDetailID": 47,
+            "FinancialYearID": 13221771,
+            "ProductCategoryID": 158,
+            "CategoryName": "English Grammar",
+            "ProductID": 30,
+            "ProductName": "English Grammar Today (Class-3)",
+            "Quantity": 300,
+            "Price": "350.00",
+            "RateValue": "300 Pcs @ Tk. 350.00 = 105000.00",
+			"VailableQty": 0
+        }
+    ]
+}
+
+Create Challan Master
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_ChallanMaster
+
+    {
+        "ChallanNo": "CN-1006/12-24",
+        "ChallanDate": "2024-09-01 ",
+        "SalesOrderID": 46,
+        "UserID": 501
+    }
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_challan_details
+
+    {
+        "ChallanID": 6,
+        "FinancialYearID": 2025,
+		"ProductCategoryID":158,
+        "ProductID": 30,
+        "OrderQty": 20,
+		"ChallanQty": 46,
+        "AvailQty": 20
+    }
+	
+	
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=Create_DeliveryChallanAll
+{
+  "ChallanNo": "CH-2026/01-01",
+  "ChallanDate": "2025-01-25",
+  "SalesOrderNo": "SO-20232/01-01, SO-20233/01-01",
+  "OutletID": 212,
+  "UserID": 1,
+  "Details": [
+    {
+      "FinancialYearID": 13221771,
+      "SalesOrderID": 101,
+      "ProductCategoryID": 158,
+      "ProductID": 30,
+      "OrderQty": 10,
+      "ChallanQty": 10,
+      "AvailQty": 5
+    },
+    {
+      "FinancialYearID": 13221771,
+      "SalesOrderID": 102,
+      "ProductCategoryID": 158,
+      "ProductID": 30,
+      "OrderQty": 10,
+      "ChallanQty": 10,
+      "AvailQty": 5
+    }
+  ]
+}
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_ChallanOrderDetails&ChallanID=1553
+
+{
+    "ChallanMaster": {
+        "ChallanID": 6,
+        "ChallanNo": "CN-1006/12-24",
+        "ChallanDate": "2024-09-01 ",
+        "PartyID": 11,
+        "PartyName": "Al-Baraka Library-Mirpur-01",
+        "SpecimenUserID": null,
+        "EmployeeName": null,
+        "SalesOrderID": 46,
+        "SalesOrderTypeID": 1,
+        "SalesOrderType": "SalesOrder",
+        "Status": 0,
+        "StatusName": "Challan Pending"
+    },
+    "ChallanDetails": [
+        {
+            "ChallanDetailID": 2,
+            "FinancialYearID": 2025,
+            "ProductCategoryID": 158,
+            "ProductID": 30,
+            "ProductName": "English Grammar Today (Class-3)",
+            "OrderQty": 20,
+            "ChallanQty": 46,
+            "AvailQty": 20,
+            "CreatedAt": {
+                "date": "2025-01-25 14:31:28.347000",
+                "timezone_type": 3,
+                "timezone": "Europe/Berlin"
+            }
+        }
+    ]
+}
+
+(select name from CmnTransactionalYears WHERE CmnTransactionalYears.ID = sndSalesOrderDetails.FinancialYearID) as FinancialYear,

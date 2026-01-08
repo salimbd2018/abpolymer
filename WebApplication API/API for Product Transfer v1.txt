@@ -1,0 +1,204 @@
+CREATE TABLE [dbo].[sndProductTransfer](
+	[ProductTransferID] [int] IDENTITY(1,1) NOT NULL,
+	[ProductTransferNo] [varchar](100) NOT NULL,
+	[TransferDate] [date] NOT NULL,
+	[PartyFromID] [int] NULL,
+	[PartyToID] [int] NULL,
+	[TotalAmount] [numeric](18, 2) NULL,
+	[Inword] [nvarchar](150) NULL,
+	[UserID] [int] NULL,
+	[CreatedAt] [datetime] NULL,
+	[ModifiedAt] [datetime] NULL
+) 
+
+
+CREATE TABLE [dbo].[sndProductTransferDetails](
+	[ProductTransferDetailsID] [int] IDENTITY(1,1) NOT NULL,
+	[ProductTransferID] [int] NOT NULL,
+	[FinancialYearID] [int] NULL,
+	[ProductCategoryID] [int] NULL,
+	[ProductID] [int] NULL,
+	[Quantity] [int] NULL,
+	[Rate] [numeric](18, 2) NULL,
+	[Total] [numeric](18, 2) NULL
+)
+		   
+Get List of the Transfer
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_PTransfers
+
+[
+    {
+        "SL": "1",
+        "ProductTransferID": 1,
+        "ProductTransferNo": "PTN-1001/02-25",
+        "TransferDate": "2025-06-02 ",
+        "partyFromid": 4,
+        "PartyFromName": "Adi Nurjahan Library-Borguna",
+		"partyToid": 4,
+        "PartyToName": "Adi Nurjahan Library-Borguna",
+        "DetailsStatus": "True"
+    }
+]
+	
+Get a single data from Transfer all
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_Transferall&ProductTransferID=1
+
+{
+    "success": true,
+    "receipt": {
+        "ProductTransferNo": "PTN-1001/02-25",
+        "TransferDate": "2025-06-02 ",
+        "partyFromid": 4,
+        "PartyFromName": "Adi Nurjahan Library-Borguna",
+		"partyToid": 4,
+        "PartyToName": "Adi Nurjahan Library-Borguna",
+        "Address": "Barguna Sadar , Barguna , ",
+        "ContactNumber": null,
+        "UserID": 501,
+        "CreatedBy": "Md. Anowar Hasan Salim",
+        "CreatedAt": null,
+        "ModifiedAt": null
+    },
+    "details": [
+        {
+            "SL": "1",
+            "ProductTransferDetailsID": 1,
+            "ProductTransferID": 1,
+            "FinancialYearID": 13221772,
+            "FinancialYearName": "Financial Year-2025",
+            "ProductCategoryID": 158,
+            "ProductCategoryName": "English Grammar",
+            "ProductID": 30,
+            "ProductName": "English Grammar Today (Class-3)",
+            "Quantity": 20,
+            "Rate": "285.00",
+            "Total": "300.00",
+            "RateValue": "20 Pcs @ Tk. 285.00 = 300.00"
+        }
+    ]
+}
+
+3. **Get a new_product_Transfer_number**:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=generate_new_product_Transfer_number
+
+Method: POST (based on your implementation).
+
+Output
+
+{
+    "newProductTransferNo": "PTN-1002/02-25"
+}
+
+Create Transfer all
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_PTransferall
+
+
+{
+    "ProductTransferNo": "PTN-1002/02-25",
+    "TransferDate": "06-02-2025",
+    "PartyFromID": 176,
+	"PartyToID": 4,
+    "TotalAmount": 327,
+    "InWord": "Fifty only",
+    "UserID": 501,
+    "Details": [
+        {
+            "FinancialYearID": 13221771,
+            "ProductCategoryID": 176,
+            "ProductID": 327,
+            "Quantity": 50,
+            "Rate": 100,
+            "Total": 5000
+        }
+    ]
+}
+
+
+6. Get Party List for combo load to pass the UserID
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_parties_users&UserID=496
+
+[
+    {
+        "PartyID": 158,
+        "PartyName": "Bishaw Porichoy-Nowgaon"
+    },
+    {
+        "PartyID": 172,
+        "PartyName": "Boi Ghor-Naogaon"
+    }
+]
+
+
+Get Financial Year
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_financialyear
+
+[
+    {
+        "id": 13221771,
+        "name": "Fiscal Year-2024"
+    }
+]
+
+
+Books Group Select:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_bookscategorys
+
+[
+    {
+        "ID": 158,
+        "CategoryName": "English Grammar"
+    },
+    {
+        "ID": 159,
+        "CategoryName": "High-School"
+    }
+]
+
+Books Name Categorywise
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_productcategorywise&Categoryid=176
+
+[
+    {
+        "ProductID": 317,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্  রসায়ন"
+    },
+    {
+        "ProductID": 318,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ ইসলাম ও নৈতিক শিক্ষা"
+    },
+    {
+        "ProductID": 319,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ উচ্চতর গণিত"
+    },
+    {
+        "ProductID": 320,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ ও মেইড ইজি ইংরেজি (১ম ও ২য় পত্র)"
+    }
+]
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_productrate&FinancialYearID=13221771&ProductID=169
+
+{
+    "Rate": "200.00"
+}
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=delete_pTransferdetails&ProductTransferDetailsID=1
+
+Method: Delete
+
+Output:
+{
+    "message": "ProductTransferDetails deleted successfully"
+}
+
+update Product Transfer
+

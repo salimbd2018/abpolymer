@@ -1,0 +1,103 @@
+status report of sales force
+	
+1	Dashboard
+2	Emoloyee Registration
+3	Financial Year
+4	Designation
+5	Region Type
+6	Region Area
+7	Institution Type
+8	Institution
+9	Books Group
+10	Book/Product
+11	Party Management
+12	Marketing Expense
+13	Marketing Activity List
+14	Employee VS Region Mapping
+
+
+19	Product Receipt					Web- Edit Pending   Android - Done
+20	Sales Order						Web- Edit Pending   Android - Done
+21	Sales Order Approval			Web- Pending   		Android - Done  
+22  Delivery Challan				Web- Pending						
+25	Money Receipt -> Collection		Web- Pending		Android - Done	
+23  Invoice							Web- Pending						
+
+
+
+22	BD Exp. Requisition				Web- Pending   		Android - Pending
+23	BD Exp. Approval				Web- Pending   		Android - Pending
+15	Visit Plan Requisition 			Web- Pending   		Android - Pending
+16	Visit Plans Approval			Web- Pending   		Android - Pending
+17	Visit Entry						Web- Pending   		Android - Pending
+18	Visit Approval					Web- Pending   		Android - Pending
+
+-------------Functional Part Done ----------------------------------------
+
+11.	Notifications					Web- Pending   		Android - Pending
+12. Dashboard						Web- Pending   		Android - Pending
+24	Others Expenses Requisition		Web- Pending   		Android - Pending
+25  Damage Entry					Web- Pending   		Android - Pending
+26	Inventory Transfer				Web- Pending   		
+26	Inventory Transfer Approval		Web- Pending
+
+--------------Enhance Part Done ------------------------------------------
+
+28	Inventory Stock Report
+29	Target VS Achievement Report
+30	Sales VS Return Report
+31	Business Dev. Exp. & Specimen Exp. Report
+32	Total Visit Report
+33	Outstanding Report
+34  Institution List Report
+
+-------------- Reporting Part --------------------------------------------
+
+Work Schedure for Web Application
+
+19	Product Receipt					Web- Edit Pending   Android - Done
+20	Sales Order						Web- Edit Pending   Android - Done
+21	Sales Order Approval			Web- Pending   		Android - Done  - done by Monday
+22  Delivery Challan				Web- Pending						- done by Tuesday
+25	Money Receipt -> Collection		Web- Pending		Android - Done	- done by Tuesday
+23  Invoice							Web- Pending						- done by Wednesday
+
+--- Web part must be do within - Webnesday
+
+22	BD Exp. Requisition				Web- Pending   	- done by Tuesday	
+23	BD Exp. Approval				Web- Pending   	- done by Tuesday	
+15	Visit Plan Requisition 			Web- Pending   	- done by Wednesday	
+16	Visit Plans Approval			Web- Pending   	- done by Wednesday	
+17	Visit Entry						Web- Pending   	- done by Thursday	
+18	Visit Approval					Web- Pending   	- done by Friday	
+
+Work Schedure for Android 
+
+22	BD Exp. Requisition				Android - Pending	- done by Tuesday
+23	BD Exp. Approval				Android - Pending	- done by Tuesday
+15	Visit Plan Requisition 			Android - Pending	- done by Wednesday
+16	Visit Plans Approval			Android - Pending	- done by Wednesday
+17	Visit Entry						Android - Pending	- done by Thursday
+18	Visit Approval					Android - Pending	- done by Friday
+
+-------------Functional Part Done ----------------------------------------
+
+11.	Notifications					Web- Pending   		Android - Saturday
+12. Dashboard						Web- Pending   		Android - Sunday
+
+24	Others Expenses Requisition		Web- Pending   		Android - Pending
+25  Damage Entry					Web- Pending   		Android - Pending
+26	Inventory Transfer				Web- Pending   		
+26	Inventory Transfer Approval		Web- Pending
+
+--------------Enhance Part Done ------------------------------------------
+
+28	Inventory Stock Report
+29	Target VS Achievement Report
+30	Sales VS Return Report
+31	Business Dev. Exp. & Specimen Exp. Report
+32	Total Visit Report
+33	Outstanding Report
+34  Institution List Report
+
+-------------- Reporting Part --------------------------------------------

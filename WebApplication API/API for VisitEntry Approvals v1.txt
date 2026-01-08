@@ -1,0 +1,321 @@
+Visit Entry Approval:
+
+1. Get All For VisitPlan:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_VisitEntryApprovalSum&UserID=342
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_VisitPlanEntryApprovalnew&UserID=344&VisitUserID=229
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_VisitPlanEntryApproval&UserID=241
+
+[
+    {
+        "SL": "1",
+        "VisitPlanID": 48,
+        "VPInfo1": "VP-1001/02-25",
+        "VPInfo2": "04-02-2025 - Primary-School",
+        "VPInfo3": "Ziyaltala govt primary school ",
+        "VisitPlanNo": "VP-1001/02-25",
+        "VisitPlanDate": "2025-02-04 ",
+        "InstitutionTypeID": 11,
+        "InstituteType": "Primary-School",
+        "InstituteName": "Ziyaltala govt primary school ",
+        "InstitutionID": 5095,
+        "PurposeID": 110,
+        "PurposeName": "Primary School Visit",
+        "VisitUserID": 501,
+        "VisitUserName": "Md. Anowar Hasan Salim",
+        "Status": "Approved",
+        "AppStatus": 2,
+        "UserID": 501,
+        "EStatus": 1,
+        "EStatusName": "Pending Checked",
+        "EAppStatus": 1,
+        "LogUserName": "Md. Anowar Hasan Salim",
+        "CreatedAt": "2025-02-04 14:07:35",
+        "ModifiedAt": null
+    }
+]
+
+
+Get get_visit_entryall - done
+
+Endpoint: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_visit_entryforApproval&VisitPlanID=2154
+
+{
+    "VisitPlan": {
+        "VisitPlanID": 52,
+        "VPInfo1": "VP-1005/02-25",
+        "VPInfo2": "2025-02-05 ",
+        "VPInfo3": "University Womens Federation College",
+        "VisitPlanNo": "VP-1005/02-25",
+        "VisitPlanDate": "2025-02-05 ",
+        "InstitutionTypeID": 137,
+        "InstitutionTypeName": "College",
+        "InstituteName": "University Womens Federation College",
+        "InstitutionID": 1901,
+        "PurposeID": 41,
+        "PurposeName": "College Visit",
+        "VisitUserID": 501,
+        "VisitUserName": "Md. Anowar Hasan Salim",
+        "Status": 2,
+        "AppStatus": 2,
+        "UserID": 501,
+        "LogUserName": "Md. Anowar Hasan Salim",
+        "CreatedAt": "2025-02-05 11:20:11",
+        "ModifiedAt": "2025-02-05 11:23:38",
+        "CheckInTime": {
+            "date": "2025-02-05 05:21:19.197000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "CheckOutTime": {
+            "date": "2025-02-05 05:50:00.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "Latitude": "23.781537",
+        "Longitude": "90.421420",
+        "VisitEntryDate": {
+            "date": "2025-02-05 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "VEStatus": 1
+    },
+    "visitApprovalsPlan": {
+        "CheckedDate": null,
+        "CheckedBy": null,
+        "CheckedComments": null,
+        "AuthDate": null,
+        "AuthBy": null,
+        "AuthComments": null,
+        "AppDate": null,
+        "AppBy": null,
+        "AppComments": null,
+        "RejectDate": null,
+        "RejectBy": null,
+        "RejectComments": null,
+        "CancelledDate": null,
+        "CancelledBy": null,
+        "CanclledComments": null
+    },
+    "Details": [],
+    "TADADetails": [
+        {
+            "SL": "1",
+            "sndVisitPlanTADADetailsID": 30,
+            "VisitPlanID": 52,
+            "TADACategoryID": 22,
+            "TADACategory": "DA",
+            "ThansportMediaID": null,
+            "ThansportMedia": null,
+            "Amount": "1000.00",
+            "CreatedAt": {
+                "date": "2025-02-05 11:22:19.540000",
+                "timezone_type": 3,
+                "timezone": "Europe/Berlin"
+            }
+        },
+        {
+            "SL": "2",
+            "sndVisitPlanTADADetailsID": 31,
+            "VisitPlanID": 52,
+            "TADACategoryID": 22,
+            "TADACategory": "DA",
+            "ThansportMediaID": null,
+            "ThansportMedia": null,
+            "Amount": "1000.00",
+            "CreatedAt": {
+                "date": "2025-02-05 11:22:50.840000",
+                "timezone_type": 3,
+                "timezone": "Europe/Berlin"
+            }
+        }
+    ]
+}
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_VisitPlanEntryApprovalComplete&UserID=501
+
+[
+    {
+        "SL": "1",
+        "VisitPlanID": 48,
+        "VPInfo1": "VP-1001/02-25",
+        "VPInfo2": "04-02-2025 - Primary-School",
+        "VPInfo3": "Ziyaltala govt primary school ",
+        "VisitPlanNo": "VP-1001/02-25",
+        "VisitPlanDate": "2025-02-04 ",
+        "InstitutionTypeID": 11,
+        "InstituteType": "Primary-School",
+        "InstituteName": "Ziyaltala govt primary school ",
+        "InstitutionID": 5095,
+        "PurposeID": 110,
+        "PurposeName": "Primary School Visit",
+        "VisitUserID": 501,
+        "VisitUserName": "Md. Anowar Hasan Salim",
+        "Status": "Approved",
+        "AppStatus": 2,
+        "UserID": 501,
+        "EStatus": 4,
+        "EStatusName": "Complete",
+        "EAppStatus": 4,
+        "LogUserName": "Md. Anowar Hasan Salim",
+        "CreatedAt": "2025-02-04 14:07:35",
+        "ModifiedAt": null
+    }
+]
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_VisitPlanEntryApprovalReject&UserID=501
+
+[
+    {
+        "SL": "1",
+        "VisitPlanID": 48,
+        "VPInfo1": "VP-1001/02-25",
+        "VPInfo2": "04-02-2025 - Primary-School",
+        "VPInfo3": "Ziyaltala govt primary school ",
+        "VisitPlanNo": "VP-1001/02-25",
+        "VisitPlanDate": "2025-02-04 ",
+        "InstitutionTypeID": 11,
+        "InstituteType": "Primary-School",
+        "InstituteName": "Ziyaltala govt primary school ",
+        "InstitutionID": 5095,
+        "PurposeID": 110,
+        "PurposeName": "Primary School Visit",
+        "VisitUserID": 501,
+        "VisitUserName": "Md. Anowar Hasan Salim",
+        "Status": "Approved",
+        "AppStatus": 2,
+        "UserID": 501,
+        "EStatus": 5,
+        "EStatusName": "Reject",
+        "EAppStatus": 5,
+        "LogUserName": "Md. Anowar Hasan Salim",
+        "CreatedAt": "2025-02-04 14:07:35",
+        "ModifiedAt": null
+    }
+]
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_VisitPlanEntryApprovalCancelled&UserID=501
+
+[
+    {
+        "SL": "1",
+        "VisitPlanID": 48,
+        "VPInfo1": "VP-1001/02-25",
+        "VPInfo2": "04-02-2025 - Primary-School",
+        "VPInfo3": "Ziyaltala govt primary school ",
+        "VisitPlanNo": "VP-1001/02-25",
+        "VisitPlanDate": "2025-02-04 ",
+        "InstitutionTypeID": 11,
+        "InstituteType": "Primary-School",
+        "InstituteName": "Ziyaltala govt primary school ",
+        "InstitutionID": 5095,
+        "PurposeID": 110,
+        "PurposeName": "Primary School Visit",
+        "VisitUserID": 501,
+        "VisitUserName": "Md. Anowar Hasan Salim",
+        "Status": "Approved",
+        "AppStatus": 2,
+        "UserID": 501,
+        "EStatus": 6,
+        "EStatusName": "Cancelled",
+        "EAppStatus": 6,
+        "LogUserName": "Md. Anowar Hasan Salim",
+        "CreatedAt": "2025-02-04 14:07:35",
+        "ModifiedAt": null
+    }
+]
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_sndApprovalDetailsVisitEntry&VisitPlanID=52
+
+2. Request Type:
+POST
+
+3. Headers:
+Set the content type to JSON:
+
+bash
+Copy code
+Content-Type: application/json
+4. Body (Raw JSON):
+Use the following JSON for testing:
+
+Test Case 1: For AppStatus = 1 (Checked)
+json
+Copy code
+{
+    "VisitPlanID": 11,
+	"CheckedComments": "Checked for further processing",
+    "AuthComments": null,
+    "AppComments": null,
+    "UserID": 501
+}
+Test Case 2: For AppStatus = 2 (Authorized)
+json
+Copy code
+{
+     "VisitPlanID": 13,
+	"CheckedComments": null,
+    "AuthComments": "Authorized for further processing",
+    "AppComments": null,
+    "UserID": 501
+}
+Test Case 3: For AppStatus = 3 (Approval)
+json
+Copy code
+{
+     "VisitPlanID": 25,
+	"CheckedComments": null,
+    "AuthComments": null,
+    "AppComments": "Approval for further processing",
+    "UserID": 298
+}
+5. Expected Responses:
+Success Response (Example):
+For a successful operation:
+
+json
+Copy code
+{
+    "success": true,
+    "message": "Approval details created and sales order updated successfully."
+}
+
+6. Testing Steps in Postman:
+Open Postman and create a new request.
+Set the method to POST.
+Enter the endpoint URL.
+Go to the Headers tab and add the Content-Type: application/json header.
+Go to the Body tab, select raw, and paste the JSON for the test case.
+Click Send.
+Verify the response.
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_sndApprovalRejected_CancelledVisitEntry&VisitPlanID=52
+
+2. Request Type:
+POST
+
+3. Headers:
+Set the content type to JSON:
+
+Test Case 1: For AppStatus = 1 (Cancelled)
+json
+Copy code
+{
+    "VisitPlanID": 13,
+    "CanclledComments": "Money Receipt is cancelled due to...",
+    "UserID": 501
+}
+Test Case 2: For AppStatus = 2 (Rejected)
+json
+Copy code
+{
+    "VisitPlanID": 41,
+    "RejectComments": "Rejected due to ...",
+    "UserID": 501
+}

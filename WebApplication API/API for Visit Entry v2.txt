@@ -1,0 +1,616 @@
+Arrey
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_VisitPlanCompleteList&UserID=501
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_VisitPlanCompleteEntryList&UserID=501
+
+
+3. Retrieve a Specific Receipt with PurposeID = 79 - done
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_visit_planDetails&VisitPlanID=4
+
+empty return
+
+
+
+
+
+
+1. Get get_VisitPlanComplete List
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_VisitPlanCompleteList&UserID=501
+
+Output:
+[
+    {
+        "VisitPlanID": 6,
+        "VisitPlanInfo1": "VP-1010/01-25",
+        "VisitPlanInfo2": "2025-01-15 ",
+        "VisitPlanInfo3": "kusumbi High School ",
+        "VisitPlanNo": "VP-1010/01-25",
+        "VisitPlanDate": "2025-01-15 ",
+        "InstitutionID": 3314,
+        "InstitutionTypeID": 12,
+        "InstitutionType": "High-School",
+        "InstituteName": "kusumbi High School ",
+        "PurposeID": 140,
+        "PurposeName": "High School Visit",
+        "Status": "Approved",
+        "AppStatus": 2,
+        "VisitUserName": "Md. Anowar Hasan Salim",
+        "LogUserName": "Md. Anowar Hasan Salim"
+    }
+]
+
+{
+        "VisitPlanID": 1,
+        "VPInfo1": "VP-1001/01-25",
+        "VPInfo2": "2025-01-15 ",
+        "VPInfo3": "চেহেলগাজী শিক্ষা নিকেতন",
+        "VisitPlanNo": "VP-1001/01-25",
+        "VisitPlanDate": "2025-01-15 ",
+        "InstitutionTypeID": 12,
+        "InstitutionTypeName": "High-School",
+        "InstituteName": "চেহেলগাজী শিক্ষা নিকেতন",
+        "InstitutionID": 3273,
+        "PurposeID": 140,
+        "PurposeName": "High School Visit",
+        "VisitUserID": 501,
+        "VisitUserName": "Md. Anowar Hasan Salim",
+        "Status": 3,
+        "AppStatus": 3,
+        "UserID": 501,
+        "LogUserName": "Md. Anowar Hasan Salim",
+        "CreatedAt": "2025-01-13 00:00:00",
+        "ModifiedAt": "2025-01-20 10:39:24"
+    }
+
+2. Get get_VisitEntryComplete List
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_VisitPlanCompleteEntryList&UserID=501
+
+Output:
+[
+    {
+        "VisitPlanID": 6,
+        "VisitPlanInfo1": "VP-1010/01-25",
+        "VisitPlanInfo2": "2025-01-15 ",
+        "VisitPlanInfo3": "kusumbi High School ",
+        "VisitPlanNo": "VP-1010/01-25",
+        "VisitPlanDate": "2025-01-15 ",
+        "InstitutionID": 3314,
+        "InstitutionTypeID": 12,
+        "InstitutionType": "High-School",
+        "InstituteName": "kusumbi High School ",
+        "PurposeID": 140,
+        "PurposeName": "High School Visit",
+        "Status": "Approved",
+        "AppStatus": 2,
+        "VisitUserName": "Md. Anowar Hasan Salim",
+        "LogUserName": "Md. Anowar Hasan Salim"
+    }
+]
+
+2. Get get_VisitEntryComplete Single
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_VisitPlanCompleteEntry&VisitPlanID=19
+
+
+
+
+
+3. Retrieve a Specific Receipt with PurposeID = 79 - done
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_visit_planDetails&VisitPlanID=4
+
+Expected Response:
+```json
+{
+    "VisitPlanID": 4,
+    "VPInfo1": "VP-1008/01-25",
+    "VPInfo2": "2024-09-20 ",
+    "VPInfo3": "Gopalpur Govt. Primary School ",
+    "VisitPlanNo": "VP-1008/01-25",
+    "VisitPlanDate": "2024-09-20 ",
+    "InstitutionTypeID": 11,
+    "InstitutionTypeName": "Primary-School",
+    "InstituteName": "Gopalpur Govt. Primary School ",
+    "InstitutionID": 169,
+    "PurposeID": 79,
+    "PurposeName": "Business Development Exp.",
+    "VisitUserID": 501,
+    "VisitUserName": "Md. Anowar Hasan Salim",
+    "Status": 2,
+    "AppStatus": 2,
+    "UserID": 501,
+    "LogUserName": "Md. Anowar Hasan Salim",
+    "CreatedAt": "2025-01-15 00:41:42",
+    "ModifiedAt": "2025-01-15 00:43:12",
+    "CheckInTime": null,
+    "CheckOutTime": null,
+    "Latitude": null,
+    "Longitude": null,
+    "VisitEntryDate": null,
+    "VEStatus": 0,
+    "Details": [
+        {
+            "BDExpReqID": 13,
+            "BDExpReqDetailsID": 12,
+            "BDExpUserID": 501,
+            "BDExpReqDate": "2025-01-08 ",
+            "InstitutionTypeID": 11,
+            "InstitutionTypeName": "Primary-School",
+            "InstitutionID": 169,
+            "InstitutionName": "Gopalpur Govt. Primary School ",
+            "TeacherName": "ABC Johnson",
+            "Designation": "Head Teacher",
+            "ContactPhone": "123456789",
+            "FinancialYearID": 13221771,
+            "BooksGroupID": 160,
+            "BooksGroup": "Primary-School",
+            "ProductID": 2,
+            "ProductName": "অনুপম একের ভিতর সব (দ্বিতীয় শ্রেণি)",
+            "StudentsCount": 4000,
+            "DonationAmount": "10000.00",
+            "DonationDisbrush": null,
+            "DonationBalance": null
+        },
+        {
+            "BDExpReqID": 13,
+            "BDExpReqDetailsID": 13,
+            "BDExpUserID": 501,
+            "BDExpReqDate": "2025-01-08 ",
+            "InstitutionTypeID": 11,
+            "InstitutionTypeName": "Primary-School",
+            "InstitutionID": 169,
+            "InstitutionName": "Gopalpur Govt. Primary School ",
+            "TeacherName": "BDC Williams",
+            "Designation": "Assistant Teacher",
+            "ContactPhone": "987654321",
+            "FinancialYearID": 13221771,
+            "BooksGroupID": 160,
+            "BooksGroup": "Primary-School",
+            "ProductID": 3,
+            "ProductName": "অনুপম একের ভিতর সব (তৃতীয় শ্রেণি)",
+            "StudentsCount": 200,
+            "DonationAmount": "2000.00",
+            "DonationDisbrush": null,
+            "DonationBalance": null
+        },
+        {
+            "BDExpReqID": 76,
+            "BDExpReqDetailsID": 50,
+            "BDExpUserID": 501,
+            "BDExpReqDate": "2025-01-08 ",
+            "InstitutionTypeID": 11,
+            "InstitutionTypeName": "Primary-School",
+            "InstitutionID": 169,
+            "InstitutionName": "Gopalpur Govt. Primary School ",
+            "TeacherName": "Alice Johnson",
+            "Designation": "Head Teacher",
+            "ContactPhone": "123456789",
+            "FinancialYearID": 2025,
+            "BooksGroupID": 160,
+            "BooksGroup": "Primary-School",
+            "ProductID": 2,
+            "ProductName": "অনুপম একের ভিতর সব (দ্বিতীয় শ্রেণি)",
+            "StudentsCount": 4000,
+            "DonationAmount": "10000.00",
+            "DonationDisbrush": "0",
+            "DonationBalance": ".00"
+        },
+        {
+            "BDExpReqID": 76,
+            "BDExpReqDetailsID": 51,
+            "BDExpUserID": 501,
+            "BDExpReqDate": "2025-01-08 ",
+            "InstitutionTypeID": 11,
+            "InstitutionTypeName": "Primary-School",
+            "InstitutionID": 169,
+            "InstitutionName": "Gopalpur Govt. Primary School ",
+            "TeacherName": "Bob Williams",
+            "Designation": "Assistant Teacher",
+            "ContactPhone": "987654321",
+            "FinancialYearID": 2025,
+            "BooksGroupID": 160,
+            "BooksGroup": "Primary-School",
+            "ProductID": 3,
+            "ProductName": "অনুপম একের ভিতর সব (তৃতীয় শ্রেণি)",
+            "StudentsCount": 200,
+            "DonationAmount": "2000.00",
+            "DonationDisbrush": "0",
+            "DonationBalance": ".00"
+        }
+    ]
+}
+
+
+Retrieve a Specific Receipt without PurposeID = 79 - done
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_visit_planDetails&VisitPlanID=2
+
+Expected Response:
+```json
+{
+    "VisitPlanID": 2,
+    "VPInfo1": "VP-1002/01-25",
+    "VPInfo2": "2024-09-20 ",
+    "VPInfo3": "Raj Mushuri Govt Primary School",
+    "VisitPlanNo": "VP-1002/01-25",
+    "VisitPlanDate": "2024-09-20 ",
+    "InstitutionTypeID": 11,
+    "InstitutionTypeName": "Primary-School",
+    "InstituteName": "Raj Mushuri Govt Primary School",
+    "InstitutionID": 177,
+    "PurposeID": 140,
+    "PurposeName": "High School Visit",
+    "VisitUserID": 501,
+    "VisitUserName": "Md. Anowar Hasan Salim",
+    "Status": 2,
+    "AppStatus": 2,
+    "UserID": 501,
+    "LogUserName": "Md. Anowar Hasan Salim",
+    "CreatedAt": "2025-01-13 06:01:38",
+    "ModifiedAt": null
+}
+
+
+For Get Teacher Information - done
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_institutionTeacher&InstitutionID=242
+
+[
+    {
+        "InstitutionDetailsID": 224,
+        "TeacherName": "বিকাশ চন্দ্র রায়",
+        "Designation": "সহকারী শিক্ষক",
+        "ContactPhone": "01758362005"
+    },
+    {
+        "InstitutionDetailsID": 221,
+        "TeacherName": "মোঃ মোরসেদুজ্জামান",
+        "Designation": "সহকারী শিক্ষক",
+        "ContactPhone": "01719029050"
+    }
+]
+
+
+Get Financial Year
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_financialyear
+
+[
+    {
+        "id": 13221771,
+        "name": "Fiscal Year-2024"
+    }
+]
+
+
+Books Group Select: - done
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_bookscategorys
+
+[
+    {
+        "ID": 158,
+        "CategoryName": "English Grammar"
+    },
+    {
+        "ID": 159,
+        "CategoryName": "High-School"
+    }
+]
+
+Books Name Categorywise
+
+$Categoryid, $PurposeID, $VisitUserID
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_productcategorywise&Categoryid=176
+[
+    {
+        "ProductID": 317,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্  রসায়ন"
+    },
+    {
+        "ProductID": 318,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ ইসলাম ও নৈতিক শিক্ষা"
+    },
+    {
+        "ProductID": 319,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ উচ্চতর গণিত"
+    },
+    {
+        "ProductID": 320,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ ও মেইড ইজি ইংরেজি (১ম ও ২য় পত্র)"
+    }
+]
+
+If Purposeid = 124 then
+userid = 501
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_productcategorywisevisitentry&Categoryid=176
+
+[
+    {
+        "ProductID": 317,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্  রসায়ন"
+    },
+    {
+        "ProductID": 318,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ ইসলাম ও নৈতিক শিক্ষা"
+    },
+    {
+        "ProductID": 319,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ উচ্চতর গণিত"
+    },
+    {
+        "ProductID": 320,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ ও মেইড ইজি ইংরেজি (১ম ও ২য় পত্র)"
+    }
+]
+
+TA/DA Expense - done
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_tada_allowances
+
+[
+    {
+        "ID": 21,
+        "CategoryType": "TA/DA Allowance",
+        "CategoryName": "TA"
+    },
+    {
+        "ID": 22,
+        "CategoryType": "TA/DA Allowance",
+        "CategoryName": "DA"
+    }
+]
+
+update_visit_entry&VisitPlanID=1 - done
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_visit_entry&VisitPlanID=1
+
+{
+    "CheckInTime": "2025-01-01T09:00:00",
+    "CheckOutTime": "2025-01-01T17:00:00",
+    "Latitude": "23.8103",
+    "Longitude": "90.4125",
+    "VisitEntryDate": "2025-01-01",
+    "VEStatus": 1
+}
+
+
+
+
+1. Create a New VisitPlan Details - done
+
+Endpoint: `POST https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_visit_plan_details
+
+Request Body:
+```json
+{
+    "VisitPlanID": 1,
+    "TeacherName": "John Doe",
+    "Designation": "Headmaster",
+    "Phone": "1234567890",
+    "FinancialYearID": 2025,
+    "ProductCategoryID": 1,
+    "ProductID": 101,
+    "StudentNo": 50,
+    "DonationAmount": 1000,
+    "SpecimenQty": 10
+}
+
+For Input Without DonationAmount and SpecimenQty:
+
+{
+    "VisitPlanID": 123,
+    "TeacherName": "Jane Smith",
+    "Designation": "Principal",
+    "Phone": "0987654321",
+    "FinancialYearID": 2025,
+    "ProductCategoryID": 2,
+    "ProductID": 102,
+    "StudentNo": 100
+}
+
+get_create_visit_plan_details - done
+
+Endpoint: `POST https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_visit_plan_TeacherBooks&VisitPlanID=19
+
+{
+    "message": "Visit plan details retrieved successfully",
+    "data": [
+        {
+            "VisitPlanID": 19,
+            "TeacherName": "John Doe",
+            "Designation": "Math Teacher",
+            "Phone": "0123456789",
+            "FinancialYearID": 1,
+            "ProductCategoryID": 2,
+            "ProductID": 3,
+            "StudentNo": 30,
+            "DonationAmount": "500.00",
+            "SpecimenQty": 10,
+            "CreatedAt": {
+                "date": "2025-01-20 16:20:57.800000",
+                "timezone_type": 3,
+                "timezone": "Europe/Berlin"
+            }
+        }
+    ]
+}
+
+
+
+
+
+
+
+
+Create a New TADA Visit Plan - done
+
+Endpoint: `POST https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_visit_plan_TADA_details
+
+{
+    "VisitPlanID": 1,
+    "TADACategoryID": 4,
+    "Amount": 2500
+}
+
+
+Get get_visit_plan_TADA_details - done
+
+Endpoint: `POST https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_visit_plan_TADA_details&VisitPlanID=19
+
+{
+    "message": "TADA details fetched successfully",
+    "TADADetails": [
+        {
+            "sndVisitPlanTADADetailsID": 2,
+            "TADACategoryID": 1,
+            "Amount": "1000.00",
+            "CreatedAt": {
+                "date": "2025-01-20 16:20:57.807000",
+                "timezone_type": 3,
+                "timezone": "Europe/Berlin"
+            }
+        },
+        {
+            "sndVisitPlanTADADetailsID": 3,
+            "TADACategoryID": 2,
+            "Amount": "500.00",
+            "CreatedAt": {
+                "date": "2025-01-20 16:20:57.827000",
+                "timezone_type": 3,
+                "timezone": "Europe/Berlin"
+            }
+        }
+    ]
+}
+
+Create a New create_visit_entryall - done
+
+Endpoint: `POST https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_visit_entryall&VisitPlanID=19
+
+{
+  "CheckInTime": "2025-01-04 09:00:00",
+  "CheckOutTime": "2025-01-04 17:00:00",
+  "Latitude": 23.8103,
+  "Longitude": 90.4125,
+  "VisitEntryDate": "2025-01-04",
+  "VEStatus": 1,
+  "Details": [
+    {
+      "TeacherName": "John Doe",
+      "Designation": "Math Teacher",
+      "Phone": "0123456789",
+      "FinancialYearID": 1,
+      "ProductCategoryID": 2,
+      "ProductID": 3,
+      "StudentNo": 30,
+      "DonationAmount": 500,
+      "SpecimenQty": 10
+    }
+  ],
+  "TADADetails": [
+    {
+      "TADACategoryID": 1,
+      "Amount": 1000
+    },
+    {
+      "TADACategoryID": 2,
+      "Amount": 500
+    }
+  ]
+}
+
+
+Get get_visit_entryall - done
+
+Endpoint: `POST https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_visit_entryall&VisitPlanID=19
+
+{
+    "VisitPlan": {
+        "VisitPlanID": 19,
+        "VPInfo1": "VP-1017/01-25",
+        "VPInfo2": "2025-01-19 ",
+        "VPInfo3": "Zigatola Model Govt Primary School",
+        "VisitPlanNo": "VP-1017/01-25",
+        "VisitPlanDate": "2025-01-19 ",
+        "InstitutionTypeID": 11,
+        "InstitutionTypeName": "Primary-School",
+        "InstituteName": "Zigatola Model Govt Primary School",
+        "InstitutionID": 182,
+        "PurposeID": 79,
+        "PurposeName": "Business Development Exp.",
+        "VisitUserID": 69,
+        "VisitUserName": "Md. Rasel Hossain",
+        "Status": 2,
+        "AppStatus": 2,
+        "UserID": 69,
+        "LogUserName": "Md. Rasel Hossain",
+        "CreatedAt": "2025-01-19 17:19:34",
+        "ModifiedAt": "2025-01-20 16:20:57",
+        "CheckInTime": {
+            "date": "2025-01-04 09:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "CheckOutTime": {
+            "date": "2025-01-04 17:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "Latitude": "23.810300",
+        "Longitude": "90.412500",
+        "VisitEntryDate": {
+            "date": "2025-01-04 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "VEStatus": 1
+    },
+    "Details": [
+        {
+            "VisitPlanDetailID": 5,
+            "TeacherName": "John Doe",
+            "Designation": "Math Teacher",
+            "Phone": "0123456789",
+            "FinancialYearID": 1,
+            "ProductCategoryID": 2,
+            "ProductID": 3,
+            "StudentNo": 30,
+            "DonationAmount": "500.00",
+            "SpecimenQty": 10,
+            "CreatedAt": {
+                "date": "2025-01-20 16:20:57.800000",
+                "timezone_type": 3,
+                "timezone": "Europe/Berlin"
+            }
+        }
+    ],
+    "TADADetails": [
+        {
+            "sndVisitPlanTADADetailsID": 2,
+            "TADACategoryID": 1,
+            "Amount": "1000.00",
+            "CreatedAt": {
+                "date": "2025-01-20 16:20:57.807000",
+                "timezone_type": 3,
+                "timezone": "Europe/Berlin"
+            }
+        },
+        {
+            "sndVisitPlanTADADetailsID": 3,
+            "TADACategoryID": 2,
+            "Amount": "500.00",
+            "CreatedAt": {
+                "date": "2025-01-20 16:20:57.827000",
+                "timezone_type": 3,
+                "timezone": "Europe/Berlin"
+            }
+        }
+    ]
+}

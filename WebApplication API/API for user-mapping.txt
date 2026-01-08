@@ -1,0 +1,97 @@
+18.	Mapping Employee VS Region
+Note: 
+1.	Load all the employee left site with radio button and loan all the Region like Tree with Check box
+2.	Here we will select one-to-many system.
+The data can save & edit. No delete option.
+SQL: 
+select id, UserID, RegionID from sndMapEmpRegion
+INSERT INTO [dbo].[sndMapEmpRegion]
+           ([UserID]
+           ,[RegionID])
+     VALUES
+           (<UserID, int,>
+           ,<RegionID, int,>)
+Create a Mapping
+Endpoint: POST https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_mapping
+Request Body:
+json
+Copy code
+{
+    "UserID": 1,
+    "RegionID": 87
+}
+Get All Mappings
+Endpoint: GET https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_mappings
+ [{
+    "ID": 1,
+    "UserID": 1,
+    "RegionID": 87
+}, {
+    "ID": 7,
+    "UserID": 2,
+    "RegionID": 87
+}]
+Get a Single Mapping
+Endpoint: GET https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_mapping&ID=7
+{
+    "ID": 7,
+    "UserID": 2,
+    "RegionID": 87
+}
+Update a Mapping
+Endpoint: PUT https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_mapping&ID=7
+Request Body:
+json
+Copy code
+{
+    "UserID": 3,
+    "RegionID": 87
+}
+Delete a Mapping
+Endpoint: DELETE https://asianabpolymer.com/abpolymer/salesforce_api.php?action=delete_mapping&ID=7
+
+
+Get single user mapping 
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_usermapregion&EmployeeID='ID-0006'
+
+get_usermapregion
+
+All user mapping:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_allusermapregion
+
+{
+    "success": true,
+    "data": [
+        {
+            "EmployeeID": "ID-1304",
+            "EmpName": "Md. Abdus Sattar",
+            "Designation": "Zonal Sales Manager",
+            "UserRoleName": "ZSM",
+            "District": "Barguna ",
+            "Thana": "Bamna ",
+            "Area": "Bamna "
+        },
+        {
+            "EmployeeID": "ID-0486",
+            "EmpName": "Md. Amirul Islam",
+            "Designation": "Zonal Sales Manager",
+            "UserRoleName": "ZSM",
+            "District": "Barguna ",
+            "Thana": "Bamna ",
+            "Area": "Bamna "
+        },
+        {
+            "EmployeeID": "ID-0302",
+            "EmpName": "Md. Alamin",
+            "Designation": "Zonal Sales Manager",
+            "UserRoleName": "ZSM",
+            "District": "Barguna ",
+            "Thana": "Bamna ",
+            "Area": "Bamna "
+        }
+]
+
+Design Example:
+https://asianabpolymer.com/abpolymer/allusermapping.php

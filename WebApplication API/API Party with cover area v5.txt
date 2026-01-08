@@ -1,0 +1,371 @@
+
+
+
+For Add New party Info:
+API:
+Create a new POST request with the URL:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_party
+
+Set the headers:
+Content-Type: application/json
+Set the Body: Select raw and choose JSON. Enter the following JSON data:
+
+
+{
+    "PartyName": "ABC Distributors",
+    "Address": "123 Main Street, Dhaka",
+    "RegionID": 1,
+    "OwnerName": "John Doe",
+    "OwnerCurrentAddress": "Dhaka City",
+    "OwnerPermanentAddress": "Chittagong",
+    "OwnerContactNumber": "017XXXXXXXX",
+    "OwnerDateOfBirth": "1985-05-15",
+    "BusinessStartYear": "2010",
+    "Email": "owner@example.com",
+    "Website": "http://www.abcdistributors.com",
+    "ContactPersonName": "Jane Smith",
+    "ContactNumber": "018XXXXXXXX",
+    "NoOfThana": 5,
+    "NoOfDistrict": 3,
+    "CreditLimit": 500000.00,
+    "DepositAmount": 100000.00,
+    "IsSamityMember": "Yes",
+    "WayOfSendingLetters": "Email",
+    "OpeningBalance": 20000.00
+}
+
+Output
+{
+    "message": "Party created successfully"
+}
+
+For a specific party Info by ID, use:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_parties
+
+{
+    "PartyName": "ABC Distributors11",
+    "Address": "123 Main Street, Dhaka",
+    "RegionID": 1,
+    "OwnerName": "John Doe",
+    "OwnerCurrentAddress": "Dhaka City",
+    "OwnerPermanentAddress": "Chittagong",
+    "OwnerContactNumber": "017XXXXXXXX",
+    "OwnerDateOfBirth": "1985-05-15",
+    "BusinessStartYear": "2010",
+    "Email": "owner@example.com",
+    "Website": "http://www.abcdistributors.com",
+    "ContactPersonName": "Jane Smith",
+    "ContactNumber": "018XXXXXXXX",
+    "NoOfThana": 5,
+    "NoOfDistrict": 3,
+    "CreditLimit": "500000.00",
+    "DepositAmount": "100000.00",
+    "IsSamityMember": "Yes",
+    "WayOfSendingLetters": "Email",
+    "OpeningBalance": "20000.00"
+}
+
+For a specific party Info by ID, use:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_party&PartyID=59
+
+{
+    "PartyName": "ABC Distributors11",
+    "Address": "123 Main Street, Dhaka",
+    "RegionID": 1,
+    "OwnerName": "John Doe",
+    "OwnerCurrentAddress": "Dhaka City",
+    "OwnerPermanentAddress": "Chittagong",
+    "OwnerContactNumber": "017XXXXXXXX",
+    "OwnerDateOfBirth": "1985-05-15",
+    "BusinessStartYear": "2010",
+    "Email": "owner@example.com",
+    "Website": "http://www.abcdistributors.com",
+    "ContactPersonName": "Jane Smith",
+    "ContactNumber": "018XXXXXXXX",
+    "NoOfThana": 5,
+    "NoOfDistrict": 3,
+    "CreditLimit": "500000.00",
+    "DepositAmount": "100000.00",
+    "IsSamityMember": "Yes",
+    "WayOfSendingLetters": "Email",
+    "OpeningBalance": "20000.00"
+}
+
+
+For Update party Info:
+API:
+create a PUT request.
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_party&PartyID=59
+
+Go to the Body tab, select raw, and set it to JSON.
+Enter the following JSON in the body
+
+{
+    "PartyName": "Updated DistributorsSalim",
+    "Address": "456 New Street, Dhaka",
+    "RegionID": 2,
+    "OwnerName": "John Doe Updated",
+    "OwnerCurrentAddress": "New Dhaka",
+    "OwnerPermanentAddress": "Chittagong Updated",
+    "OwnerContactNumber": "018XXXXXXXX",
+    "OwnerDateOfBirth": "1985-06-15",
+    "BusinessStartYear": "2012",
+    "Email": "updated@example.com",
+    "Website": "http://www.updateddistributors.com",
+    "ContactPersonName": "Jane Doe Updated",
+    "ContactNumber": "019XXXXXXXX",
+    "NoOfThana": 6,
+    "NoOfDistrict": 4,
+    "CreditLimit": 700000.00,
+    "DepositAmount": 150000.00,
+    "IsSamityMember": "No",
+    "WayOfSendingLetters": "Courier",
+    "OpeningBalance": 30000.00
+}
+
+Output:
+
+{
+    "message": "Party updated successfully"
+}
+
+
+For Party CoveredArea Get
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_partydetailsAreas&PartyID=1
+
+{
+    "PartyID": 1,
+    "PartyAreas": [
+        {
+            "RegionID": 1,
+            "RegionName": "Updated Region A"
+        },
+        {
+            "RegionID": 3,
+            "RegionName": "New Region C"
+        }
+    ]
+}
+
+For Party CoveredArea Create
+
+Create a new POST request with the URL:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_partydetailsAreas&PartyID=1
+
+Set the headers:
+Content-Type: application/json
+Set the Body: Select raw and choose JSON. Enter the following JSON data:
+
+Input:
+
+{
+  "PartyAreas": [
+    {
+      "RegionID": 1,
+      "RegionName": "North Region"
+    },
+    {
+      "RegionID": 2,
+      "RegionName": "South Region"
+    }
+  ]
+}
+
+
+Output:
+
+{
+  "message": "Party Area created successfully",
+  "PartyID": "<PartyID>"
+}
+
+
+For Update update_partydetailsAreasInfo:
+API:
+create a PUT request.
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_partydetailsAreas&PartyID=1
+
+Go to the Body tab, select raw, and set it to JSON.
+Enter the following JSON in the body
+
+Input:
+
+{
+  "PartyAreas": [
+    {
+      "RegionID": 1,
+      "RegionName": "Updated Region A"
+    },
+    {
+      "RegionID": 3,
+      "RegionName": "New Region C"
+    }
+  ]
+}
+
+Output:
+
+{
+    "message": "Party Areas updated successfully",
+    "PartyID": 1
+}
+
+
+#####################################################
+####################################################3
+
+
+For Party Documents:
+
+Design Link: https://anupambd.com/KBLsalesforce/PartyDocuments.php
+
+For Party Documents Type Name Combobox Data
+
+For All Party Dcouments Type
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_partydoctypes
+
+[
+    {
+        "PartyDocsTypeID": 1,
+        "PartyDocName": "Party Owner Picture"
+    },
+    {
+        "PartyDocsTypeID": 2,
+        "PartyDocName": "Party Owner NID Document"
+    },
+    {
+        "PartyDocsTypeID": 3,
+        "PartyDocName": "Trade License Document"
+    },
+    {
+        "PartyDocsTypeID": 4,
+        "PartyDocName": "Samity Membership Card"
+    },
+    {
+        "PartyDocsTypeID": 5,
+        "PartyDocName": "TIN Certificate"
+    },
+    {
+        "PartyDocsTypeID": 6,
+        "PartyDocName": "Deposit Cheque"
+    },
+    {
+        "PartyDocsTypeID": 7,
+        "PartyDocName": "Non Judicial Agreement Document"
+    },
+    {
+        "PartyDocsTypeID": 8,
+        "PartyDocName": "Agreement Document"
+    },
+    {
+        "PartyDocsTypeID": 9,
+        "PartyDocName": "Document1"
+    },
+    {
+        "PartyDocsTypeID": 10,
+        "PartyDocName": "Document2"
+    },
+    {
+        "PartyDocsTypeID": 11,
+        "PartyDocName": "Document3"
+    }
+]
+
+For one Party Dcouments Type
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_partydoctype&PartyDocsTypeID=1
+
+{
+    "PartyDocsTypeID": 1,
+    "PartyDocName": "Party Owner Picture"
+}
+
+Create Party Documents
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_partyDocs&PartyID=61
+Method: POST
+Body: form-data
+Key	Value	Type
+PartyDocsTypeID[]	1	Text
+PartyDocsTypeID[]	2	Text
+PartyDocsPath[]	[Select a file for document 1]	File
+PartyDocsPath[]	[Select a file for document 2]	File
+Example Response:
+json
+Copy code
+{
+    "message": "Party documents uploaded successfully",
+    "uploadedFiles": [
+        {
+            "PartyDocsTypeID": "1",
+            "PartyDocsPath": "uploads/party_files/ABC_Party/PartyDocs_64327abc1234.jpg"
+        },
+        {
+            "PartyDocsTypeID": "2",
+            "PartyDocsPath": "uploads/party_files/ABC_Party/PartyDocs_64327abc5678.jpg"
+        }
+    ]
+}
+
+Get Party Documents
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_partyDocs&PartyID=61
+
+{
+    "PartyID": "61",
+    "PartyName": "ABC Distributors66",
+    "Documents": [
+        {
+            "PartyDocsID": 1,
+            "PartyDocsTypeID": 1,
+            "PartyDocName": "Party Owner Picture",
+            "PartyDocsPath": "uploads/party_files/Party_61/PartyDocs_674f801084d814.15673456.pdf",
+            "CreatedAt": "2024-12-04 04:02:56",
+            "ModifiedAt": "2024-12-04 04:02:56"
+        },
+        {
+            "PartyDocsID": 2,
+            "PartyDocsTypeID": 1,
+            "PartyDocName": "Party Owner Picture",
+            "PartyDocsPath": "uploads/party_files/ABC Distributors66/PartyDocs_674f8508741116.05742837.jpg",
+            "CreatedAt": "2024-12-04 04:24:08",
+            "ModifiedAt": "2024-12-04 04:24:08"
+        },
+        {
+            "PartyDocsID": 3,
+            "PartyDocsTypeID": 2,
+            "PartyDocName": "Party Owner NID Document",
+            "PartyDocsPath": "uploads/party_files/ABC Distributors66/PartyDocs_674f85087430e9.49713956.pdf",
+            "CreatedAt": "2024-12-04 04:24:08",
+            "ModifiedAt": "2024-12-04 04:24:08"
+        }
+    ]
+}
+
+
+Delete Party Documents
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=delete_partyDocs&PartyDocsID=3
+
+Postman Setup for Testing
+Method: DELETE
+
+Headers:
+Content-Type: application/json (Optional)
+
+Output:
+{
+    "message": "Party document deleted successfully.",
+    "deletedFile": "uploads/party_files/PartyName/filename.pdf"
+}
+
+
+

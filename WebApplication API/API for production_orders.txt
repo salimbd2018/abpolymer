@@ -1,0 +1,136 @@
+Production Orders
+
+1. **Get All Production Orders**:
+   ```
+   GET https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_production_orders
+   
+   Output:
+   
+   [
+    {
+        "ProductionOrderID": 1,
+        "ProductionOrderNo": "POR-1001",
+        "SubmittedByUserID": 1,
+        "ProductionOrderDate": {
+            "date": "2023-09-01 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "FinancialYearID": 1,
+        "ProductCategoryID": 1,
+        "ProductID": 1,
+        "Quantity": 100,
+        "ProductionDemandQty": 2000,
+        "Status": "Pending",
+        "CreatedAt": {
+            "date": "2024-09-30 02:50:38.007000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "ModifiedAt": {
+            "date": "2024-09-30 02:50:38.007000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        }
+    }
+]
+
+2. **Get a Single Production Order**:
+   ```
+   GET https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_production_order&ProductionOrderID=1
+   ```
+   Output:
+   
+   {
+    "ProductionOrderID": 1,
+    "ProductionOrderNo": "POR-1001/11-24",
+    "SubmittedByUserID": 1,
+    "ProductionOrderDate": {
+        "date": "2023-09-01 00:00:00.000000",
+        "timezone_type": 3,
+        "timezone": "Europe/Berlin"
+    },
+    "FinancialYearID": 1,
+    "ProductCategoryID": 1,
+    "ProductID": 1,
+    "Quantity": 100,
+    "ProductionDemandQty": 2000,
+    "Status": "Pending",
+    "CreatedAt": {
+        "date": "2024-09-30 02:50:38.007000",
+        "timezone_type": 3,
+        "timezone": "Europe/Berlin"
+    },
+    "ModifiedAt": {
+        "date": "2024-09-30 02:50:38.007000",
+        "timezone_type": 3,
+        "timezone": "Europe/Berlin"
+    }
+
+
+happiyness
+
+1, 2 renesan
+
+
+wooden 
+
+}
+
+3. **Get a Production Order Number**:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=generate_new_product_receipt_number
+
+Output
+
+{
+    "NewProductionOrderNo": "POR-1034/11-24"
+}
+
+
+
+4. **Create a Production Order**:
+   ```
+   POST https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_production_order
+   ```
+   
+
+   **JSON Payload**:
+   ```json
+   {
+       "ProductionOrderNo": "POR-1006",
+       "SubmittedByUserID": 2,
+       "ProductCategoryID": 3,
+       "ProductID": 5,
+       "Quantity": 200,
+       "ProductionDemandQty": 2500,
+       "ProductionOrderDate": "2024-01-01",
+       "FinancialYearID": 1,
+       "Status": "Pending"
+   }
+   ```
+
+5. **Update a Production Order**:
+   ```
+   PUT https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_production_order&ProductionOrderID=1
+   ```
+
+   **JSON Payload**:
+   ```json
+   {
+       "ProductionOrderNo": "POR-1006",
+       "SubmittedByUserID": 2,
+       "ProductCategoryID": 3,
+       "ProductID": 5,
+       "Quantity": 200,
+       "ProductionDemandQty": 2500,
+       "ProductionOrderDate": "2024-01-01",
+       "FinancialYearID": 1,
+       "Status": "In-Process"
+   }
+   ```
+
+6. **Delete a Production Order**:
+   ```
+   DELETE https://asianabpolymer.com/abpolymer/salesforce_api.php?action=delete_production_order&ProductionOrderID=1
+   ```

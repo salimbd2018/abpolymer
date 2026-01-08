@@ -1,0 +1,330 @@
+
+
+INSERT INTO [dbo].[sndInvoiceDetails]
+           ([InvoiceID]
+           ,[FinancialYearID]
+           ,[ProductCategoryID]
+           ,[ProductID]
+           ,[Quantity]
+           ,[UnitPrice]
+           ,[CreatedAt]
+           ,[ModifiedAt])
+     VALUES
+           (<InvoiceID, int,>
+           ,<FinancialYearID, int,>
+           ,<ProductCategoryID, int,>
+           ,<ProductID, int,>
+           ,<Quantity, int,>
+           ,<UnitPrice, decimal(10,2),>
+           ,<CreatedAt, datetime,>
+           ,<ModifiedAt, datetime,>)
+GO
+
+Get a generate_new_invoice_number**: done
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=generate_new_invoice_number
+
+Output
+
+{
+    "newInvoiceNo": "IN-1001/01-25"
+}
+
+Please replace the following API
+From
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_invoiceSalesOrder_users
+To
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_invoiceSalesOrder_users&UserID=688
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_invoiceSalesOrder
+
+Lebel: 
+InvoiceID, InvoiceNo, InvoiceDate,PartyName, ChallanNo,ChallanDate, SalesOrderNo, OrderDate, StatusName
+[
+    {
+        "InvoiceID": 1,
+        "InvoiceNo": "INV-10001",
+        "InvoiceDate": "2024-09-18 ",
+        "PartyID": 11,
+        "PartyName": "Al-Baraka Library-Mirpur-01",
+        "SpecimenUserID": null,
+        "EmployeeName": null,
+        "ChallanID": 1,
+        "SalesOrderID": 46,
+        "SalesOrderTypeID": 1,
+        "SalesOrderType": "SalesOrder",
+        "Status": 0,
+        "StatusName": "Invoice Un-Printed"
+    }
+]
+
+
+Please replace the following API
+From
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_invoiceSpecimenOrder
+To
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_invoiceSpecimenOrder_users&UserID=474
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_invoiceSpecimenOrder
+
+InvoiceID, InvoiceNo, InvoiceDate,EmployeeName, ChallanNo,ChallanDate, SalesOrderNo, OrderDate, StatusName
+
+[
+    {
+        "InvoiceID": 2,
+        "InvoiceNo": "INV-10002",
+        "InvoiceDate": "2024-09-19 ",
+        "PartyID": null,
+        "PartyName": null,
+        "SpecimenUserID": 501,
+        "EmployeeName": "Md. Anowar Hasan Salim",
+        "ChallanID": 2,
+        "SalesOrderID": 47,
+        "SalesOrderTypeID": 2,
+        "SalesOrderType": "SpecimenOrder",
+        "Status": 0,
+        "StatusName": "Invoice Un-Printed"
+    },
+    {
+        "InvoiceID": 3,
+        "InvoiceNo": "INV-10003",
+        "InvoiceDate": "2024-09-20 ",
+        "PartyID": null,
+        "PartyName": null,
+        "SpecimenUserID": 501,
+        "EmployeeName": "Md. Anowar Hasan Salim",
+        "ChallanID": 3,
+        "SalesOrderID": 48,
+        "SalesOrderTypeID": 2,
+        "SalesOrderType": "SpecimenOrder",
+        "Status": 0,
+        "StatusName": "Invoice Un-Printed"
+    }
+]
+
+Pending sales Order done
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_salesordersInvoice
+
+SalesOrderID, SalesOrderNo, OrderDate, partyname, ChallanNo, ChallanDate, TotalAmount, challanstatusName
+
+[
+    {
+        "SalesOrderID": 128,
+        "SalesOrderNo": "SO-1082/02-25",
+        "ChallanID": 28,
+        "OrderDate": "2025-02-01 ",
+        "PartyID": 196,
+        "RegionID": 878,
+        "partyname": "Satrobondhu Library-Kustia",
+        "status": 3,
+        "Status": "Approved",
+        "challanstatus": 1,
+        "challanstatusName": "Invoice Pending",
+        "AppStatus": 3,
+        "TotalAmount": "35625.00",
+        "logUserName": "Md. Rasel Hossain"
+    },
+    {
+        "SalesOrderID": 107,
+        "SalesOrderNo": "SO-1061/01-25",
+        "ChallanID": 26,
+        "OrderDate": "2025-01-29 ",
+        "PartyID": 191,
+        "RegionID": 907,
+        "partyname": "Rumi Library- Batagi, Barguna",
+        "status": 3,
+        "Status": "Approved",
+        "challanstatus": 1,
+        "challanstatusName": "Invoice Pending",
+        "AppStatus": 3,
+        "TotalAmount": "40000.00",
+        "logUserName": "Md. Rasel Hossain"
+    }
+]
+
+
+Pending Specimen Orders: done
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_specimenordersInvoice
+
+SalesOrderID, SalesOrderNo, OrderDate, SpecimenUserName, ChallanNo, ChallanDate, TotalAmount, challanstatusName
+
+[
+    {
+        "SalesOrderID": 82,
+        "SalesOrderNo": "SO-1036/01-25",
+        "OrderDate": "2025-01-21 ",
+        "ChallanID": null,
+        "SpecimenUserID": null,
+        "RegionID": 900,
+        "SpecimenUserName": null,
+        "status": 3,
+        "Status": "Approved",
+        "challanstatus": 1,
+        "challanstatusName": "Invoice Pending",
+        "AppStatus": 3,
+        "TotalAmount": "5000.00",
+        "logUserName": "Md. Rasel Hossain"
+    }
+]
+ 
+Get a single Challan with Price
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_ChallanToInvoice&ChallanID=24
+
+{
+    "ChallanMaster": {
+        "ChallanID": 24,
+        "ChallanNo": "CN-1007/01-25",
+        "ChallanDate": "2025-01-29 ",
+        "PartyID": 22,
+        "PartyName": "Arun Library-Babugonj,Barisal",
+        "SpecimenUserID": null,
+        "EmployeeName": null,
+        "SalesOrderID": 81,
+        "SalesOrderTypeID": 1,
+        "SalesOrderType": "SalesOrder",
+        "Status": 0,
+        "StatusName": "Invoice Pending"
+    },
+    "ChallanDetails": [
+        {
+            "ChallanDetailID": 14,
+            "FinancialYearID": 13221771,
+            "ProductCategoryID": 161,
+            "ProductID": 20,
+            "ProductName": "অনুপম মাধ্যমিক অর্থনীতি",
+            "OrderQty": 20,
+            "ChallanQty": 99,
+            "PRate": "400.00",
+            "Total": "39600.00",
+            "CreatedAt": {
+                "date": "2025-01-29 17:48:05.750000",
+                "timezone_type": 3,
+                "timezone": "Europe/Berlin"
+            }
+        }
+    ]
+}
+
+		
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_InvoiceOrderDetails&InvoiceID=22
+
+   
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=Create_InvoiceAll
+
+{
+    "InvoiceNo": "INV-24334",
+    "InvoiceDate": "2025-01-30",
+    "ChallanID": 6,
+    "TotalAmount": 5000,
+	"Inword": "Four Thousand Only",
+    "UserID": 501,
+    "Details": [
+        {
+            "FinancialYearID": 13221772,
+            "ProductCategoryID": 158,
+            "ProductID": 30,
+            "Quantity": 5,
+            "UnitPrice": 1000,
+			"Discount": 10,
+            "OutletID": 22
+        },
+        {
+            "FinancialYearID": 13221772,
+            "ProductCategoryID": 158,
+            "ProductID": 30,
+            "Quantity": 3,
+            "UnitPrice": 500,
+			"Discount": 0,
+            "OutletID": 0
+        }
+			]
+	"DetailsCost": [
+		{
+			"ParticularsID":1,
+			"Quantity":10,
+			"UnitPrice":300
+		},
+		{
+			"ParticularsID":2,
+			"Quantity":20,
+			"UnitPrice":100
+        }
+    ]
+}
+
+
+(select name from CmnTransactionalYears WHERE CmnTransactionalYears.ID = d.FinancialYearID) as FinancialYear,
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_InvoiceOrderDetails&InvoiceID=6
+
+{
+    "InvoiceMaster": {
+        "InvoiceID": 1,
+        "InvoiceNo": "INV-10001",
+        "ChallanDate": "2024-09-18 ",
+        "PartyID": 11,
+        "PartyName": "Al-Baraka Library-Mirpur-01",
+        "SpecimenUserID": null,
+        "EmployeeName": null,
+        "ChallanID": 1,
+        "SalesOrderID": 46,
+        "SalesOrderTypeID": 1,
+        "SalesOrderType": "SalesOrder",
+		"TotalAmount": 30000,
+		"Inword": "Three Thound",
+        "Status": 0,
+        "StatusName": "Invoice Un-Printed"
+    },
+    "InvoiceDetails": [
+        {
+            "InvoiceDetailID": 1,
+            "FinancialYearID": 13221771,
+            "ProductCategoryID": 161,
+            "ProductID": 20,
+            "ProductName": "অনুপম মাধ্যমিক অর্থনীতি",
+            "Quantity": 99,
+            "UnitPrice": "200.00",
+			"Discount":300,
+            "SubTotal": "19800.00",
+            "CreatedAt": {
+                "date": "2025-02-02 09:00:24.090000",
+                "timezone_type": 3,
+                "timezone": "Europe/Berlin"
+            }
+        }
+    ]
+	 "InvoiceExpenseDetails": []
+}
+
+
+
+ https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_allparticulars
+ 
+ 
+ [
+    {
+        "ParticularsID": 1,
+        "ParticularsName": "Transport Cost"
+    },
+    {
+        "ParticularsID": 2,
+        "ParticularsName": "Corier Cost"
+    }
+]
+ 
+ https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_particulars&ParticularsID=1
+ 
+ {
+    "ParticularsID": 1,
+    "ParticularsName": "Transport Cost"
+}
+
+
+
+

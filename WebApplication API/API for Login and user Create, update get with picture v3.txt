@@ -1,0 +1,248 @@
+Findings on Login/User Registration
+
+Android
+
+1. when login - register click then registration form not saving 
+   Reporting To - is not showing properly - but when add user system that reporting to is showing.  
+2. User Registration Add - Not saving 
+   No picture browsing option over there.    
+3. User Registration View - not showing Picture, Designation Name, reporting to Name
+4. Update also not working 
+
+
+Web Application - 
+
+1. User Registration View - not showing Picture, Designation Name, reporting to Name
+2. update is not working
+3. when login then top head picture not showing.
+
+
+
+
+For Login 
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=login
+
+Input
+
+{
+    "Username": "salimbd@gmail.com",
+    "Password": "33103310"
+}
+
+Output:
+
+{
+    "success": true,
+    "message": "Login successful",
+    "user": {
+        "UserID": 501,
+        "EmployeeID": "ADM-1001",
+        "Username": "salimbd@gmail.com",
+        "EmpName": "Md. Anowar Hasan Salim",
+        "Email": "amardhaka1971@gmail.com",
+        "Phone": "0131034343",
+        "Userpicture": "https://asianabpolymer.com/abpolymer/userpicture/ADM-1001.png",
+        "ReportingToUserID": 442
+    }
+}
+
+
+For Create Users
+
+For Get User
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_sndUser&UserID=502
+
+{
+    "UserID": 502,
+    "EmployeeID": "T-1001",
+    "EmpName": "Test1",
+    "DesignationID": "1535",
+    "Designation": "Sales Monitoring Officer",
+    "Username": "salimbd1@gmail.com",
+    "Email": "salimbd1@gmail.com",
+    "Phone": "0123222233",
+    "Address": "Dhaka",
+    "ReportingToUserID": 69,
+    "ReportingToUserName": "Test1",
+    "Status": 1,
+    "Userpicture": "https://anupambd.com/userpicture/T-1001.png",
+    "CreatedAt": {
+        "date": "2024-12-05 23:11:07.560000",
+        "timezone_type": 3,
+        "timezone": "Europe/Berlin"
+    }
+}
+
+For Get All users
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_sndUsers
+
+[
+    {
+        "UserID": 505,
+        "EmployeeID": "T-1005",
+        "EmpName": "Test Salim",
+        "DesignationID": "1522",
+        "Designation": "Zonal Sales Manager",
+        "Username": "salimbd5@gmail.com",
+        "Email": "salimbd5@gmail.com",
+        "Phone": "23432",
+        "Address": "Dhaka",
+        "ReportingToUserID": "Md. Al-Amin",
+        "Status": 1,
+        "CreatedAt": {
+            "date": "2024-12-06 02:18:52.590000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "ModifiedAt": {
+            "date": "2024-12-06 02:18:52.590000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        }
+    },
+    {
+        "UserID": 502,
+        "EmployeeID": "T-1001",
+        "EmpName": "Test1",
+        "DesignationID": "1535",
+        "Designation": "Sales Monitoring Officer",
+        "Username": "salimbd1@gmail.com",
+        "Email": "salimbd1@gmail.com",
+        "Phone": "0123222233",
+        "Address": "Dhaka",
+        "ReportingToUserID": "Md. Rasel Hossain",
+        "Status": 1,
+        "CreatedAt": {
+            "date": "2024-12-05 23:11:07.560000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "ModifiedAt": {
+            "date": "2024-12-05 23:11:07.560000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        }
+    }
+}
+
+For Create User
+
+Create a new POST request with the URL:
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_sndUser
+
+Set the headers:
+Content-Type: application/json
+Set the Body: Select raw and choose JSON. Enter the following JSON data:
+
+{
+  "EmployeeID": "E145",
+  "EmpName": "John Doe",
+  "DesignationID": "2",
+  "Username": "rockbd",
+  "Password": "password123",
+  “userpicture”:”path”,
+  "Email": "johndoe@example.com",
+  "Phone": "123456789",
+  "Address": "123 Main St, City",
+  "ReportingToUserID": "1",
+  "Status": true
+}
+
+
+For update user
+
+create a PUT request.
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_sndUser&UserID=10
+
+Go to the Body tab, select raw, and set it to JSON.
+Enter the following JSON in the body
+
+{
+  "EmployeeID": "E12345",
+  "EmpName": "John Doe Updated",
+  "DesignationID": "2",
+  "Username": "johndoe",
+  "Password": "newpassword123",
+  “userpicture”:”path”,
+  "Email": "johndoe_new@example.com",  // Make sure this email is unique
+  "Phone": "1234567890",
+  "Address": "456 Main St, New City",
+  "ReportingToUserID": "3",
+  "Status": true
+}
+
+For Update update_sndUserStatus:
+
+API:
+create a PUT request.
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_sndUserStatus&UserID=10
+
+Go to the Body tab, select raw, and set it to JSON.
+Enter the following JSON in the body
+
+For Active
+
+{
+  "Status": true
+}
+
+For De-Active
+
+{
+  "Status": false
+}
+
+For User Registration & Update 
+
+Use the following API for "reporting to:" combobox to put DesignationID value which come from when the combobox "Designation/Role:" select.
+
+https://asianabpolymer.com/abpolymer/spsalesforce_api.php?action=get_all_ReportUser&DesignationID=1502
+
+[
+    {
+        "UserID": 389,
+        "reportUsers": "Area Sales Manager - A.N.M. Manzur Hossain - ID-0018"
+    },
+    {
+        "UserID": 422,
+        "reportUsers": "Area Sales Manager - Abul Hasnat Md. Shafe - ID-0271"
+    },
+    {
+        "UserID": 431,
+        "reportUsers": "Area Sales Manager - Biplob Kumar Das - ID-0459"
+    }
+]
+
+https://asianabpolymer.com/abpolymer/spsalesforceuser_api.php?action=sndListoftheUserview&UserID=501
+
+[
+    {
+        "UserID": 476,
+        "EmployeeID": "ID-1729",
+        "EmpName": "Md. Milon Hossain",
+        "DesignationID": "1522",
+        "Designation": "Zonal Sales Manager",
+        "Username": "ID-1729",
+        "Email": "test82@gmail.com",
+        "Phone": "01403333644",
+        "Address": "",
+        "ReportingToUserID": null,
+        "Status": 1,
+        "CreatedAt": {
+            "date": "2024-11-29 16:41:41.317000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "ModifiedAt": {
+            "date": "2024-11-29 16:41:41.317000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "RoleID": 7
+    }
+]
+

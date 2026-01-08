@@ -1,0 +1,458 @@
+Sales & Specimen Orders
+sndSalesOrders
+  (<SalesOrderNo, varchar(100),>
+           ,<OrderDate, datetime,>
+           ,<OrderTypeID, int,>
+           ,<PartyID, int,>
+           ,<SpecimenUserID, int,>
+           ,<Status, int,>
+           ,<AppStatus, int,>
+           ,<NotificationStatus, int,>
+           ,<TotalAmount, decimal(10,2),>
+           ,<UserID, int,>
+           ,<CreatedAt, datetime,>
+           ,<ModifiedAt, datetime,>)
+		   
+		   
+1. **Get a Sales Order Number**:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=generate_new_salesorder_number
+
+Output
+
+{
+    "NewSalesOrderNo": "SO-1006/12-24"
+}
+
+
+Get Financial Year
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_financialyear
+
+[
+    {
+        "id": 13221771,
+        "name": "Fiscal Year-2024"
+    }
+]
+
+
+Books Group Select:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_bookscategorys
+
+[
+    {
+        "ID": 158,
+        "CategoryName": "English Grammar"
+    },
+    {
+        "ID": 159,
+        "CategoryName": "High-School"
+    }
+]
+
+Books Name Categorywise
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_productcategorywise&Categoryid=176
+
+[
+    {
+        "ProductID": 317,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্  রসায়ন"
+    },
+    {
+        "ProductID": 318,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ ইসলাম ও নৈতিক শিক্ষা"
+    },
+    {
+        "ProductID": 319,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ উচ্চতর গণিত"
+    },
+    {
+        "ProductID": 320,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ ও মেইড ইজি ইংরেজি (১ম ও ২য় পত্র)"
+    }
+]
+
+3. Create an order (POST): For Web Part
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_order
+
+Input:
+
+{
+    "SalesOrderNo": "SO-1006/12-24",
+    "OrderDate": "2024-12-15",
+    "PartyID": 11,
+    "SpecimenUserID": null,
+    "TotalAmount": 5000,
+    "UserID": 496,
+    "orderDetails": [
+        {
+            "FinancialYearID": 13221771,
+            "ProductCategoryID": 176,
+            "ProductID": 327,
+            "Quantity": 50,
+            "Price": 100
+        },
+        {
+            "FinancialYearID": 13221771,
+            "ProductCategoryID": 176,
+            "ProductID": 326,
+            "Quantity": 30,
+            "Price": 200
+        }
+    ]
+}
+
+Output:
+
+{
+    "success": "Order created successfully",
+    "SalesOrderID": 11
+}
+
+3. Create an order (POST): For Android Part
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_order_master
+
+Input:
+{
+    "SalesOrderNo": "SO-1007/12-24",
+    "OrderDate": "2024-12-15",
+    "PartyID": 11,
+    "SpecimenUserID": null,
+    "TotalAmount": 5000,
+    "UserID": 496
+}
+
+Output:
+
+{
+    "success": "Order created successfully",
+    "SalesOrderID": 12
+}
+
+3. Create an orderdetails (POST): For Android Part
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_order_details
+
+Input:
+                {
+             "SalesOrderID": 12,
+            "FinancialYearID": 13221771,
+            "ProductCategoryID": 176,
+            "ProductID": 327,
+            "Quantity": 50,
+            "Price": 100
+        }
+      
+Output:
+{
+    "message": "Order detail created successfully",
+    "SalesOrderID": 12
+}
+
+1. Get All For Sales Orders:
+
+   - URL: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_salesorders
+Output:
+
+[
+    {
+        "SalesOrderID": 2,
+        "SalesOrderNo": "SO-1001/12-24",
+        "OrderDate": "2024-12-15 ",
+        "partyname": "Arafat Traders",
+        "Status": "Pending Authorized",
+        "AppStatus": "Authorized By",
+        "TotalAmount": "15000.50",
+        "logUserName": "Samiul"
+    }
+]   
+
+
+1. Get All For Sales Orders Single:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_salesorderssingle&SalesOrderID=11
+
+[
+    {
+        "SalesOrderID": 11,
+        "SalesOrderNo": "SO-1006/12-24",
+        "OrderDate": "2024-12-15 ",
+        "PartyID": 11,
+        "partyname": null,
+        "status": 1,
+        "TotalAmount": "5000.00",
+        "UserID": 496
+    }
+]
+
+
+
+  
+1. Get All For Specimen Orders:
+
+   - URL: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_specimenorders
+   
+Output:
+
+[
+    {
+		 "SalesOrderID": 3,
+        "SalesOrderNo": "SO-1002/12-24",
+        "OrderDate": "2024-12-18 ",
+        "UserName": "Rafiq TEST",
+        "Status": "Pending Authorized",
+        "AppStatus": "Authorized By",
+        "TotalAmount": "12500.75",
+        "logUserName": "Mizanur"
+    }
+]   
+
+1. Get All For Specimen Orders Single:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_specimenorderssingle&SalesOrderID=5
+
+[
+    {
+        "SalesOrderID": 5,
+        "SalesOrderNo": "SO-1004/12-24",
+        "OrderDate": "2024-12-22 ",
+        "SpecimenUserID": 1,
+        "partyname": null,
+        "status": 1,
+        "TotalAmount": "19000.25",
+        "UserID": 4
+    }
+]   
+   
+1. Get All For Sales Orders Details:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_salesorderdetails&SalesOrderID=11
+
+{
+    "SalesOrderID": "11",
+    "orderDetails": [
+        {
+            "SalesOrderDetailID": 7,
+            "SalesOrderID": 11,
+            "FinancialYearID": 13221771,
+            "ProductCategoryID": 176,
+            "ProductID": 327,
+            "Quantity": 50,
+            "Price": "100.00",
+            "SubTotal": "5000.00"
+        },
+        {
+            "SalesOrderDetailID": 8,
+            "SalesOrderID": 11,
+            "FinancialYearID": 13221771,
+            "ProductCategoryID": 176,
+            "ProductID": 326,
+            "Quantity": 30,
+            "Price": "200.00",
+            "SubTotal": "6000.00"
+        }
+    ]
+}
+
+
+2. Get All For Sales Orders Details Single:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_salesorderdetailssingle&SalesOrderDetailsID=7
+
+{
+    "SalesOrderDetailID": "7",
+    "orderDetails": [
+        {
+            "SalesOrderDetailID": 7,
+            "SalesOrderID": 11,
+            "FinancialYearID": 13221771,
+            "ProductCategoryID": 176,
+            "ProductID": 327,
+            "Quantity": 50,
+            "Price": "100.00",
+            "SubTotal": "5000.00"
+        }
+    ]
+}
+
+
+   
+2. Get a single order (GET):
+   - URL: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_order&SalesOrderID=46
+   
+Output:
+
+{
+    "order": {
+        "SalesOrderID": 46,
+        "SalesOrderNo": "SO-1001/12-24",
+        "OrderDate": "2024-12-28 ",
+        "OrderTypeID": 1,
+        "PartyID": 174,
+        "PartyName": "Book House-Rajshahi",
+        "SpecimenUserID": null,
+        "SpecimenUserName": null,
+        "UserName": "Md. Rashedul Islam",
+        "TotalAmount": "105000.00",
+        "UserID": 241,
+        "Status": "Approved",
+        "AppStatus": "Completed",
+        "NotificationStatus": 1
+    },
+    "orderDetails": [
+        {
+            "SL": "1",
+            "SalesOrderDetailID": 47,
+            "FinancialYearID": 13221771,
+            "ProductCategoryID": 158,
+            "CategoryName": "English Grammar",
+            "ProductID": 30,
+            "ProductName": "English Grammar Today (Class-3)",
+            "Quantity": 300,
+            "Price": "350.00",
+            "RateValue": "300 Pcs @ Tk. 350.00 = 105000.00"
+        }
+    ]
+}
+   
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_productrate&FinancialYearID=13221771&ProductID=169
+
+{
+    "Rate": "200.00"
+}
+
+
+Delete SalesOrderDetailsID
+
+Method: Delete
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=delete_SalesOrderDetails&SalesOrderDetailID=7
+
+{
+    "message": "Order detail deleted successfully",
+    "SalesOrderDetailID": "7"
+}
+
+Update SalesOrder For Web Application
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_SalesOrders&SalesOrderID=11
+Method: PUT
+Input:
+{
+    "OrderDate": "2024-12-01",
+    "PartyID": 11,
+    "SpecimenUserID": null,
+    "TotalAmount": 5000.00,
+    "UserID": 10,
+    "orderDetails": [
+        {
+            "FinancialYearID": 2024,
+            "ProductCategoryID": 30,
+            "ProductID": 101,
+            "Quantity": 5,
+            "Price": 100.00
+        },
+        {
+            "FinancialYearID": 2024,
+            "ProductCategoryID": 3,
+            "ProductID": 102,
+            "Quantity": 10,
+            "Price": 50.00
+        }
+    ]
+}
+     
+update salesorderssingle
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_salesorderssingle&SalesOrderID=11
+Method: PUT
+Input:
+{
+    "OrderDate": "2024-12-01",
+    "OrderTypeID": 1,
+    "PartyID": 11,
+    "SpecimenUserID": null,
+    "UserID": 10
+}
+
+	 
+5. Cancel an order:
+   Method: PUT 
+   https://asianabpolymer.com/abpolymer/salesforce_api.php?action=cancel_salesorder&SalesOrderID=11
+
+	Input:
+	{
+    "Remarks": "Cancel Due to .."
+}
+
+6. Get Party List for combo load to pass the UserID
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_parties_users&UserID=496
+
+[
+    {
+        "PartyID": 158,
+        "PartyName": "Bishaw Porichoy-Nowgaon"
+    },
+    {
+        "PartyID": 172,
+        "PartyName": "Boi Ghor-Naogaon"
+    },
+    {
+        "PartyID": 190,
+        "PartyName": "Brilliant Library-Sirajgonj"
+    },
+    {
+        "PartyID": 151,
+        "PartyName": "Bhai Bhai Library & Paper House-Naogaon"
+    },
+    {
+        "PartyID": 270,
+        "PartyName": "Khoda Boks Library-Mohonpur,Sirajgonj"
+    },
+    {
+        "PartyID": 278,
+        "PartyName": "Ma Library-Bogra"
+    },
+    {
+        "PartyID": 280,
+        "PartyName": "Ma Moni Book Corner-Shahjadpur,Shirajgonj"
+    },
+    {
+        "PartyID": 299,
+        "PartyName": "Modern Books-Bera,Pabna"
+    },
+    {
+        "PartyID": 336,
+        "PartyName": "North Bengal Library-Jaypurhat"
+    },
+    {
+        "PartyID": 338,
+        "PartyName": "Nupur Library-Sirajgonj"
+    },
+    {
+        "PartyID": 359,
+        "PartyName": "Prattasha Papers -Sirajgonj"
+    },
+    {
+        "PartyID": 374,
+        "PartyName": "Rakib Library & Stationery-Sirajgonj"
+    },
+    {
+        "PartyID": 382,
+        "PartyName": "Sabuj Library-Ullapara,Sirajgonj"
+    },
+    {
+        "PartyID": 427,
+        "PartyName": "Titas Library-Joypurhat"
+    },
+    {
+        "PartyID": 435,
+        "PartyName": "Ulka Library-Sirajgonj"
+    }
+]

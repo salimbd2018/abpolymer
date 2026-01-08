@@ -1,0 +1,1179 @@
+
+
+
+For Add New party Info:
+API:
+Create a new POST request with the URL:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_party
+
+Set the headers:
+Content-Type: application/json
+Set the Body: Select raw and choose JSON. Enter the following JSON data:
+
+
+USE [AsianDB]
+GO
+
+/****** Object:  Table [dbo].[sndPartyMaster]    Script Date: 12/7/2025 5:03:29 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[sndPartyMaster](
+	[PartyID] [int] IDENTITY(1,1) NOT NULL,
+	[PartyCode] [nvarchar](50) NULL,
+	[PartyName] [nvarchar](255) NOT NULL,
+	[ContactName] [nvarchar](255) NULL,
+	[ContactNumber] [varchar](15) NULL,
+	[Email] [nvarchar](100) NULL,
+	[Website] [nvarchar](100) NULL,
+	[PresentAddress] [nvarchar](500) NULL,
+	[PermanentAddress] [nvarchar](500) NULL,
+	[RegionID] [int] NULL,
+	[ThanaID] [int] NULL,
+	[ThanaName] [nvarchar](100) NULL,
+	[DistrictID] [int] NULL,
+	[DistrictName] [nvarchar](100) NULL,
+	[DivisionID] [int] NULL,
+	[DivisionName] [nvarchar](100) NULL,
+	[BusinessStartYear] [nvarchar](4) NULL,
+	[TradeLicenseNumber] [nvarchar](100) NULL,
+	[TradeLicenseScanPath] [nvarchar](500) NULL,
+	[VoterNIDNumber] [nvarchar](50) NULL,
+	[ContactDateOfBirth] [date] NULL,
+	[NIDScanPath] [nvarchar](500) NULL,
+	[PartyPhotoPath] [nvarchar](500) NULL,
+	[AlternativeContactName] [nvarchar](255) NULL,
+	[AlternativeContactNumber] [varchar](15) NULL,
+	[NomineeName] [nvarchar](255) NULL,
+	[NomineeContactNumber] [varchar](15) NULL,
+	[NomineeRelation] [nvarchar](100) NULL,
+	[NomineeNIDNumber] [nvarchar](50) NULL,
+	[NomineeDateOfBirth] [date] NULL,
+	[NomineePresentAddress] [nvarchar](500) NULL,
+	[NomineePermanentAddress] [nvarchar](500) NULL,
+	[NomineePhotoPath] [nvarchar](500) NULL,
+	[RequestedCreditLimit] [decimal](18, 2) NULL,
+	[ApprovedCreditLimit] [decimal](18, 2) NULL,
+	[CreditLimit] [decimal](18, 2) NULL,
+	[DepositAmount] [decimal](18, 2) NULL,
+	[OutstandingAmount] [decimal](18, 2) NULL,
+	[OpeningBalance] [decimal](18, 2) NULL,
+	[CIBStatementPath] [nvarchar](500) NULL,
+	[BankStatementPath] [nvarchar](500) NULL,
+	[IsSamityMember] [nvarchar](3) NULL,
+	[WayOfSendingLetters] [nvarchar](50) NULL,
+	[NoOfThana] [int] NULL,
+	[NoOfDistrict] [int] NULL,
+	[Status] [nvarchar](20) NULL,
+	[CreatedAt] [datetime] NULL,
+	[CreatedByUserID] [int] NULL,
+	[ModifiedAt] [datetime] NULL,
+	[UpdatedByUserID] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[PartyID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[sndPartyMaster] ADD  DEFAULT (getdate()) FOR [CreatedAt]
+GO
+
+
+
+
+
+Postman API Examples for Modified sndPartyMaster
+1. Create Party (Multipart/Form-Data with Files)
+Request Setup:
+Method: POST
+
+URL: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_party
+
+Body: Select form-data
+
+Postman Form Data Input:
+Basic Information:
+Key	Value	Type
+PartyName	ABC Traders	Text
+PartyCode	ABC001	Text
+Contact Information:
+Key	Value	Type
+ContactName	Mr. John Smith	Text
+ContactNumber	+8801712345678	Text
+Email	john@abctraders.com	Text
+Website	www.abctraders.com	Text
+AlternativeContactName	Ms. Sarah Johnson	Text
+AlternativeContactNumber	+8801812345678	Text
+Address Information:
+Key	Value	Type
+PresentAddress	House# 123, Road# 5, Gulshan, Dhaka	Text
+PermanentAddress	Village: XYZ, Post: ABC, District: Dhaka	Text
+Location Information:
+Key	Value	Type
+RegionID	1	Text
+ThanaID	45	Text
+ThanaName	Gulshan	Text
+DistrictID	10	Text
+DistrictName	Dhaka	Text
+DivisionID	3	Text
+DivisionName	Dhaka Division	Text
+Business Information:
+Key	Value	Type
+BusinessStartYear	2015	Text
+TradeLicenseNumber	TL-2024-ABC-001	Text
+TradeLicenseScan	[Select File]	File
+Identification Information:
+Key	Value	Type
+VoterNIDNumber	1234567890123	Text
+ContactDateOfBirth	1985-05-15	Text
+NIDScan	[Select File]	File
+PartyPhoto	[Select File]	File
+Nominee Information:
+Key	Value	Type
+NomineeName	Mrs. Maria Smith	Text
+NomineeContactNumber	+8801912345678	Text
+NomineeRelation	Spouse	Text
+NomineeNIDNumber	9876543210987	Text
+NomineeDateOfBirth	1988-08-20	Text
+NomineePresentAddress	Same as Present Address	Text
+NomineePermanentAddress	Same as Permanent Address	Text
+NomineePhoto	[Select File]	File
+Credit & Financial Information:
+Key	Value	Type
+RequestedCreditLimit	500000.00	Text
+ApprovedCreditLimit	300000.00	Text
+CreditLimit	300000.00	Text
+DepositAmount	50000.00	Text
+OpeningBalance	0.00	Text
+OutstandingAmount	0.00	Text
+CIBStatement	[Select File]	File
+BankStatement	[Select File]	File
+Business Details:
+Key	Value	Type
+IsSamityMember	Yes	Text
+WayOfSendingLetters	Courier	Text
+NoOfThana	5	Text
+NoOfDistrict	2	Text
+System Information:
+Key	Value	Type
+Status	Active	Text
+CreatedByUserID	101	Text
+Expected Successful Response (JSON):
+json
+{
+    "success": "Party created successfully",
+    "PartyID": 156,
+    "PartyCode": "ABC001",
+    "uploaded_files": {
+        "TradeLicenseScanPath": "/uploads/trade_license/TradeLicenseScan_67890abc123.pdf",
+        "NIDScanPath": "/uploads/nid/NIDScan_67890def456.jpg",
+        "PartyPhotoPath": "/uploads/party_photos/PartyPhoto_67890ghi789.jpg",
+        "NomineePhotoPath": "/uploads/nominee_photos/NomineePhoto_67890jkl012.jpg",
+        "CIBStatementPath": "/uploads/cib_statements/CIBStatement_67890mno345.pdf",
+        "BankStatementPath": "/uploads/bank_statements/BankStatement_67890pqr678.pdf"
+    },
+    "full_urls": {
+        "TradeLicenseScanURL": "https://asianabpolymer.com/abpolymer/uploads/trade_license/TradeLicenseScan_67890abc123.pdf",
+        "NIDScanURL": "https://asianabpolymer.com/abpolymer/uploads/nid/NIDScan_67890def456.jpg",
+        "PartyPhotoURL": "https://asianabpolymer.com/abpolymer/uploads/party_photos/PartyPhoto_67890ghi789.jpg",
+        "NomineePhotoURL": "https://asianabpolymer.com/abpolymer/uploads/nominee_photos/NomineePhoto_67890jkl012.jpg",
+        "CIBStatementURL": "https://asianabpolymer.com/abpolymer/uploads/cib_statements/CIBStatement_67890mno345.pdf",
+        "BankStatementURL": "https://asianabpolymer.com/abpolymer/uploads/bank_statements/BankStatement_67890pqr678.pdf"
+    }
+}
+2. Create Party (JSON - Without Files)
+Request Setup:
+Method: POST
+
+URL: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_party
+
+Headers:
+
+Content-Type: application/json
+
+Body: Select raw → JSON
+
+Postman JSON Input:
+json
+{
+    "PartyName": "XYZ Enterprises",
+    "PartyCode": "XYZ002",
+    "ContactName": "Mr. David Wilson",
+    "ContactNumber": "+8801723456789",
+    "Email": "david@xyzent.com",
+    "PresentAddress": "House# 456, Road# 11, Banani, Dhaka",
+    "PermanentAddress": "Village: PQR, District: Comilla",
+    "ThanaID": 46,
+    "ThanaName": "Banani",
+    "DistrictID": 10,
+    "DistrictName": "Dhaka",
+    "DivisionID": 3,
+    "DivisionName": "Dhaka Division",
+    "TradeLicenseNumber": "TL-2024-XYZ-002",
+    "VoterNIDNumber": "2345678901234",
+    "ContactDateOfBirth": "1980-10-25",
+    "NomineeName": "Mrs. Lisa Wilson",
+    "NomineeContactNumber": "+8801823456789",
+    "NomineeRelation": "Spouse",
+    "NomineeNIDNumber": "8765432109876",
+    "NomineeDateOfBirth": "1983-12-15",
+    "NomineePresentAddress": "Same as Present Address",
+    "NomineePermanentAddress": "Same as Permanent Address",
+    "RequestedCreditLimit": 1000000.00,
+    "ApprovedCreditLimit": 500000.00,
+    "CreditLimit": 500000.00,
+    "DepositAmount": 100000.00,
+    "Status": "Pending",
+    "CreatedByUserID": 102,
+    "BusinessStartYear": "2018",
+    "IsSamityMember": "No",
+    "WayOfSendingLetters": "Email",
+    "OutstandingAmount": 0.00
+}
+Expected Response:
+json
+{
+    "success": "Party created successfully",
+    "PartyID": 157,
+    "PartyCode": "XYZ002",
+    "uploaded_files": {},
+    "full_urls": {}
+}
+3. Minimal Required Fields
+Postman Input (JSON):
+json
+{
+    "PartyName": "Test Company",
+    "ContactName": "Test Contact",
+    "ContactNumber": "+8801711111111",
+    "PresentAddress": "Test Address",
+    "Status": "Active",
+    "CreatedByUserID": 103
+}
+Expected Response:
+json
+{
+    "success": "Party created successfully",
+    "PartyID": 158,
+    "PartyCode": null,
+    "uploaded_files": {},
+    "full_urls": {}
+}
+4. Get Party Details
+Request Setup:
+Method: GET
+
+URL: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_party&PartyID=156
+
+Expected Response (JSON):
+json
+{
+    "success": true,
+    "party": {
+        "PartyID": 156,
+        "PartyCode": "ABC001",
+        "PartyName": "ABC Traders",
+        "ContactName": "Mr. John Smith",
+        "ContactNumber": "+8801712345678",
+        "Email": "john@abctraders.com",
+        "Website": "www.abctraders.com",
+        "PresentAddress": "House# 123, Road# 5, Gulshan, Dhaka",
+        "PermanentAddress": "Village: XYZ, Post: ABC, District: Dhaka",
+        "ThanaID": 45,
+        "ThanaName": "Gulshan",
+        "DistrictID": 10,
+        "DistrictName": "Dhaka",
+        "DivisionID": 3,
+        "DivisionName": "Dhaka Division",
+        "TradeLicenseNumber": "TL-2024-ABC-001",
+        "TradeLicenseScanPath": "/uploads/trade_license/TradeLicenseScan_67890abc123.pdf",
+        "TradeLicenseScanURL": "https://asianabpolymer.com/abpolymer/uploads/trade_license/TradeLicenseScan_67890abc123.pdf",
+        "VoterNIDNumber": "1234567890123",
+        "ContactDateOfBirth": "1985-05-15",
+        "NIDScanPath": "/uploads/nid/NIDScan_67890def456.jpg",
+        "NIDScanURL": "https://asianabpolymer.com/abpolymer/uploads/nid/NIDScan_67890def456.jpg",
+        "PartyPhotoPath": "/uploads/party_photos/PartyPhoto_67890ghi789.jpg",
+        "PartyPhotoURL": "https://asianabpolymer.com/abpolymer/uploads/party_photos/PartyPhoto_67890ghi789.jpg",
+        "AlternativeContactName": "Ms. Sarah Johnson",
+        "AlternativeContactNumber": "+8801812345678",
+        "NomineeName": "Mrs. Maria Smith",
+        "NomineeContactNumber": "+8801912345678",
+        "NomineeRelation": "Spouse",
+        "NomineeNIDNumber": "9876543210987",
+        "NomineeDateOfBirth": "1988-08-20",
+        "NomineePresentAddress": "Same as Present Address",
+        "NomineePermanentAddress": "Same as Permanent Address",
+        "NomineePhotoPath": "/uploads/nominee_photos/NomineePhoto_67890jkl012.jpg",
+        "NomineePhotoURL": "https://asianabpolymer.com/abpolymer/uploads/nominee_photos/NomineePhoto_67890jkl012.jpg",
+        "RequestedCreditLimit": 500000.00,
+        "ApprovedCreditLimit": 300000.00,
+        "CreditLimit": 300000.00,
+        "DepositAmount": 50000.00,
+        "OutstandingAmount": 0.00,
+        "OpeningBalance": 0.00,
+        "CIBStatementPath": "/uploads/cib_statements/CIBStatement_67890mno345.pdf",
+        "CIBStatementURL": "https://asianabpolymer.com/abpolymer/uploads/cib_statements/CIBStatement_67890mno345.pdf",
+        "BankStatementPath": "/uploads/bank_statements/BankStatement_67890pqr678.pdf",
+        "BankStatementURL": "https://asianabpolymer.com/abpolymer/uploads/bank_statements/BankStatement_67890pqr678.pdf",
+        "BusinessStartYear": "2015",
+        "IsSamityMember": "Yes",
+        "WayOfSendingLetters": "Courier",
+        "NoOfThana": 5,
+        "NoOfDistrict": 2,
+        "Status": "Active",
+        "CreatedAt": "2024-01-15 10:30:00",
+        "CreatedByUserID": 101,
+        "ModifiedAt": null,
+        "UpdatedByUserID": null
+    }
+}
+5. Update Party
+Request Setup:
+Method: POST
+
+URL: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_party&PartyID=156
+
+Body: Select form-data
+
+Postman Input:
+Key	Value	Type
+PartyName	ABC Traders Updated	Text
+ContactNumber	+8801712345679	Text
+Email	updated@abctraders.com	Text
+ApprovedCreditLimit	400000.00	Text
+Status	Active	Text
+UpdatedByUserID	105	Text
+NewBankStatement	[Select File]	File
+Expected Response:
+json
+{
+    "success": "Party updated successfully",
+    "PartyID": 156,
+    "updated_fields": ["PartyName", "ContactNumber", "Email", "ApprovedCreditLimit", "BankStatementPath"],
+    "new_files": {
+        "BankStatementPath": "/uploads/bank_statements/BankStatement_67890stu901.pdf",
+        "BankStatementURL": "https://asianabpolymer.com/abpolymer/uploads/bank_statements/BankStatement_67890stu901.pdf"
+    }
+}
+6. Error Responses
+Missing Required Field:
+json
+{
+    "error": "Missing required field: PartyName"
+}
+Invalid File Type:
+json
+{
+    "error": "Invalid file type for TradeLicenseScan. Allowed: JPG, PNG, PDF, DOCX"
+}
+File Size Exceeded:
+json
+{
+    "error": "File size exceeds 5MB limit for PartyPhoto"
+}
+Party Not Found:
+json
+{
+    "error": "Party not found with ID: 999"
+}
+Postman Collection JSON:
+json
+{
+    "info": {
+        "name": "Party Master API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Create Party with Files",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {"key": "PartyName", "value": "ABC Traders", "type": "text"},
+                        {"key": "ContactName", "value": "Mr. John Smith", "type": "text"},
+                        {"key": "ContactNumber", "value": "+8801712345678", "type": "text"},
+                        {"key": "Email", "value": "john@abctraders.com", "type": "text"},
+                        {"key": "PresentAddress", "value": "House# 123, Road# 5, Gulshan, Dhaka", "type": "text"},
+                        {"key": "TradeLicenseNumber", "value": "TL-2024-ABC-001", "type": "text"},
+                        {"key": "VoterNIDNumber", "value": "1234567890123", "type": "text"},
+                        {"key": "TradeLicenseScan", "type": "file", "src": "/path/to/tradelicense.pdf"},
+                        {"key": "NIDScan", "type": "file", "src": "/path/to/nid.jpg"},
+                        {"key": "Status", "value": "Active", "type": "text"},
+                        {"key": "CreatedByUserID", "value": "101", "type": "text"}
+                    ]
+                },
+                "url": {
+                    "raw": "https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_party",
+                    "protocol": "https",
+                    "host": ["asianabpolymer", "com"],
+                    "path": ["abpolymer", "salesforce_api.php"],
+                    "query": [
+                        {"key": "action", "value": "create_party"}
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Create Party (JSON)",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {"key": "Content-Type", "value": "application/json"}
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"PartyName\": \"XYZ Enterprises\",\n    \"ContactName\": \"Mr. David Wilson\",\n    \"ContactNumber\": \"+8801723456789\",\n    \"PresentAddress\": \"House# 456, Road# 11, Banani, Dhaka\",\n    \"TradeLicenseNumber\": \"TL-2024-XYZ-002\",\n    \"VoterNIDNumber\": \"2345678901234\",\n    \"Status\": \"Pending\",\n    \"CreatedByUserID\": 102\n}"
+                },
+                "url": {
+                    "raw": "https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_party",
+                    "protocol": "https",
+                    "host": ["asianabpolymer", "com"],
+                    "path": ["abpolymer", "salesforce_api.php"],
+                    "query": [
+                        {"key": "action", "value": "create_party"}
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Party Details",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_party&PartyID=156",
+                    "protocol": "https",
+                    "host": ["asianabpolymer", "com"],
+                    "path": ["abpolymer", "salesforce_api.php"],
+                    "query": [
+                        {"key": "action", "value": "get_party"},
+                        {"key": "PartyID", "value": "156"}
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
+
+
+For a specific party Info by ID, use:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_parties
+
+{
+    "success": true,
+    "data": [
+        {
+            "PartyID": 156,
+            "PartyCode": "ABC001",
+            "PartyName": "ABC Traders",
+            "ContactName": "Mr. John Smith",
+            "ContactNumber": "+8801712345678",
+            "Email": "john@abctraders.com",
+            "PresentAddress": "House# 123, Road# 5, Gulshan, Dhaka",
+            "TradeLicenseNumber": "TL-2024-ABC-001",
+            "TradeLicenseScanPath": "/uploads/trade_license/TradeLicenseScan_67890abc123.pdf",
+            "TradeLicenseScanURL": "https://asianabpolymer.com/abpolymer/uploads/trade_license/TradeLicenseScan_67890abc123.pdf",
+            "VoterNIDNumber": "1234567890123",
+            "NIDScanPath": "/uploads/nid/NIDScan_67890def456.jpg",
+            "NIDScanURL": "https://asianabpolymer.com/abpolymer/uploads/nid/NIDScan_67890def456.jpg",
+            "PartyPhotoPath": "/uploads/party_photos/PartyPhoto_67890ghi789.jpg",
+            "PartyPhotoURL": "https://asianabpolymer.com/abpolymer/uploads/party_photos/PartyPhoto_67890ghi789.jpg",
+            "NomineeName": "Mrs. Maria Smith",
+            "NomineePhotoPath": "/uploads/nominee_photos/NomineePhoto_67890jkl012.jpg",
+            "NomineePhotoURL": "https://asianabpolymer.com/abpolymer/uploads/nominee_photos/NomineePhoto_67890jkl012.jpg",
+            "RequestedCreditLimit": "500,000.00",
+            "ApprovedCreditLimit": "300,000.00",
+            "OutstandingAmount": "50,000.00",
+            "AvailableCredit": "250,000.00",
+            "CIBStatementPath": "/uploads/cib_statements/CIBStatement_67890mno345.pdf",
+            "CIBStatementURL": "https://asianabpolymer.com/abpolymer/uploads/cib_statements/CIBStatement_67890mno345.pdf",
+            "BankStatementPath": "/uploads/bank_statements/BankStatement_67890pqr678.pdf",
+            "BankStatementURL": "https://asianabpolymer.com/abpolymer/uploads/bank_statements/BankStatement_67890pqr678.pdf",
+            "Status": "Active",
+            "CreatedAt": "2024-01-15 10:30:00",
+            "CreatedByName": "Admin User",
+            "file_info": {
+                "TradeLicenseScan": {
+                    "path": "/uploads/trade_license/TradeLicenseScan_67890abc123.pdf",
+                    "url": "https://asianabpolymer.com/abpolymer/uploads/trade_license/TradeLicenseScan_67890abc123.pdf",
+                    "has_file": true
+                },
+                "NIDScan": {
+                    "path": "/uploads/nid/NIDScan_67890def456.jpg",
+                    "url": "https://asianabpolymer.com/abpolymer/uploads/nid/NIDScan_67890def456.jpg",
+                    "has_file": true
+                },
+                "PartyPhoto": {
+                    "path": "/uploads/party_photos/PartyPhoto_67890ghi789.jpg",
+                    "url": "https://asianabpolymer.com/abpolymer/uploads/party_photos/PartyPhoto_67890ghi789.jpg",
+                    "has_file": true
+                },
+                "NomineePhoto": {
+                    "path": "/uploads/nominee_photos/NomineePhoto_67890jkl012.jpg",
+                    "url": "https://asianabpolymer.com/abpolymer/uploads/nominee_photos/NomineePhoto_67890jkl012.jpg",
+                    "has_file": true
+                },
+                "CIBStatement": {
+                    "path": "/uploads/cib_statements/CIBStatement_67890mno345.pdf",
+                    "url": "https://asianabpolymer.com/abpolymer/uploads/cib_statements/CIBStatement_67890mno345.pdf",
+                    "has_file": true
+                },
+                "BankStatement": {
+                    "path": "/uploads/bank_statements/BankStatement_67890pqr678.pdf",
+                    "url": "https://asianabpolymer.com/abpolymer/uploads/bank_statements/BankStatement_67890pqr678.pdf",
+                    "has_file": true
+                }
+            }
+        },
+        {
+            "PartyID": 157,
+            "PartyCode": "XYZ002",
+            "PartyName": "XYZ Enterprises",
+            "ContactName": "Mr. David Wilson",
+            "ContactNumber": "+8801723456789",
+            "PresentAddress": "House# 456, Road# 11, Banani, Dhaka",
+            "TradeLicenseNumber": "TL-2024-XYZ-002",
+            "TradeLicenseScanPath": "",
+            "TradeLicenseScanURL": "",
+            "VoterNIDNumber": "2345678901234",
+            "NIDScanPath": "",
+            "NIDScanURL": "",
+            "PartyPhotoPath": "",
+            "PartyPhotoURL": "",
+            "NomineeName": "Mrs. Lisa Wilson",
+            "NomineePhotoPath": "",
+            "NomineePhotoURL": "",
+            "RequestedCreditLimit": "1,000,000.00",
+            "ApprovedCreditLimit": "500,000.00",
+            "OutstandingAmount": "0.00",
+            "AvailableCredit": "500,000.00",
+            "CIBStatementPath": "",
+            "CIBStatementURL": "",
+            "BankStatementPath": "",
+            "BankStatementURL": "",
+            "Status": "Pending",
+            "CreatedAt": "2024-01-16 11:45:00",
+            "CreatedByName": "Manager User",
+            "file_info": {
+                "TradeLicenseScan": {
+                    "path": "",
+                    "url": "",
+                    "has_file": false
+                },
+                "NIDScan": {
+                    "path": "",
+                    "url": "",
+                    "has_file": false
+                },
+                "PartyPhoto": {
+                    "path": "",
+                    "url": "",
+                    "has_file": false
+                },
+                "NomineePhoto": {
+                    "path": "",
+                    "url": "",
+                    "has_file": false
+                },
+                "CIBStatement": {
+                    "path": "",
+                    "url": "",
+                    "has_file": false
+                },
+                "BankStatement": {
+                    "path": "",
+                    "url": "",
+                    "has_file": false
+                }
+            }
+        }
+    ],
+    "pagination": {
+        "current_page": 1,
+        "per_page": 20,
+        "total": 2,
+        "total_pages": 1,
+        "has_next_page": false,
+        "has_prev_page": false
+    },
+    "filters": {
+        "search": "",
+        "status": "",
+        "district_id": ""
+    },
+    "summary": {
+        "total_parties": 2,
+        "active_parties": 1,
+        "inactive_parties": 0,
+        "pending_parties": 1
+    }
+}
+
+2. Get Parties with Search Filter
+Request:
+
+Method: GET
+
+URL: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_parties&search=ABC
+
+Response: Returns only parties containing "ABC" in PartyName, PartyCode, ContactName, or ContactNumber
+
+3. Get Parties with Status Filter
+Request:
+
+Method: GET
+
+URL: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_parties&status=Active
+
+Response: Returns only active parties
+
+4. Get Parties with District Filter
+Request:
+
+Method: GET
+
+URL: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_parties&district_id=10
+
+Response: Returns only parties from DistrictID 10
+
+5. Get Parties with Pagination
+Request:
+
+Method: GET
+
+URL: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_parties&page=2&limit=10
+
+Response: Returns page 2 with 10 records per page
+
+6. Combined Filters
+Request:
+
+Method: GET
+
+URL: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_parties&search=Traders&status=Active&district_id=10&page=1&limit=5
+
+
+For a specific party Info by ID, use:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_party&PartyID=59
+
+{
+    "PartyID": 156,
+    "PartyCode": "ABC001",
+    "PartyName": "ABC Traders",
+    
+    "ContactName": "Mr. John Smith",
+    "ContactNumber": "+8801712345678",
+    "Email": "john@abctraders.com",
+    "Website": "www.abctraders.com",
+    "AlternativeContactName": "Ms. Sarah Johnson",
+    "AlternativeContactNumber": "+8801812345678",
+    
+    "PresentAddress": "House# 123, Road# 5, Gulshan, Dhaka",
+    "PermanentAddress": "Village: XYZ, Post: ABC, District: Dhaka",
+    
+    "RegionID": 1,
+    "ThanaID": 45,
+    "ThanaName": "Gulshan",
+    "DistrictID": 10,
+    "DistrictName": "Dhaka",
+    "DivisionID": 3,
+    "DivisionName": "Dhaka Division",
+    "RegionName": "Dhaka Region",
+    
+    "BusinessStartYear": "2015",
+    "TradeLicenseNumber": "TL-2024-ABC-001",
+    "TradeLicenseScanPath": "/uploads/trade_license/TradeLicenseScan_67890abc123.pdf",
+    "TradeLicenseScanURL": "https://asianabpolymer.com/abpolymer/uploads/trade_license/TradeLicenseScan_67890abc123.pdf",
+    
+    "VoterNIDNumber": "1234567890123",
+    "ContactDateOfBirth": "1985-05-15",
+    "NIDScanPath": "/uploads/nid/NIDScan_67890def456.jpg",
+    "NIDScanURL": "https://asianabpolymer.com/abpolymer/uploads/nid/NIDScan_67890def456.jpg",
+    
+    "PartyPhotoPath": "/uploads/party_photos/PartyPhoto_67890ghi789.jpg",
+    "PartyPhotoURL": "https://asianabpolymer.com/abpolymer/uploads/party_photos/PartyPhoto_67890ghi789.jpg",
+    
+    "NomineeName": "Mrs. Maria Smith",
+    "NomineeContactNumber": "+8801912345678",
+    "NomineeRelation": "Spouse",
+    "NomineeNIDNumber": "9876543210987",
+    "NomineeDateOfBirth": "1988-08-20",
+    "NomineePresentAddress": "Same as Present Address",
+    "NomineePermanentAddress": "Same as Permanent Address",
+    "NomineePhotoPath": "/uploads/nominee_photos/NomineePhoto_67890jkl012.jpg",
+    "NomineePhotoURL": "https://asianabpolymer.com/abpolymer/uploads/nominee_photos/NomineePhoto_67890jkl012.jpg",
+    
+    "RequestedCreditLimit": 500000.00,
+    "ApprovedCreditLimit": 300000.00,
+    "CreditLimit": 300000.00,
+    "DepositAmount": 50000.00,
+    "OutstandingAmount": 50000.00,
+    "OpeningBalance": 0.00,
+    "AvailableCredit": 250000.00,
+    
+    "RequestedCreditLimitFormatted": "500,000.00",
+    "ApprovedCreditLimitFormatted": "300,000.00",
+    "CreditLimitFormatted": "300,000.00",
+    "DepositAmountFormatted": "50,000.00",
+    "OutstandingAmountFormatted": "50,000.00",
+    "OpeningBalanceFormatted": "0.00",
+    "AvailableCreditFormatted": "250,000.00",
+    
+    "CIBStatementPath": "/uploads/cib_statements/CIBStatement_67890mno345.pdf",
+    "CIBStatementURL": "https://asianabpolymer.com/abpolymer/uploads/cib_statements/CIBStatement_67890mno345.pdf",
+    
+    "BankStatementPath": "/uploads/bank_statements/BankStatement_67890pqr678.pdf",
+    "BankStatementURL": "https://asianabpolymer.com/abpolymer/uploads/bank_statements/BankStatement_67890pqr678.pdf",
+    
+    "IsSamityMember": "Yes",
+    "WayOfSendingLetters": "Courier",
+    "NoOfThana": 5,
+    "NoOfDistrict": 2,
+    
+    "Status": "Active",
+    
+    "CreatedAt": "2024-01-15 10:30:00",
+    "CreatedByUserID": 101,
+    "CreatedByName": "Admin User",
+    "ModifiedAt": "2024-01-16 14:20:00",
+    "UpdatedByUserID": 102,
+    "UpdatedByName": "Manager User",
+    
+    "OrderPending": 0,
+    "TotalDeliveredAmount": 0,
+    "TotalCollection": 0,
+    
+    "file_info": {
+        "TradeLicenseScan": {
+            "path": "/uploads/trade_license/TradeLicenseScan_67890abc123.pdf",
+            "url": "https://asianabpolymer.com/abpolymer/uploads/trade_license/TradeLicenseScan_67890abc123.pdf",
+            "has_file": true
+        },
+        "NIDScan": {
+            "path": "/uploads/nid/NIDScan_67890def456.jpg",
+            "url": "https://asianabpolymer.com/abpolymer/uploads/nid/NIDScan_67890def456.jpg",
+            "has_file": true
+        },
+        "PartyPhoto": {
+            "path": "/uploads/party_photos/PartyPhoto_67890ghi789.jpg",
+            "url": "https://asianabpolymer.com/abpolymer/uploads/party_photos/PartyPhoto_67890ghi789.jpg",
+            "has_file": true
+        },
+        "NomineePhoto": {
+            "path": "/uploads/nominee_photos/NomineePhoto_67890jkl012.jpg",
+            "url": "https://asianabpolymer.com/abpolymer/uploads/nominee_photos/NomineePhoto_67890jkl012.jpg",
+            "has_file": true
+        },
+        "CIBStatement": {
+            "path": "/uploads/cib_statements/CIBStatement_67890mno345.pdf",
+            "url": "https://asianabpolymer.com/abpolymer/uploads/cib_statements/CIBStatement_67890mno345.pdf",
+            "has_file": true
+        },
+        "BankStatement": {
+            "path": "/uploads/bank_statements/BankStatement_67890pqr678.pdf",
+            "url": "https://asianabpolymer.com/abpolymer/uploads/bank_statements/BankStatement_67890pqr678.pdf",
+            "has_file": true
+        }
+    }
+}
+
+Response for Party Without Files:
+json
+{
+    "PartyID": 157,
+    "PartyCode": "XYZ002",
+    "PartyName": "XYZ Enterprises",
+    "ContactName": "Mr. David Wilson",
+    "ContactNumber": "+8801723456789",
+    "Email": "david@xyzent.com",
+    "Website": "",
+    "AlternativeContactName": "",
+    "AlternativeContactNumber": "",
+    "PresentAddress": "House# 456, Road# 11, Banani, Dhaka",
+    "PermanentAddress": "",
+    "RegionID": 1,
+    "ThanaID": 46,
+    "ThanaName": "Banani",
+    "DistrictID": 10,
+    "DistrictName": "Dhaka",
+    "DivisionID": 3,
+    "DivisionName": "Dhaka Division",
+    "RegionName": "Dhaka Region",
+    "BusinessStartYear": "2018",
+    "TradeLicenseNumber": "TL-2024-XYZ-002",
+    "TradeLicenseScanPath": "",
+    "TradeLicenseScanURL": "",
+    "VoterNIDNumber": "2345678901234",
+    "ContactDateOfBirth": "1980-10-25",
+    "NIDScanPath": "",
+    "NIDScanURL": "",
+    "PartyPhotoPath": "",
+    "PartyPhotoURL": "",
+    "NomineeName": "Mrs. Lisa Wilson",
+    "NomineeContactNumber": "+8801823456789",
+    "NomineeRelation": "Spouse",
+    "NomineeNIDNumber": "8765432109876",
+    "NomineeDateOfBirth": "1983-12-15",
+    "NomineePresentAddress": "Same as Present Address",
+    "NomineePermanentAddress": "Same as Permanent Address",
+    "NomineePhotoPath": "",
+    "NomineePhotoURL": "",
+    "RequestedCreditLimit": 1000000.00,
+    "ApprovedCreditLimit": 500000.00,
+    "CreditLimit": 500000.00,
+    "DepositAmount": 100000.00,
+    "OutstandingAmount": 0.00,
+    "OpeningBalance": 0.00,
+    "AvailableCredit": 500000.00,
+    "RequestedCreditLimitFormatted": "1,000,000.00",
+    "ApprovedCreditLimitFormatted": "500,000.00",
+    "CreditLimitFormatted": "500,000.00",
+    "DepositAmountFormatted": "100,000.00",
+    "OutstandingAmountFormatted": "0.00",
+    "OpeningBalanceFormatted": "0.00",
+    "AvailableCreditFormatted": "500,000.00",
+    "CIBStatementPath": "",
+    "CIBStatementURL": "",
+    "BankStatementPath": "",
+    "BankStatementURL": "",
+    "IsSamityMember": "No",
+    "WayOfSendingLetters": "Email",
+    "NoOfThana": 0,
+    "NoOfDistrict": 0,
+    "Status": "Pending",
+    "CreatedAt": "2024-01-16 11:45:00",
+    "CreatedByUserID": 102,
+    "CreatedByName": "Manager User",
+    "ModifiedAt": "",
+    "UpdatedByUserID": "",
+    "UpdatedByName": "",
+    "OrderPending": 0,
+    "TotalDeliveredAmount": 0,
+    "TotalCollection": 0,
+    "file_info": {
+        "TradeLicenseScan": {
+            "path": "",
+            "url": "",
+            "has_file": false
+        },
+        "NIDScan": {
+            "path": "",
+            "url": "",
+            "has_file": false
+        },
+        "PartyPhoto": {
+            "path": "",
+            "url": "",
+            "has_file": false
+        },
+        "NomineePhoto": {
+            "path": "",
+            "url": "",
+            "has_file": false
+        },
+        "CIBStatement": {
+            "path": "",
+            "url": "",
+            "has_file": false
+        },
+        "BankStatement": {
+            "path": "",
+            "url": "",
+            "has_file": false
+        }
+    }
+}
+
+For Update party Info:
+API:
+create a PUT request.
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_party&PartyID=59
+
+Go to the Body tab, select raw, and set it to JSON.
+Enter the following JSON in the body
+
+{
+    "PartyName": "Updated DistributorsSalim",
+    "Address": "456 New Street, Dhaka",
+    "RegionID": 2,
+    "OwnerName": "John Doe Updated",
+    "OwnerCurrentAddress": "New Dhaka",
+    "OwnerPermanentAddress": "Chittagong Updated",
+    "OwnerContactNumber": "018XXXXXXXX",
+    "OwnerDateOfBirth": "1985-06-15",
+    "BusinessStartYear": "2012",
+    "Email": "updated@example.com",
+    "Website": "http://www.updateddistributors.com",
+    "ContactPersonName": "Jane Doe Updated",
+    "ContactNumber": "019XXXXXXXX",
+    "NoOfThana": 6,
+    "NoOfDistrict": 4,
+    "CreditLimit": 700000.00,
+    "DepositAmount": 150000.00,
+    "IsSamityMember": "No",
+    "WayOfSendingLetters": "Courier",
+    "OpeningBalance": 30000.00
+}
+
+Output:
+
+{
+    "message": "Party updated successfully"
+}
+
+
+For Party CoveredArea Get
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_partydetailsAreas&PartyID=1
+
+{
+    "PartyID": 1,
+    "PartyAreas": [
+        {
+            "RegionID": 1,
+            "RegionName": "Updated Region A"
+        },
+        {
+            "RegionID": 3,
+            "RegionName": "New Region C"
+        }
+    ]
+}
+
+For Party CoveredArea Create
+
+Create a new POST request with the URL:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_partydetailsAreas&PartyID=1
+
+Set the headers:
+Content-Type: application/json
+Set the Body: Select raw and choose JSON. Enter the following JSON data:
+
+Input:
+
+{
+  "PartyAreas": [
+    {
+      "RegionID": 1,
+      "RegionName": "North Region"
+    },
+    {
+      "RegionID": 2,
+      "RegionName": "South Region"
+    }
+  ]
+}
+
+
+Output:
+
+{
+  "message": "Party Area created successfully",
+  "PartyID": "<PartyID>"
+}
+
+
+For Update update_partydetailsAreasInfo:
+API:
+create a PUT request.
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_partydetailsAreas&PartyID=1
+
+Go to the Body tab, select raw, and set it to JSON.
+Enter the following JSON in the body
+
+Input:
+
+{
+  "PartyAreas": [
+    {
+      "RegionID": 1,
+      "RegionName": "Updated Region A"
+    },
+    {
+      "RegionID": 3,
+      "RegionName": "New Region C"
+    }
+  ]
+}
+
+Output:
+
+{
+    "message": "Party Areas updated successfully",
+    "PartyID": 1
+}
+
+
+#####################################################
+####################################################3
+
+
+For Party Documents:
+
+Design Link: https://anupambd.com/KBLsalesforce/PartyDocuments.php
+
+For Party Documents Type Name Combobox Data
+
+For All Party Dcouments Type
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_partydoctypes
+
+[
+    {
+        "PartyDocsTypeID": 1,
+        "PartyDocName": "Party Owner Picture"
+    },
+    {
+        "PartyDocsTypeID": 2,
+        "PartyDocName": "Party Owner NID Document"
+    },
+    {
+        "PartyDocsTypeID": 3,
+        "PartyDocName": "Trade License Document"
+    },
+    {
+        "PartyDocsTypeID": 4,
+        "PartyDocName": "Samity Membership Card"
+    },
+    {
+        "PartyDocsTypeID": 5,
+        "PartyDocName": "TIN Certificate"
+    },
+    {
+        "PartyDocsTypeID": 6,
+        "PartyDocName": "Deposit Cheque"
+    },
+    {
+        "PartyDocsTypeID": 7,
+        "PartyDocName": "Non Judicial Agreement Document"
+    },
+    {
+        "PartyDocsTypeID": 8,
+        "PartyDocName": "Agreement Document"
+    },
+    {
+        "PartyDocsTypeID": 9,
+        "PartyDocName": "Document1"
+    },
+    {
+        "PartyDocsTypeID": 10,
+        "PartyDocName": "Document2"
+    },
+    {
+        "PartyDocsTypeID": 11,
+        "PartyDocName": "Document3"
+    }
+]
+
+For one Party Dcouments Type
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_partydoctype&PartyDocsTypeID=1
+
+{
+    "PartyDocsTypeID": 1,
+    "PartyDocName": "Party Owner Picture"
+}
+
+Create Party Documents
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_partyDocs&PartyID=108
+Method: POST
+Body: form-data
+Key	Value	Type
+PartyDocsTypeID[]	1	Text
+PartyDocsTypeID[]	2	Text
+PartyDocsPath[]	[Select a file for document 1]	File
+PartyDocsPath[]	[Select a file for document 2]	File
+Example Response:
+json
+Copy code
+{
+    "message": "Party documents uploaded successfully",
+    "uploadedFiles": [
+        {
+            "PartyDocsTypeID": "1",
+            "PartyDocsPath": "https://asianabpolymer.com/abpolymer/uploads/party_files/monir%20hossine/PartyDocs_6769e75601d886.22820499.xlsx"
+        },
+        {
+            "PartyDocsTypeID": "2",
+            "PartyDocsPath": "https://asianabpolymer.com/abpolymer/uploads/party_files/monir%20hossine/PartyDocs_6769e7560201e6.11393242.jpg"
+        }
+    ]
+}
+
+Get Party Documents
+
+				
+
+{
+    "PartyID": "61",
+    "PartyName": "ABC Distributors66",
+    "Documents": [
+        {
+            "PartyDocsID": 1,
+            "PartyDocsTypeID": 1,
+            "PartyDocName": "Party Owner Picture",
+            "PartyDocsPath": "uploads/party_files/Party_61/PartyDocs_674f801084d814.15673456.pdf",
+            "CreatedAt": "2024-12-04 04:02:56",
+            "ModifiedAt": "2024-12-04 04:02:56"
+        },
+        {
+            "PartyDocsID": 2,
+            "PartyDocsTypeID": 1,
+            "PartyDocName": "Party Owner Picture",
+            "PartyDocsPath": "uploads/party_files/ABC Distributors66/PartyDocs_674f8508741116.05742837.jpg",
+            "CreatedAt": "2024-12-04 04:24:08",
+            "ModifiedAt": "2024-12-04 04:24:08"
+        },
+        {
+            "PartyDocsID": 3,
+            "PartyDocsTypeID": 2,
+            "PartyDocName": "Party Owner NID Document",
+            "PartyDocsPath": "uploads/party_files/ABC Distributors66/PartyDocs_674f85087430e9.49713956.pdf",
+            "CreatedAt": "2024-12-04 04:24:08",
+            "ModifiedAt": "2024-12-04 04:24:08"
+        }
+    ]
+}
+
+
+Delete Party Documents
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=delete_partyDocs&PartyDocsID=3
+
+Postman Setup for Testing
+Method: DELETE
+
+Headers:
+Content-Type: application/json (Optional)
+
+Output:
+{
+    "message": "Party document deleted successfully.",
+    "deletedFile": "uploads/party_files/PartyName/filename.pdf"
+}
+
+Delete Party Area
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=delete_partyArea&PartyAreaID=1193
+
+{
+    "success": true,
+    "message": "Party area deleted successfully."
+}

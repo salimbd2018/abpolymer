@@ -1,0 +1,166 @@
+Dashboard
+
+in (select userid from sndusers where ReportingToUserID = ?)
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_user_statistics_team_date&UserID=405&date1=2025-01-01&date2=2025-07-21
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_user_statistics_expense_visit_team&UserID=437&ExpenseID=22&date1=2025-01-21&date2=2025-06-21
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_user_statistics_institution_visit_team&UserID=389&InstitutionTypeID=193&date1=2025-01-21&date2=2025-07-21
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_user_statistics_party_visit_team&UserID=437&date1=2025-01-21&date2=2025-06-21
+
+
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_user_statistics_team&UserID=405
+
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_user_statistics&UserID=437
+
+{
+    "No_of_Institution": "82.00",
+    "No_of_Party": "3.00",
+    "Institution_Visits": [
+        {
+            "InstitutionType": "Primary-School",
+            "No_of_Institute_Visit": "18.00"
+        },
+        {
+            "InstitutionType": "High-School",
+            "No_of_Institute_Visit": "18.00"
+        },
+        {
+            "InstitutionType": "College",
+            "No_of_Institute_Visit": "44.00"
+        },
+        {
+            "InstitutionType": "Coaching Center",
+            "No_of_Institute_Visit": "22.00"
+        },
+        {
+            "InstitutionType": "Kindergarten School",
+            "No_of_Institute_Visit": "16.00"
+        },
+        {
+            "InstitutionType": "School & College",
+            "No_of_Institute_Visit": "27.00"
+        },
+        {
+            "InstitutionType": "Party",
+            "No_of_Institute_Visit": "38.00"
+        },
+        {
+            "InstitutionType": "Others Activities",
+            "No_of_Institute_Visit": "3.00"
+        }
+    ],
+    "Sales_Target": "9,999,812.88",
+    "Sales_Achievement": "0.00",
+    "Total_Collection": "0.00",
+    "Business_Development_Expense": "0.00",
+    "Specimen_Expense": ".000000",
+    "TA_Expense": "8,880.00",
+    "DA_Expense": "4,350.00",
+    "Teacher_Entertainment": "0.00",
+    "Business_Development_Exp": "0.00",
+    "Fuel_Lubricant_Exp": "0.00",
+    "Hotel_Rent": "0.00",
+    "Transport_Courier": "0.00",
+    "Photocopy_Bill": "160.00",
+    "Administrative_Exp": "0.00",
+    "Gift_Tips_Party": "0.00",
+    "Bank_Online_Charge": "0.00",
+    "Others_Bill": "2,600.00",
+    "Mobile_Bill": "600.00",
+    "Bike": "0.00",
+    "Text_RefetchData": "0.00",
+    "Repair_and_Maintenance": "0.00",
+    "Specimen_Requisition": "0.00",
+    "Specimen_Distribution": "0.00",
+    "Miscellaneous_Expenses": "0.00"
+}
+
+
+when click     
+"No_of_Institution": "82.00",
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_user_statistics_date&UserID=299&date1=2025-01-01&date2=2025-07-21
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_user_statistics_expense_visit&UserID=437&ExpenseID=22&date1=2025-01-21&date2=2025-06-21
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_user_statistics_institution_visit&UserID=389&InstitutionTypeID=193&date1=2025-01-21&date2=2025-07-21
+
+{
+    "success": true,
+    "data": [
+        {
+            "VisitPlanID": 9467,
+            "VP1": "VP-1181/05-25",
+            "VP2": "2025-05-31",
+            "InstitutionTypeID": 11,
+            "InstitutionID": 2055,
+            "InstitutionType": "Primary-School",
+            "VP3": "Tejgaon Farm Govt Primary School",
+            "UserID": 437
+        },
+        {
+            "VisitPlanID": 9515,
+            "VP1": "VP-1219/06-25",
+            "VP2": "2025-05-31",
+            "InstitutionTypeID": 11,
+            "InstitutionID": 2055,
+            "InstitutionType": "Primary-School",
+            "VP3": "Tejgaon Farm Govt Primary School",
+            "UserID": 437
+        }
+	]
+}
+
+
+For    "No_of_Party": "3.00",
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_user_statistics_party_visit&UserID=437&date1=2025-01-21&date2=2025-06-21
+
+
+{
+    "success": true,
+    "data": [
+        {
+            "VisitPlanID": 9545,
+            "VP1": "VP-1245/06-25",
+            "VP2": {
+                "date": "2025-06-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Europe/Berlin"
+            },
+            "InstitutionTypeID": 186,
+            "PartyID": 66,
+            "VisitPlanDate": {
+                "date": "2025-06-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Europe/Berlin"
+            },
+            "VP3": "Dulal Book House-Farmgate"
+        },
+        {
+            "VisitPlanID": 10155,
+            "VP1": "VP-1642/06-25",
+            "VP2": {
+                "date": "2025-06-02 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Europe/Berlin"
+            },
+            "InstitutionTypeID": 186,
+            "PartyID": 202,
+            "VisitPlanDate": {
+                "date": "2025-06-02 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Europe/Berlin"
+            },
+            "VP3": "School Library-Rayerbazar"
+        }
+		
+	]
+}

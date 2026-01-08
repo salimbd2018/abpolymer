@@ -1,0 +1,357 @@
+
+
+For Get parties
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_parties
+
+[
+    {
+        "PartyID": 1,
+        "PartyName": "Arafat Traders",
+        "ContactPersonName": "Mr. Rahman",
+        "ContactNumber": "01712345678",
+        "Address": "Dhaka, Bangladesh",
+        "CreditLimit": "50000.00",
+        "DepositAmount": null,
+        "OpeningBalance": null
+    }
+}
+
+
+For Add New partydetails Info:
+API:
+Create a new POST request with the URL:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_partydetailsAndroid
+
+Set the Body: Select raw and choose JSON. Enter the following JSON data:
+
+{
+    "PartyName": "Test Party333",
+    "RegionID": 1,
+    "Address": "123 Test Street",
+    "OwnerDateOfBirth": "1990-05-20", // Use valid date format
+    "BusinessStartYear": null,       // Optional
+    "Email": "test@example.com",
+    "OwnerContactNumber": "0123456789"
+}
+
+
+OR
+
+
+{
+    "PartyName": "ABC Distributors",
+    "Address": "123 Main Street, Dhaka",
+    "RegionID": 1,
+    "OwnerName": "John Doe",
+    "OwnerCurrentAddress": "Dhaka City",
+    "OwnerPermanentAddress": "Chittagong",
+    "OwnerContactNumber": "017XXXXXXXX",
+    "OwnerDateOfBirth": "1985-05-15",
+    "BusinessStartYear": "2010",
+    "Email": "owner@example.com",
+    "Website": "http://www.abcdistributors.com",
+    "ContactPersonName": "Jane Smith",
+    "ContactNumber": "018XXXXXXXX",
+    "NoOfThana": 5,
+    "NoOfDistrict": 3,
+    "CreditLimit": 500000.00,
+    "DepositAmount": 100000.00,
+    "IsSamityMember": "Yes",
+    "WayOfSendingLetters": "Email",
+    "OpeningBalance": 20000.00,
+    "OwnerPicturePath": "path/to/picture.jpg",
+    "OwnerNIDDocumentPath": "path/to/nid.pdf",
+    "TradeLicenseDocumentPath": "path/to/trade_license.pdf",
+    "SamityMembershipCardPath": "path/to/card.pdf",
+    "TINCertificatePath": "path/to/tin.pdf",
+    "DepositChequePath": "path/to/cheque.pdf",
+    "NonJudicialAgreementDocumentPath": "path/to/agreement.pdf",
+    "AgreementDocumentPath": "path/to/agreement_2.pdf"
+}
+
+
+Method: POST
+
+URL:
+
+vbnet
+Copy code
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_partydetailsAndroid&PartyID=1
+Replace:
+
+your-server-domain with your server's address (e.g., https://asianabpolymer.com/abpolymer).
+path-to-api with the API endpoint path.
+123 with the partyID you want to update.
+Headers:
+
+Content-Type: multipart/form-data
+Body:
+Set the body type to form-data and include the following fields:
+
+Form Data
+Key	Value
+PartyName	Updated Party Name (e.g., "Test Party Updated")
+Address	Updated Address (e.g., "123 Test Street")
+RegionID	Updated Region ID (e.g., 5)
+OwnerName	Owner's name (optional)
+OwnerCurrentAddress	Owner's current address (optional)
+OwnerPermanentAddress	Owner's permanent address (optional)
+OwnerContactNumber	Owner's contact number (optional)
+OwnerDateOfBirth	Owner's date of birth (YYYY-MM-DD) (optional)
+BusinessStartYear	Business start year (optional)
+Email	Updated email address (optional)
+Website	Updated website URL (optional)
+ContactPersonName	Updated contact person name (optional)
+ContactNumber	Updated contact person's phone number (optional)
+NoOfThana	Updated number of Thanas (optional)
+NoOfDistrict	Updated number of districts (optional)
+CreditLimit	Updated credit limit (optional)
+DepositAmount	Updated deposit amount (optional)
+IsSamityMember	Is a Samity member? (1 for yes, 0 for no)
+WayOfSendingLetters	Way of sending letters (optional)
+OpeningBalance	Updated opening balance (optional)
+OwnerPicturePath (file)	Upload a new image for the owner picture (optional)
+OwnerNIDDocumentPath (file)	Upload a new NID document file (optional)
+TradeLicenseDocumentPath (file)	Upload a new trade license document file (optional)
+SamityMembershipCardPath (file)	Upload a new Samity membership card file (optional)
+TINCertificatePath (file)	Upload a new TIN certificate file (optional)
+DepositChequePath (file)	Upload a new deposit cheque file (optional)
+NonJudicialAgreementDocumentPath (file)	Upload a new non-judicial agreement document (optional)
+AgreementDocumentPath (file)	Upload a new agreement document file (optional)
+Example Test Case
+Request:
+
+partyID=123
+Body:
+plaintext
+Copy code
+PartyName: Test Party Updated
+Address: 123 Test Street
+RegionID: 5
+OwnerPicturePath: [Select a file to upload]
+OwnerNIDDocumentPath: [Select a file to upload]
+Expected Response:
+
+json
+Copy code
+{
+    "message": "Party updated successfully",
+    "ImagePaths": {
+        "OwnerPicturePath": "https://asianabpolymer.com/abpolymer/uploads/party_files/OwnerPicture_12345.jpg",
+        "OwnerNIDDocumentPath": "https://asianabpolymer.com/abpolymer/uploads/party_files/OwnerNID_67890.jpg",
+        "TradeLicenseDocumentPath": null,
+        "SamityMembershipCardPath": null,
+        "TINCertificatePath": null,
+        "DepositChequePath": null,
+        "NonJudicialAgreementDocumentPath": null,
+        "AgreementDocumentPath": null
+    }
+}
+Additional Notes:
+If a field is not updated, it retains its previous value.
+Test various scenarios:
+Update all fields with valid data.
+Update only one field (e.g., PartyName).
+Upload new files for specific fields.
+Test with invalid inputs or missing required fields.
+
+
+For PartydetailsAndroid
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_partydetailsAndroid&PartyID=51
+
+Output
+{
+    "message": "Party details fetched successfully",
+    "data": {
+        "PartyName": "Test_Par333364",
+        "Address": "11",
+        "RegionID": 2,
+        "OwnerName": "John Doe",
+        "OwnerCurrentAddress": "Principal",
+        "OwnerPermanentAddress": "03734837",
+        "OwnerContactNumber": "ABC",
+        "OwnerDateOfBirth": null,
+        "BusinessStartYear": "",
+        "Email": "www@gmail.com",
+        "Website": "1",
+        "ContactPersonName": "1",
+        "ContactNumber": "0134343",
+        "NoOfThana": 1,
+        "NoOfDistrict": 1,
+        "CreditLimit": "3444.00",
+        "DepositAmount": "1.00",
+        "IsSamityMember": "1",
+        "WayOfSendingLetters": "1",
+        "OpeningBalance": "500.00",
+        "OwnerPicturePath": null,
+        "OwnerNIDDocumentPath": "https://asianabpolymer.com/abpolymer/uploads/party_files/uploads/party_files/Test_Par333364/OwnerNIDDocumentPath_674e0a9eae4b37.52180481.jpg",
+        "TradeLicenseDocumentPath": "https://asianabpolymer.com/abpolymer/uploads/party_files/uploads/party_files/Test_Par333364/TradeLicenseDocumentPath_674e0a9eae7545.03964393.pdf",
+        "SamityMembershipCardPath": "https://asianabpolymer.com/abpolymer/uploads/party_files/uploads/party_files/Test_Par333364/SamityMembershipCardPath_674e0a9eae8549.15142948.pdf",
+        "TINCertificatePath": "https://asianabpolymer.com/abpolymer/uploads/party_files/uploads/party_files/Test_Par333364/TINCertificatePath_674e0a9eae9039.53111976.jpg",
+        "DepositChequePath": "https://asianabpolymer.com/abpolymer/uploads/party_files/uploads/party_files/Test_Par333364/DepositChequePath_674e0a9eae9b18.68684423.jpg",
+        "NonJudicialAgreementDocumentPath": null,
+        "AgreementDocumentPath": "https://asianabpolymer.com/abpolymer/uploads/party_files/uploads/party_files/Test_Par333364/AgreementDocumentPath_674e0a9eaeaa77.53289717.jpg"
+    }
+}
+
+
+
+
+
+For Party CoveredArea Get
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_partydetailsAreas&PartyID=1
+
+{
+    "PartyID": 1,
+    "PartyAreas": [
+        {
+            "RegionID": 1,
+            "RegionName": "Updated Region A"
+        },
+        {
+            "RegionID": 3,
+            "RegionName": "New Region C"
+        }
+    ]
+}
+
+For Party CoveredArea Create
+
+Create a new POST request with the URL:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_partydetailsAreas&PartyID=1
+
+Set the headers:
+Content-Type: application/json
+Set the Body: Select raw and choose JSON. Enter the following JSON data:
+
+Input:
+
+{
+  "PartyAreas": [
+    {
+      "RegionID": 1,
+      "RegionName": "North Region"
+    },
+    {
+      "RegionID": 2,
+      "RegionName": "South Region"
+    }
+  ]
+}
+
+
+Output:
+
+{
+  "message": "Party Area created successfully",
+  "PartyID": "<PartyID>"
+}
+
+
+For Update update_partydetailsAreasInfo:
+API:
+create a PUT request.
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_partydetailsAreas&PartyID=1
+
+Go to the Body tab, select raw, and set it to JSON.
+Enter the following JSON in the body
+
+Input:
+
+{
+  "PartyAreas": [
+    {
+      "RegionID": 1,
+      "RegionName": "Updated Region A"
+    },
+    {
+      "RegionID": 3,
+      "RegionName": "New Region C"
+    }
+  ]
+}
+
+Output:
+
+{
+    "message": "Party Areas updated successfully",
+    "PartyID": 1
+}
+
+
+For Create create_partydetailsOthersDocs
+
+Create a new POST request with the URL:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_partydetailsOthersDocs&PartyID=51
+
+Set the headers:
+Select POST method.
+
+In the Body tab:
+
+Choose form-data.
+
+Input:
+
+
+Key	Value	Type
+OtherDocs[0][PartyOtherDocName]	Document1	Text
+OtherDocs[1][PartyOtherDocName]	Document2	Text
+Document1	Choose a file	File
+Document2	Choose another file	File
+
+For Get partydetailsOthersDocs
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_partydetailsOthersDocs&PartyID=51
+
+{
+    "PartyID": 51,
+    "PartyName": "Test_Par333364",
+    "Documents": [
+        {
+            "PartyOtherDocName": "Document1",
+            "PartyOtherDocPath": "https://your-domain/DLogicKBL/uploads/party_files/Test_Par333364/Document1_674e361d5a33c0.07978941.jpg"
+        }
+    ]
+}
+
+
+For Update create_partydetailsOthersDocs
+
+Update a new PUT request with the URL:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_partydetailsOthersDocs&PartyID=51
+
+Set the headers:
+Select PUT method.
+
+In the Body tab:
+
+Choose form-data.
+
+Input:
+
+
+Key	Value	Type
+OtherDocs[0][PartyOtherDocName]	Document1	Text
+OtherDocs[1][PartyOtherDocName]	Document2	Text
+Document1	Choose a file	File
+Document2	Choose another file	File
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,133 @@
+Employee Registration
+
+1. List of the -> User Management -> change to "Employee Registration"
+2. Add -> User Management -> "Employee Registration"
+3. employeeID: -> Employee ID:
+4. Dasignation/Role: -> Designation/Role:
+5. Phone -> Mobile Number:
+6. Reporting To -> Designation - Employee Name - Employee ID
+
+Region-Type management
+1. Region-Type management -> sort Thana -> Area 
+
+Book management
+1. book management -> List -> ID || Books Group || Books Name
+2. Menu -> "Books Category" replace to "Books Group"
+3. Books management -> Category replace with "Books Group"
+                        Book Title rplace by "Books Name"
+4. Books management -> Need to add a new field "Status" - Active/De-Active 						
+5. Books View - Also need to change as like Books Management
+
+Class & Suject Info 
+1. Class Information & Subject Informaiton - Omit
+
+Institution:
+1. Institution -> Teacher Info -> Replace Class Name to "Books Group" and Suject Name replace to "Books Name".
+
+TA-DA & other allowance management
+15. "TA-DA & other allowance management" replace to "Sales & Distribution Expense Ledger"
+     ID || Expense Ledger
+    Button "Add New TA/DA" replace to "Add New Expense Ledger"
+	Add Form also need to change as like other changes.
+	Menu Name "TA-DA & other allowance" replace to "Marketing Expense"
+
+Purpose Category:
+16. Menu "Purpose Category" replace to "Marketing Activity List"
+    "Purposes Management" change to "Marketing Activity List"
+	ID || Marketing Activity List
+	"Add New Purpose" to "Add New Activity" 
+	Add -> "Add New Activity"
+	"Save"
+	
+Production Order
+1. Production Order - not need
+
+
+18. Production Received - Ref "GRN-1001/12-24" 
+    "Production Order Ref:" replace to "Binding Party Name:"
+	Books Group & Books Name
+	Rate:
+	Challan Number:
+	Challan Copy Upload: 
+	
+	List of the Product Receipt
+	Receipt No	Receipt Date	Binding Party Name	Print	Financial Year	Product Group	Product Name	Quantity Rate ChallanNumber
+	
+	GRN Report Print Option without Rate.
+	
+19. Sales Order Party List will generate by the based on User - Area 
+    Ref "SO-1001/12-24"   
+    Sales Order Approval - Authorization & Approval.
+	
+	Authorization
+	
+	Demand information:
+	Total Demand against this Area regarding subject1 : 1000. Order Complete: 500 Order Pending: 500
+	Total Demand against this Area regarding subject2 : 1000. Order Complete: 500 Order Pending: 500
+	Authorization Comments:
+	
+	Auth. QTY	Avail. QTY not need here - just approve as per order.
+	
+	Approval
+	
+    Demand information:
+	Total Demand against this Area regarding subject1 : 1000. Order Complete: 500 Order Pending: 500
+	Total Demand against this Area regarding subject2 : 1000. Order Complete: 500 Order Pending: 500
+	Return Information Last Year:
+	Total Return against this Party regarding subject1 : 1000. Total Delivered: 1500. 
+	Total Demand against this Party regarding subject2 : 1000. Total Delivered: 1500.
+	Approval Comments:
+    
+	Auth. QTY	Avail. QTY not need here - just approve as per order.
+
+20. Delivery Challan
+    
+	Authorized QTY will not here only Qty will put here.
+    Only he can remove or set 0 qty any product if not want to delivery.
+	Challan Print format need to approve.
+	
+21.	Invoice format need to approve.
+    2st print will be "Original" and 2nd print will "Duplicate" 
+    Printed by - Name & designation will be put in the invoice part.
+	Dot matrics printer use here and 2 copy middle purputation will be applied here.
+
+	Invoice Approval not needed.
+
+22. Money Received - Received By: not need here .. auto user info come from login
+
+    Money receipt approval system 3 layer as per policy document and after approval use rcan print the money receipt.
+	
+23. Specimen Order - no price.
+    Ref "SSO-1001/12-24" 
+    User will auto come from login so no need employee name
+	Status will pending berfore approval
+	
+	Specimen Approval will set as per policy.
+	
+	Specimen - Challan & Invoice as like sales order, but price will put here.
+	
+	
+
+item description comments
+
+29.12.2024
+
+1. Product Receipt
+   Print Edition & Production Order Qty Not need.
+   
+2. Sales Order
+   After enter details product not showing green.
+   Specimen Order
+   Party Name will be remove.
+   
+3. Sales Order Approval
+   - For Specimen - 
+   Master part:
+   - Sales Order No replace to Specimen Order No.
+   - Party Name replace to Specimen user Name
+   - T. Amount will be replace to "Total Amt."
+   
+4. Institution
+   EIIN No. : 
+   
+

@@ -1,0 +1,26 @@
+Android Observation
+
+1. Login observation - see the API for login file.
+
+2. After Install Apps its shows "sellerApp" but we need to show here "D-Logic Sales Force" and
+   Also need to show icon "Anupom" that we already provided earlier.
+   
+3. When update or add any part then coursor will show left side and cann't delete or move cursor and
+   after edit or add it should go to list of the data but it goto main menu and also list is not refresh.
+   
+4. Institution - when edit click then Institution name & total student, institution type data is not showing 
+   Institution view - picture is not showing
+   Institution - when click add teach then - application log-out & apps not showing
+5. Party - add not working and also it will need all field.
+   Update, view is not working
+   cover area, file upload is not woking
+6. List of the data will show only 20 line earch page & also pageing is not working
+   
+   
+
+   
+
+
+
+
+

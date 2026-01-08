@@ -1,0 +1,66 @@
+Changes need:
+
+Institution:
+
+1. This one is update teacher in institution part and here "Class Name" replace by "Books Group" and "Subject Name" replace by "Books Name" and also combo box value not showing
+2. In this view teacher here also need to show books group & Books name where is show only Subject Name
+3. Here Institution part ID will be omit here.
+4. Teacher Info here ID value will be show "SL" field I pass in the API newly. not showing this value
+5. In the institution edit option there is also replace like the region we set ... here not showing region and only showing one combo box snd also update is not working.
+
+Product Receipt:
+
+1. View is show like the add receipt, it shows like the following:
+    Receipt ref. No: 
+	Receipt Date: DD-MM-YYYY
+	Binding Party:
+	Print Edition:
+	Challan Number:
+	Challan Image: show the file & click here to download
+	Production Order Qty:
+	
+	Product Details part you need to set:
+	"ID" value from the API where I passing here "SL" value
+	Product Info:
+	Qty & Rate value both will be omit and set here to show value from the field: RateValue from the API.
+	
+2. Receipt add system also show red mark which product are not yet add here we add in API
+   "DetailsStatus": "True" field for the status as like Institution.
+3. Product Delete also not working.
+
+Sales Order:
+
+1. Order add system also show red mark which product are not yet add here we add in API
+   "DetailsStatus": "True" field for the status as like Institution.  
+   Product Details part you need to set:
+	"ID" value from the API where I passing here "SL" value
+	Order Info:
+	Qty value both will be omit and set here to show value from the field: RateValue from the API.
+2. Order View 
+    View is show like the following:
+    Sales Order No:  (see this order number 2nd line 4) it should be one line.
+	Order Date: DD-MM-YYYY
+	Binding Party: (Party Name replace to "Binding Party)
+	Total Amount: 
+	User Name: Not showing user Name 
+	Status:
+	App Status:
+	
+	Specimen View 
+    View is show like the following:
+	ID - Need to omit here
+    Specimen Order No:  (see this order number 2nd line 4) it should be one line.
+	Order Date: DD-MM-YYYY
+	User/Party Name: (Party Name replace to "User/Party Name")
+	Total Amount: 
+	User Name: 
+	Status:
+	App Status:
+	
+3. Product Delete - is working but when delete then its goto previouse page. we need to stay same page as like add product details.
+4. Order/Specimen Edit is not working as well as not showing text color its shows white.
+
+	
+	
+   
+

@@ -1,0 +1,443 @@
+Example of UI:
+
+https://asianabpolymer.com/abpolymer/
+
+user:salimbd
+pass: 3310
+
+Sales Team -> click any RSM or DSM
+
+
+User Profile:
+
+API:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=profileview&UserID=229
+
+{
+    "UserProfile": {
+        "UserID": 298,
+        "EmployeeID": "ID-0457",
+        "EmpName": "Md. Hafizur Rahman",
+        "DesignationID": "1517",
+        "Designation": "Regional Sales Manager",
+        "Username": "ID-0457",
+        "Email": "rahmanhafizur696@gmail.com",
+        "Phone": "01765328832",
+        "Address": "Dhaka",
+        "ReportingToUserID": "Md. Palid Khan",
+        "RDesignation": "National Sales Manager",
+        "Status": 1,
+        "CreatedAt": {
+            "date": "2024-11-29 15:59:13.197000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Berlin"
+        },
+        "ModifiedAt": {
+            "date": "2024-11-29 15:59:13.197000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Berlin"
+        }
+    },
+    "CoveredAreas": [
+        {
+            "AreaName": "Zanjira ",
+            "ThanaName": "Zanjira ",
+            "DistrictName": "Shariatpur ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Tala ",
+            "ThanaName": "Tala ",
+            "DistrictName": "Satkhira ",
+            "DivisionName": "Khulna"
+        },
+        {
+            "AreaName": "Bhanga ",
+            "ThanaName": "Bhanga ",
+            "DistrictName": "Faridpur ",
+            "DivisionName": "Jashore"
+        },
+        {
+            "AreaName": "Amtali",
+            "ThanaName": "Amtali ",
+            "DistrictName": "Barguna ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Bakerganj ",
+            "ThanaName": "Bakerganj ",
+            "DistrictName": "Barisal ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Barisal Sadar ",
+            "ThanaName": "Barisal Sadar ",
+            "DistrictName": "Barisal ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Faridpur Sadar ",
+            "ThanaName": "Faridpur Sadar ",
+            "DistrictName": "Faridpur ",
+            "DivisionName": "Jashore"
+        },
+        {
+            "AreaName": "Banaripara ",
+            "ThanaName": "Banaripara ",
+            "DistrictName": "Barisal ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Kathalia ",
+            "ThanaName": "Kathalia ",
+            "DistrictName": "Jhalokati ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Rajapur ",
+            "ThanaName": "Rajapur ",
+            "DistrictName": "Jhalokati ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Bhandaria ",
+            "ThanaName": "Bhandaria ",
+            "DistrictName": "Pirojpur ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Mathbaria ",
+            "ThanaName": "Mathbaria ",
+            "DistrictName": "Pirojpur ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Bishwamvarpur ",
+            "ThanaName": "Bishwamvarpur ",
+            "DistrictName": "Sunamganj ",
+            "DivisionName": "Sylhet"
+        },
+        {
+            "AreaName": "Jhalokati Sadar ",
+            "ThanaName": "Jhalokati Sadar ",
+            "DistrictName": "Jhalokati ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Nalchity ",
+            "ThanaName": "Nalchity ",
+            "DistrictName": "Jhalokati ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Agailjhara ",
+            "ThanaName": "Agailjhara ",
+            "DistrictName": "Barisal ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Keshabpur ",
+            "ThanaName": "Keshabpur ",
+            "DistrictName": "Jessore ",
+            "DivisionName": "Jashore"
+        },
+        {
+            "AreaName": "Manirampur ",
+            "ThanaName": "Manirampur ",
+            "DistrictName": "Jessore ",
+            "DivisionName": "Jashore"
+        },
+        {
+            "AreaName": "Muladi ",
+            "ThanaName": "Muladi ",
+            "DistrictName": "Barisal ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Babuganj ",
+            "ThanaName": "Babuganj ",
+            "DistrictName": "Barisal ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Hizla ",
+            "ThanaName": "Hizla ",
+            "DistrictName": "Barisal ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Mehendiganj ",
+            "ThanaName": "Mehendiganj ",
+            "DistrictName": "Barisal ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Kalapara ",
+            "ThanaName": "Kalapara ",
+            "DistrictName": "Patuakhali ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Mirzaganj ",
+            "ThanaName": "Mirzaganj ",
+            "DistrictName": "Patuakhali ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Patuakhali Sadar ",
+            "ThanaName": "Patuakhali Sadar ",
+            "DistrictName": "Patuakhali ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Bauphal ",
+            "ThanaName": "Bauphal ",
+            "DistrictName": "Patuakhali ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Dashmina ",
+            "ThanaName": "Dashmina ",
+            "DistrictName": "Patuakhali ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Dumki ",
+            "ThanaName": "Dumki ",
+            "DistrictName": "Patuakhali ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Galachipa ",
+            "ThanaName": "Galachipa ",
+            "DistrictName": "Patuakhali ",
+            "DivisionName": "Barishal"
+        },
+        {
+            "AreaName": "Bheramara ",
+            "ThanaName": "Bheramara ",
+            "DistrictName": "Kushtia ",
+            "DivisionName": "Kustia"
+        },
+        {
+            "AreaName": "Mirpur ",
+            "ThanaName": "Mirpur ",
+            "DistrictName": "Kushtia ",
+            "DivisionName": "Kustia"
+        },
+        {
+            "AreaName": "Kushtia Sadar ",
+            "ThanaName": "Kushtia Sadar ",
+            "DistrictName": "Kushtia ",
+            "DivisionName": "Kustia"
+        },
+        {
+            "AreaName": "Kalukhali ",
+            "ThanaName": "Kalukhali ",
+            "DistrictName": "Rajbari ",
+            "DivisionName": "Kustia"
+        },
+        {
+            "AreaName": "Pangsha ",
+            "ThanaName": "Pangsha ",
+            "DistrictName": "Rajbari ",
+            "DivisionName": "Kustia"
+        }
+    ],
+    "Subordinates": [
+        {
+            "SL": "1",
+            "UserID": 241,
+            "EmployeeID": "ID-1615",
+            "EmpName": "Md. Rashedul Islam",
+            "DesignationID": "1528",
+            "Designation": "Divisional Sales Manager",
+            "Username": "ID-1615",
+            "Email": "mdrashed2800@gmail.com",
+            "Phone": "01767802369",
+            "Address": "Kushtia Division, Islamia College road, Kushtia sadar Kushtia ",
+            "ReportingToUserID": 298,
+            "Status": 1,
+            "CreatedAt": {
+                "date": "2024-11-29 15:58:44.550000",
+                "timezone_type": 3,
+                "timezone": "Europe\/Berlin"
+            },
+            "ModifiedAt": {
+                "date": "2024-11-29 15:58:44.550000",
+                "timezone_type": 3,
+                "timezone": "Europe\/Berlin"
+            },
+            "CoveredArea": "Jibannagar , Chuadanga  | Harinakunda , Jhenaida  | Bheramara , Kushtia  | Gangni , Meherpur  | Baliakandi , Rajbari  | Bishwamvarpur , Sunamganj  | Bheramara , Kushtia  | Mirpur , Kushtia  | Kushtia Sadar , Kushtia  | Kalukhali , Rajbari  | Pangsha , Rajbari "
+        },
+        {
+            "SL": "2",
+            "UserID": 247,
+            "EmployeeID": "ID-1547",
+            "EmpName": "Md. Al-Amin",
+            "DesignationID": "1502",
+            "Designation": "Area Sales Manager",
+            "Username": "ID-1547",
+            "Email": "alaminbd1994@gmail.com",
+            "Phone": "01750170820",
+            "Address": "Daulotpur.Khulna",
+            "ReportingToUserID": 298,
+            "Status": 1,
+            "CreatedAt": {
+                "date": "2024-11-29 15:58:45.183000",
+                "timezone_type": 3,
+                "timezone": "Europe\/Berlin"
+            },
+            "ModifiedAt": {
+                "date": "2025-01-22 23:02:59.380000",
+                "timezone_type": 3,
+                "timezone": "Europe\/Berlin"
+            },
+            "CoveredArea": "Amtali , Barguna "
+        },
+        {
+            "SL": "3",
+            "UserID": 257,
+            "EmployeeID": "ID-1483",
+            "EmpName": "Md. Abdul Alim Mia",
+            "DesignationID": "1528",
+            "Designation": "Divisional Sales Manager",
+            "Username": "ID-1483",
+            "Email": "tabsin007@gmail.com",
+            "Phone": "01712347900",
+            "Address": "jashore Division ",
+            "ReportingToUserID": 298,
+            "Status": 1,
+            "CreatedAt": {
+                "date": "2024-11-29 15:59:07.030000",
+                "timezone_type": 3,
+                "timezone": "Europe\/Berlin"
+            },
+            "ModifiedAt": {
+                "date": "2025-01-09 14:52:52.937000",
+                "timezone_type": 3,
+                "timezone": "Europe\/Berlin"
+            },
+            "CoveredArea": "Alfadanga , Faridpur  | Abhaynagar , Jessore  | Magura Sadar , Magura  | Barisal Sadar , Barisal  | Faridpur Sadar , Faridpur  | Keshabpur , Jessore  | Manirampur , Jessore "
+        },
+        {
+            "SL": "4",
+            "UserID": 323,
+            "EmployeeID": "ID-0202",
+            "EmpName": "Md. Elias Khan Bahadur",
+            "DesignationID": "1502",
+            "Designation": "Area Sales Manager",
+            "Username": "ID-0202",
+            "Email": "eliaskhan918@gmail.com",
+            "Phone": "01710848957",
+            "Address": "Gopalgong",
+            "ReportingToUserID": 298,
+            "Status": 1,
+            "CreatedAt": {
+                "date": "2024-11-29 15:59:16.160000",
+                "timezone_type": 3,
+                "timezone": "Europe\/Berlin"
+            },
+            "ModifiedAt": {
+                "date": "2024-11-29 15:59:16.160000",
+                "timezone_type": 3,
+                "timezone": "Europe\/Berlin"
+            },
+            "CoveredArea": "Agailjhara , Barisal "
+        },
+        {
+            "SL": "5",
+            "UserID": 391,
+            "EmployeeID": "ID-0024",
+            "EmpName": "Md. Musfiqur Rahman ",
+            "DesignationID": "1502",
+            "Designation": "Area Sales Manager",
+            "Username": "ID-0024",
+            "Email": "test4@gmail.com",
+            "Phone": "01715605811",
+            "Address": "madaripur",
+            "ReportingToUserID": 298,
+            "Status": 1,
+            "CreatedAt": {
+                "date": "2024-11-29 16:40:59.740000",
+                "timezone_type": 3,
+                "timezone": "Europe\/Berlin"
+            },
+            "ModifiedAt": {
+                "date": "2024-11-29 16:40:59.740000",
+                "timezone_type": 3,
+                "timezone": "Europe\/Berlin"
+            },
+            "CoveredArea": "Kalkini , Madaripur  | Madaripur Sadar , Madaripur  | Shibchar , Madaripur "
+        },
+        {
+            "SL": "6",
+            "UserID": 489,
+            "EmployeeID": "ID-0041",
+            "EmpName": "Md. Ashik Elahi",
+            "DesignationID": "1502",
+            "Designation": "Area Sales Manager",
+            "Username": "ID-0041",
+            "Email": "test-11-12@gmail.com",
+            "Phone": "01778111807",
+            "Address": "barshal sadar Barishal ",
+            "ReportingToUserID": 298,
+            "Status": 1,
+            "CreatedAt": {
+                "date": "2024-11-29 16:43:56.663000",
+                "timezone_type": 3,
+                "timezone": "Europe\/Berlin"
+            },
+            "ModifiedAt": {
+                "date": "2025-01-08 11:54:39.260000",
+                "timezone_type": 3,
+                "timezone": "Europe\/Berlin"
+            },
+            "CoveredArea": "Bakerganj , Barisal  | Banaripara , Barisal  | Kathalia , Jhalokati  | Rajapur , Jhalokati  | Bhandaria , Pirojpur  | Mathbaria , Pirojpur  | Jhalokati Sadar , Jhalokati  | Nalchity , Jhalokati  | Muladi , Barisal  | Babuganj , Barisal  | Hizla , Barisal  | Mehendiganj , Barisal  | Kalapara , Patuakhali  | Mirzaganj , Patuakhali  | Patuakhali Sadar , Patuakhali  | Bauphal , Patuakhali  | Dashmina , Patuakhali  | Dumki , Patuakhali  | Galachipa , Patuakhali "
+        }
+    ]
+}
+Chat
+
+New Conversation
+
+🤓 Explain a complex thing
+
+Explain Artificial Intelligence so that I can explain it to my six-year-old child.
+
+
+🧠 Get suggestions and create new ideas
+
+Please give me the best 10 travel ideas around the world
+
+
+💭 Translate, summarize, fix grammar and more…
+
+Translate "I love you" French
+
+
+GPT-4o Mini
+Hello, how can I help you today?
+GPT-4o Mini
+coin image
+10
+Upgrade
+
+
+
+
+Ask me anything...
+
+
+
+Make a Review & Earn Credit ❤
+Chat
+Ask
+Search
+Write
+Image
+ChatFile
+Vision
+Full Page
+Invite & Earn

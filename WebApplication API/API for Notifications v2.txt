@@ -1,0 +1,70 @@
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_all_notifications&UserID=501
+
+[
+    {
+        "sndNotificationsID": 3,
+        "NotificationTitle": "Business Development Expense",
+        "No_of_Notifications": 1
+    },
+    {
+        "sndNotificationsID": 8,
+        "NotificationTitle": "DeliveryChallan",
+        "No_of_Notifications": 1
+    },
+    {
+        "sndNotificationsID": 7,
+        "NotificationTitle": "Inventory Transfer",
+        "No_of_Notifications": 1
+    },
+    {
+        "sndNotificationsID": 9,
+        "NotificationTitle": "Invocie Generate",
+        "No_of_Notifications": 1
+    },
+    {
+        "sndNotificationsID": 6,
+        "NotificationTitle": "Money Receipt",
+        "No_of_Notifications": 1
+    },
+    {
+        "sndNotificationsID": 2,
+        "NotificationTitle": "Sales Order",
+        "No_of_Notifications": 1
+    },
+    {
+        "sndNotificationsID": 5,
+        "NotificationTitle": "Speciment Distributed",
+        "No_of_Notifications": 1
+    },
+    {
+        "sndNotificationsID": 1,
+        "NotificationTitle": "Visit Plans",
+        "No_of_Notifications": 1
+    }
+]
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_notifications&UserID=501&sndNotificationsID=1
+
+[
+    {
+        "NotificationsID": 1,
+        "sndNotificationsID": 1,
+        "NotificationTitle": "Visit Plans",
+        "NotificationStatusMeans": "Approval Needed for Visit Plan:"
+    }
+]
+
+Visit Plans
+Approval Needed for Visit Plan:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_Notification&NotificationID=1
+
+{
+    "NotificationsID": 1,
+    "sndNotificationsID": 1,
+    "NotificationTitle": "Visit Plans",
+    "NotificationStatusMeans": "Approval Needed for Visit Plan:"
+}
+
+

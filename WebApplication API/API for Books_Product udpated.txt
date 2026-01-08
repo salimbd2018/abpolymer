@@ -1,0 +1,45 @@
+Books (Products)
+
+Please omit Price from the Books List & entry or update
+
+Notes:
+1.	List of the data can add, view & edit. No delete option.
+2.	Category: Data will come from the Books Category.
+
+For all product Infos, use:
+Choose GET method in Postman.
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_products
+
+
+For a specific product Info by ID, use:
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_product&ProductID=145
+
+{
+  "ProductID": 1,
+  "ProductName": "Laptop",
+  "Category": "Electronics",
+  "CreatedAt": "2024-09-30T10:00:00Z",
+  "ModifiedAt": "2024-09-30T10:00:00Z"
+}
+For Add New product Info:
+
+API:
+Create a new POST request with the URL:
+const url = 'https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_product'; // Replace with actual URL
+Set the headers:
+Content-Type: application/json
+Set the Body: Select raw and choose JSON. Enter the following JSON data:
+{
+  "ProductName": "Tablet",
+  "Categoryid": 10
+}
+For Update product Info:
+API:
+create a PUT request.
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_product&ProductID=145
+Go to the Body tab, select raw, and set it to JSON.
+Enter the following JSON in the body
+{
+  "ProductName": "Gaming Laptop",
+  "Category": "Electronics"
+}

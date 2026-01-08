@@ -1,0 +1,32 @@
+for Employee Login picture image
+https://asianabpolymer.com/abpolymer/images/empdocs/
+For pary registration docs
+https://asianabpolymer.com/abpolymer/images/partydocs/
+
+For institution docs
+https://asianabpolymer.com/abpolymer/images/institututiondocs/
+
+
+
+Following API is now working
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_subjectinfo
+Content-Type: application/json
+Set the Body: Select raw and choose JSON. Enter the following JSON data:
+
+{
+    "SubjectName": "Physics221",
+    "sndClassID": 31
+}
+
+For Region Entry - Region type combo box:
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_regiontype1
+
+For Parent Region API 
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_parentregions&RegionTypeID=88
+   - Method: `GET`
+{
+    "RegionID": 2,
+    "RegionName": "Dhaka Division"
+}

@@ -1,0 +1,40 @@
+Here's a simple Node.js script that generates a Google Maps URL with a marker (flag) at the given latitude and longitude. When opened in a browser, it will show the location on Google Maps.
+
+Steps:
+Run the script and input latitude & longitude.
+The script generates a Google Maps URL.
+Open the URL in a browser to view the location with a marker.
+Code:
+javascript
+Copy
+Edit
+const readline = require("readline");
+
+// Create an interface to take user input
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+// Function to generate Google Maps URL
+function generateGoogleMapsURL(latitude, longitude) {
+    return `https://www.google.com/maps?q=${latitude},${longitude}&z=15&marker=color:red%7Clabel:A%7C${latitude},${longitude}`;
+}
+
+// Ask for latitude and longitude
+rl.question("Enter latitude: ", (lat) => {
+    rl.question("Enter longitude: ", (lng) => {
+        const googleMapsURL = generateGoogleMapsURL(lat, lng);
+        console.log(`Open the following link to view the location:\n${googleMapsURL}`);
+        rl.close();
+    });
+});
+How to Use:
+Save the script as map.js.
+Run it using:
+sh
+Copy
+Edit
+node map.js
+Enter latitude and longitude when prompted.
+Click on the generated link to open Google Maps with the location marked.

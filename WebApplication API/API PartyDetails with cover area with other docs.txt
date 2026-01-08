@@ -1,0 +1,151 @@
+For Add New partydetails Info:
+API:
+Create a new POST request with the URL:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_partydetails
+
+Set the headers:
+Content-Type: application/json
+Set the Body: Select raw and choose JSON. Enter the following JSON data:
+
+{
+    "PartyName": "ABC Distributors",
+    "Address": "123 Main Street, Dhaka",
+    "RegionID": 1,
+    "OwnerName": "John Doe",
+    "OwnerCurrentAddress": "Dhaka City",
+    "OwnerPermanentAddress": "Chittagong",
+    "OwnerContactNumber": "017XXXXXXXX",
+    "OwnerDateOfBirth": "1985-05-15",
+    "BusinessStartYear": "2010",
+    "Email": "owner@example.com",
+    "Website": "http://www.abcdistributors.com",
+    "ContactPersonName": "Jane Smith",
+    "ContactNumber": "018XXXXXXXX",
+    "NoOfThana": 5,
+    "NoOfDistrict": 3,
+    "CreditLimit": 500000.00,
+    "DepositAmount": 100000.00,
+    "IsSamityMember": "Yes",
+    "WayOfSendingLetters": "Email",
+    "OpeningBalance": 20000.00,
+    "OwnerPicturePath": "path/to/picture.jpg",
+    "OwnerNIDDocumentPath": "path/to/nid.pdf",
+    "TradeLicenseDocumentPath": "path/to/trade_license.pdf",
+    "SamityMembershipCardPath": "path/to/card.pdf",
+    "TINCertificatePath": "path/to/tin.pdf",
+    "DepositChequePath": "path/to/cheque.pdf",
+    "NonJudicialAgreementDocumentPath": "path/to/agreement.pdf",
+    "AgreementDocumentPath": "path/to/agreement_2.pdf",
+    "PartyAreas": [
+        { "RegionID": 1, "RegionName": "Dhaka North" },
+        { "RegionID": 2, "RegionName": "Dhaka South" }
+    ],
+    "OtherDocs": [
+        { "PartyOtherDocName": "License", "PartyOtherDocPath": "path/to/license.pdf" },
+        { "PartyOtherDocName": "Permit", "PartyOtherDocPath": "path/to/permit.pdf" }
+    ]
+}
+
+
+
+For Update party Info:
+API:
+create a PUT request.
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_party&PartyID=1
+
+Go to the Body tab, select raw, and set it to JSON.
+Enter the following JSON in the body
+
+{
+    "PartyName": "Updated Distributors",
+    "Address": "456 New Street, Dhaka",
+    "RegionID": 2,
+    "OwnerName": "John Doe Updated",
+    "OwnerCurrentAddress": "New Dhaka",
+    "OwnerPermanentAddress": "Chittagong Updated",
+    "OwnerContactNumber": "018XXXXXXXX",
+    "OwnerDateOfBirth": "1985-06-15",
+    "BusinessStartYear": "2012",
+    "Email": "updated@example.com",
+    "Website": "http://www.updateddistributors.com",
+    "ContactPersonName": "Jane Doe Updated",
+    "ContactNumber": "019XXXXXXXX",
+    "NoOfThana": 6,
+    "NoOfDistrict": 4,
+    "CreditLimit": 700000.00,
+    "DepositAmount": 150000.00,
+    "IsSamityMember": "No",
+    "WayOfSendingLetters": "Courier",
+    "OpeningBalance": 30000.00,
+    "OwnerPicturePath": "path/to/new_picture.jpg",
+    "OwnerNIDDocumentPath": "path/to/new_nid.pdf",
+    "TradeLicenseDocumentPath": "path/to/new_trade_license.pdf",
+    "SamityMembershipCardPath": "path/to/new_card.pdf",
+    "TINCertificatePath": "path/to/new_tin.pdf",
+    "DepositChequePath": "path/to/new_cheque.pdf",
+    "NonJudicialAgreementDocumentPath": "path/to/new_agreement.pdf",
+    "AgreementDocumentPath": "path/to/new_agreement_2.pdf",
+    "PartyAreas": [
+        { "RegionID": 3, "RegionName": "Chittagong North" },
+        { "RegionID": 4, "RegionName": "Chittagong South" }
+    ],
+    "OtherDocs": [
+        { "PartyOtherDocName": "Updated License", "PartyOtherDocPath": "path/to/updated_license.pdf" },
+        { "PartyOtherDocName": "Updated Permit", "PartyOtherDocPath": "path/to/updated_permit.pdf" }
+    ]
+}
+
+Output:
+
+{
+    "message": "Party updated successfully"
+}
+
+
+For a specific party Info by ID, use:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_partydetails&PartyID=1
+
+{
+    "PartyID": 1,
+    "PartyName": "Example Party",
+    "Address": "123 Street",
+    "RegionID": 1,
+    "OwnerName": "John Doe",
+    "OwnerCurrentAddress": "Dhaka",
+    "OwnerPermanentAddress": "Chittagong",
+    "OwnerContactNumber": "018XXXXXXXX",
+    "OwnerDateOfBirth": "1980-01-01",
+    "BusinessStartYear": "2010",
+    "Email": "example@domain.com",
+    "Website": "http://example.com",
+    "ContactPersonName": "Jane Doe",
+    "ContactNumber": "019XXXXXXXX",
+    "NoOfThana": 5,
+    "NoOfDistrict": 3,
+    "CreditLimit": 500000.00,
+    "DepositAmount": 100000.00,
+    "IsSamityMember": "Yes",
+    "WayOfSendingLetters": "Email",
+    "OpeningBalance": 20000.00,
+    "OwnerPicturePath": "path/to/owner_picture.jpg",
+    "OwnerNIDDocumentPath": "path/to/nid.pdf",
+    "TradeLicenseDocumentPath": "path/to/license.pdf",
+    "SamityMembershipCardPath": "path/to/card.pdf",
+    "TINCertificatePath": "path/to/tin.pdf",
+    "DepositChequePath": "path/to/cheque.pdf",
+    "NonJudicialAgreementDocumentPath": "path/to/agreement.pdf",
+    "AgreementDocumentPath": "path/to/agreement_2.pdf",
+    "CreatedAt": "2024-01-01T00:00:00",
+    "ModifiedAt": "2024-01-15T00:00:00",
+    "PartyAreas": [
+        { "RegionID": 1, "RegionName": "Dhaka Division" },
+        { "RegionID": 2, "RegionName": "Chittagong Division" }
+    ],
+    "OtherDocs": [
+        { "PartyOtherDocName": "License", "PartyOtherDocPath": "path/to/license.pdf" },
+        { "PartyOtherDocName": "Permit", "PartyOtherDocPath": "path/to/permit.pdf" }
+    ]
+}

@@ -1,0 +1,280 @@
+Product Return
+
+ INSERT INTO [dbo].[sndProductReturn]
+           ([ProductReturnNo]
+           ,[ReturnDate]
+           ,[PartyID]
+           ,[UserID]
+           ,[CreatedAt]
+           ,[ModifiedAt])
+     VALUES
+           (<ProductReturnNo, varchar(100),>
+           ,<ReturnDate, date,>
+           ,<PartyID, int,>
+           ,<UserID, int,>
+           ,<CreatedAt, datetime,>
+           ,<ModifiedAt, datetime,>)
+
+INSERT INTO [dbo].[sndProductReturnDetails]
+           ([ProductReturnID]
+           ,[FinancialYearID]
+           ,[ProductCategoryID]
+           ,[ProductID]
+           ,[Quantity]
+           ,[Rate]
+           ,[Total])
+     VALUES
+           (<ProductReturnID, int,>
+           ,<FinancialYearID, int,>
+           ,<ProductCategoryID, int,>
+           ,<ProductID, int,>
+           ,<Quantity, int,>
+           ,<Rate, numeric(18,2),>
+           ,<Total, numeric(18,2),>)
+		   
+Get List of the Return
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_PReturns
+
+[
+    {
+        "SL": "1",
+        "ProductReturnID": 1,
+        "ProductReturnNo": "PRN-1001/02-25",
+        "ReturnDate": "2025-06-02 ",
+        "partyid": 4,
+        "PartyName": "Adi Nurjahan Library-Borguna",
+        "DetailsStatus": "True"
+    }
+]
+	
+Get a single data from Return
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_PReturn&ProductReturnID=1
+
+{
+    "ProductReturnID": 1,
+    "ProductReturnNo": "PRN-1001/02-25",
+    "ReturnDate": "2025-06-02 ",
+    "PartyID": 4,
+    "PartyName": "Adi Nurjahan Library-Borguna",
+    "DetailsStatus": "True"
+}
+
+Get a single data from Return all
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_Returnall&ProductReturnID=1
+
+{
+    "success": true,
+    "receipt": {
+        "ProductReturnNo": "PRN-1001/02-25",
+        "ReturnDate": "2025-06-02 ",
+        "PartyID": 4,
+        "PartyName": "Adi Nurjahan Library-Borguna",
+        "Address": "Barguna Sadar , Barguna , ",
+        "ContactNumber": null,
+        "UserID": 501,
+        "CreatedBy": "Md. Anowar Hasan Salim",
+        "CreatedAt": null,
+        "ModifiedAt": null
+    },
+    "details": [
+        {
+            "SL": "1",
+            "ProductReturnDetailsID": 1,
+            "ProductReturnID": 1,
+            "FinancialYearID": 13221772,
+            "FinancialYearName": "Financial Year-2025",
+            "ProductCategoryID": 158,
+            "ProductCategoryName": "English Grammar",
+            "ProductID": 30,
+            "ProductName": "English Grammar Today (Class-3)",
+            "Quantity": 20,
+            "Rate": "285.00",
+            "Total": "300.00",
+            "RateValue": "20 Pcs @ Tk. 285.00 = 300.00"
+        }
+    ]
+}
+
+3. **Get a new_product_Return_number**:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=generate_new_product_return_number
+
+Method: POST (based on your implementation).
+
+Output
+
+{
+    "newProductReturnNo": "PRN-1002/02-25"
+}
+
+Create Return all
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_PReturnall
+
+
+{
+    "ProductReturnNo": "PRN-1002/02-25",
+    "ReturnDate": "06-02-2025",
+    "PartyID": 176,
+    "TotalAmount": 327,
+    "InWord": "Fifty only",
+    "UserID": 501,
+    "Details": [
+        {
+            "FinancialYearID": 13221771,
+            "ProductCategoryID": 176,
+            "ProductID": 327,
+            "Quantity": 50,
+            "Rate": 100,
+            "Total": 5000
+        }
+    ]
+}
+
+
+Create Return master
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_PReturn
+	
+Input
+
+
+        {
+            "ProductReturnNo": "PRN-1002/02-25",
+            "ReturnDate": "06-02-2025",
+            "PartyID": 176,
+            "TotalAmount": 327,
+            "InWord": 50,
+            "UserID": 501
+        }
+		
+
+Create ReturnDetails
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_preturndetails
+
+
+
+        {
+            "ProductReturnID": 24,
+            "FinancialYearID": 13221771,
+            "ProductCategoryID": 176,
+            "ProductID": 327,
+            "Quantity": 50,
+            "Rate": 100,
+            "Total": 5000
+        }
+        
+
+
+
+6. Get Party List for combo load to pass the UserID
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_parties_users&UserID=496
+
+[
+    {
+        "PartyID": 158,
+        "PartyName": "Bishaw Porichoy-Nowgaon"
+    },
+    {
+        "PartyID": 172,
+        "PartyName": "Boi Ghor-Naogaon"
+    }
+]
+
+
+Get Financial Year
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_financialyear
+
+[
+    {
+        "id": 13221771,
+        "name": "Fiscal Year-2024"
+    }
+]
+
+
+Books Group Select:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_bookscategorys
+
+[
+    {
+        "ID": 158,
+        "CategoryName": "English Grammar"
+    },
+    {
+        "ID": 159,
+        "CategoryName": "High-School"
+    }
+]
+
+Books Name Categorywise
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_productcategorywise&Categoryid=176
+
+[
+    {
+        "ProductID": 317,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্  রসায়ন"
+    },
+    {
+        "ProductID": 318,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ ইসলাম ও নৈতিক শিক্ষা"
+    },
+    {
+        "ProductID": 319,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ উচ্চতর গণিত"
+    },
+    {
+        "ProductID": 320,
+        "ProductName": "এস.এস.সি টেস্ট পেপারস্ ও মেইড ইজি ইংরেজি (১ম ও ২য় পত্র)"
+    }
+]
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_productrate&FinancialYearID=13221771&ProductID=169
+
+{
+    "Rate": "200.00"
+}
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=delete_preturndetails&ProductReturnDetailsID=1
+
+Method: Delete
+
+Output:
+{
+    "message": "ProductReturnDetails deleted successfully"
+}
+
+update Product Return
+
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_ppreceiptall&ProductReceiptID=2
+
+{
+    "ProductReturnNo": "PRN-1002/02-25",
+    "ReturnDate": "06-02-2025",
+    "PartyID": 176,
+    "TotalAmount": 327,
+    "InWord": "Fifty only",
+    "UserID": 501,
+    "Details": [
+        {
+            "FinancialYearID": 13221771,
+            "ProductCategoryID": 176,
+            "ProductID": 327,
+            "Quantity": 500,
+            "Rate": 1000,
+            "Total": 5000
+        }
+    ]
+}
+

@@ -1,0 +1,273 @@
+1. Get All For VisitPlan Summary:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_VisitPlanApprovalSum&UserID=501
+
+(select name from HrmDesignations where CmnCompanyId = 2  and HrmDesignations.ID = u.DesignationID) as Designation,
+
+[
+    {
+        "SL": "1",
+        "VisitUserID": 501,
+        "No_of_App_Pending": 6,
+        "VisitUserName": "Md. Anowar Hasan Salim",
+        "Status": "Pending Approval",
+        "AppStatus": 1
+    }
+]
+
+1. Get All For VisitPlan:
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_VisitPlanApproval&UserID=501
+
+[
+    {
+        "VisitPlanID": 6,
+        "VisitPlanNo": "VP-1010/01-25",
+        "VisitPlanDate": "2025-01-15 ",
+        "InstitutionID": 3314,
+        "InstituteName": "kusumbi High School ",
+        "PurposeID": 140,
+        "PurposeName": "High School Visit",
+        "VisitUserName": "Md. Anowar Hasan Salim",
+        "Status": "Pending Approval",
+        "AppStatus": 1,
+        "LogUserName": "Md. Anowar Hasan Salim",
+        "UserApprovalStatus": "Approved"
+    }
+}
+
+Comments Information:
+
+
+
+3. Retrieve a Specific Receipt  Done
+
+Endpoint: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_visit_plan&VisitPlanID=2
+
+Expected Response:
+```json
+{
+    "VisitPlan": {
+        "VisitPlanID": 2,
+        "VPInfo1": "VP-1002/01-25",
+        "VPInfo2": "2024-09-20 ",
+        "VPInfo3": "Raj Mushuri Govt Primary School",
+        "VisitPlanNo": "VP-1002/01-25",
+        "VisitPlanDate": "2024-09-20 ",
+        "InstitutionTypeID": 11,
+        "InstitutionTypeName": "Primary-School",
+        "InstituteName": "Raj Mushuri Govt Primary School",
+        "InstitutionID": 177,
+        "PurposeID": 140,
+        "PurposeName": "High School Visit",
+        "VisitUserID": 501,
+        "VisitUserName": "Md. Anowar Hasan Salim",
+        "Status": 2,
+        "AppStatus": 2,
+        "UserID": 501,
+        "LogUserName": "Md. Anowar Hasan Salim",
+        "CreatedAt": "2025-01-13 06:01:38",
+        "ModifiedAt": null
+    },
+    "Approvals": {
+        "AppDate": "2025-01-15 20:03:21",
+        "AppBy": "Md. Anowar Hasan Salim Divisional Sales Manager",
+        "AppComments": "cancelled",
+        "CancelledDate": "2025-01-15 19:34:10",
+        "CancelledBy": "Md. Anowar Hasan Salim Divisional Sales Manager",
+        "CanclledComments": "VisitPlan is cancelled due to..."
+    }
+}
+2. Get get_VisitPlanCompleteRejectCancelled - Not need
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_VisitPlanCompleteRejectCancelled&UserID=501
+
+Output:
+[   InstitutionTypeName
+    {
+        "VisitPlanID": 5,
+        "VisitPlanInfo1": "VP-1009/01-25",
+        "VisitPlanInfo2": "2025-01-14 ",
+        "VisitPlanInfo3": "Aloka kindergarten school",
+        "VisitPlanNo": "VP-1009/01-25",
+        "VisitPlanDate": "2025-01-14 ",
+        "InstitutionID": 3150,
+        "InstitutionTypeID": 180,
+        "InstitutionType": "Kindergarten School",
+        "InstituteName": "Aloka kindergarten school",
+        "PurposeID": 110,
+        "PurposeName": "Primary School Visit",
+        "Status": "Cancelled",
+        "AppStatus": 3,
+        "VisitUserName": "Md. Anowar Hasan Salim",
+        "LogUserName": "Md. Anowar Hasan Salim"
+    }
+]
+
+Complete Visit Plan
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_VisitPlanComplete&UserID=501
+
+Output:
+[   InstitutionTypeName
+    {
+        "VisitPlanID": 5,
+        "VisitPlanInfo1": "VP-1009/01-25",
+        "VisitPlanInfo2": "2025-01-14 ",
+        "VisitPlanInfo3": "Aloka kindergarten school",
+        "VisitPlanNo": "VP-1009/01-25",
+        "VisitPlanDate": "2025-01-14 ",
+        "InstitutionID": 3150,
+        "InstitutionTypeID": 180,
+        "InstitutionType": "Kindergarten School",
+        "InstituteName": "Aloka kindergarten school",
+        "PurposeID": 110,
+        "PurposeName": "Primary School Visit",
+        "Status": "Cancelled",
+        "AppStatus": 3,
+        "VisitUserName": "Md. Anowar Hasan Salim",
+        "LogUserName": "Md. Anowar Hasan Salim"
+    }
+]
+
+Reject Visit Plan
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_VisitPlanReject&UserID=501
+
+Output:
+[   InstitutionTypeName
+    {
+        "VisitPlanID": 5,
+        "VisitPlanInfo1": "VP-1009/01-25",
+        "VisitPlanInfo2": "2025-01-14 ",
+        "VisitPlanInfo3": "Aloka kindergarten school",
+        "VisitPlanNo": "VP-1009/01-25",
+        "VisitPlanDate": "2025-01-14 ",
+        "InstitutionID": 3150,
+        "InstitutionTypeID": 180,
+        "InstitutionType": "Kindergarten School",
+        "InstituteName": "Aloka kindergarten school",
+        "PurposeID": 110,
+        "PurposeName": "Primary School Visit",
+        "Status": "Cancelled",
+        "AppStatus": 3,
+        "VisitUserName": "Md. Anowar Hasan Salim",
+        "LogUserName": "Md. Anowar Hasan Salim"
+    }
+]
+
+Cancelled Visit Plan
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_VisitPlanCancelled&UserID=501
+
+Output:
+[   InstitutionTypeName
+    {
+        "VisitPlanID": 5,
+        "VisitPlanInfo1": "VP-1009/01-25",
+        "VisitPlanInfo2": "2025-01-14 ",
+        "VisitPlanInfo3": "Aloka kindergarten school",
+        "VisitPlanNo": "VP-1009/01-25",
+        "VisitPlanDate": "2025-01-14 ",
+        "InstitutionID": 3150,
+        "InstitutionTypeID": 180,
+        "InstitutionType": "Kindergarten School",
+        "InstituteName": "Aloka kindergarten school",
+        "PurposeID": 110,
+        "PurposeName": "Primary School Visit",
+        "Status": "Cancelled",
+        "AppStatus": 3,
+        "VisitUserName": "Md. Anowar Hasan Salim",
+        "LogUserName": "Md. Anowar Hasan Salim"
+    }
+]
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_VisitPlanCompleteRejectCancelled&UserID=501
+
+Output:
+[   InstitutionTypeName
+    {
+        "VisitPlanID": 5,
+        "VisitPlanInfo1": "VP-1009/01-25",
+        "VisitPlanInfo2": "2025-01-14 ",
+        "VisitPlanInfo3": "Aloka kindergarten school",
+        "VisitPlanNo": "VP-1009/01-25",
+        "VisitPlanDate": "2025-01-14 ",
+        "InstitutionID": 3150,
+        "InstitutionTypeID": 180,
+        "InstitutionType": "Kindergarten School",
+        "InstituteName": "Aloka kindergarten school",
+        "PurposeID": 110,
+        "PurposeName": "Primary School Visit",
+        "Status": "Cancelled",
+        "AppStatus": 3,
+        "VisitUserName": "Md. Anowar Hasan Salim",
+        "LogUserName": "Md. Anowar Hasan Salim"
+    }
+]
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_sndApprovalDetailsVisitPlan&VisitPlanID=4
+
+2. Request Type:
+POST
+
+3. Headers:
+Set the content type to JSON:
+
+bash
+Copy code
+Content-Type: application/json
+4. Body (Raw JSON):
+Use the following JSON for testing:
+
+Test Case 1: For AppStatus = 1 (Approval)
+json
+Copy code
+{
+    "VisitPlanID": 4,
+    "AppComments": "Approval for further processing",
+    "UserID": 501
+}
+
+ Expected Responses:
+Success Response (Example):
+For a successful operation:
+
+json
+Copy code
+{
+    "success": true,
+    "message": "Approval details created and VisitPlan updated successfully."
+}
+
+6. Testing Steps in Postman:
+Open Postman and create a new request.
+Set the method to POST.
+Enter the endpoint URL.
+Go to the Headers tab and add the Content-Type: application/json header.
+Go to the Body tab, select raw, and paste the JSON for the test case.
+Click Send.
+Verify the response.
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_sndApprovalRejected_CancelledVisitPlan
+
+2. Request Type:
+POST
+
+3. Headers:
+Set the content type to JSON:
+
+Test Case 1: For AppStatus = 1 (Cancelled)
+json
+Copy code
+{
+    "VisitPlanID": 2,
+    "CanclledComments": "VisitPlan is cancelled due to...",
+    "UserID": 501
+}
+
+
+
+

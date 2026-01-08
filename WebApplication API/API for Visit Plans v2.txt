@@ -1,0 +1,202 @@
+INSERT INTO [dbo].sndVisitPlans
+           (VisitPlanNo
+           ,VisitPlanDate
+           ,InstitutionTypeID
+           ,InstitutionID
+           ,PurposeID
+		   ,VisitUserID
+           ,Status
+           ,AppStatus
+           ,UserID
+           ,CreatedAt
+           ,ModifiedAt
+     VALUES
+           (<VisitPlanNo, nvarchar(50),>
+           ,<VisitPlanDate, date,>
+           ,<InstitutionTypeID, int,>
+           ,<InstitutionID, int,>
+           ,<PurposeID, int,>
+		   ,<VisitUserID, int,>
+           ,<Status, int,>
+           ,<AppStatus, int,>
+           ,<UserID, int,>
+           ,<CreatedAt, datetime,>
+           ,<ModifiedAt, datetime,>)
+GO
+
+
+3. Get a VisitPlanNo: Done
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=generate_new_visit_plan_number
+
+Method: POST (based on your implementation).
+
+Output
+
+{
+    "NewVPNo": "VP-1001/01-25"
+}
+
+{
+    "NewVPNo": "VP-1023/01-25"
+}
+
+### API Endpoint Examples Using Sample Data
+
+Purpose Combo Box done
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_visitpurposes
+
+[
+    {
+        "ID": 110,
+        "CategoryType": "visitpurpose",
+        "CategoryName": "Primary School Visit"
+    },
+    {
+        "ID": 140,
+        "CategoryType": "visitpurpose",
+        "CategoryName": "High School Visit"
+    }
+}
+
+1. Create a New VisitPlan
+Endpoint: `POST https://asianabpolymer.com/abpolymer/salesforce_api.php?action=create_visit_plan
+
+Request Body:
+```json
+{
+    "VisitPlanNo": "VP-1001/01-25",
+	"VisitPlanDate": "2024-09-20",
+    "InstitutionTypeID": 11,
+	"InstitutionID": 177,
+	"PurposeID": 140,
+	"VisitUserID": 501,
+    "UserID": 501
+}
+```
+
+Expected Response:
+```json
+{
+    "message": "Visit plan created successfully"
+}
+
+---
+
+Please replace the following API
+From
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_visit_plans
+
+To
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_all_visit_plans_users&UserID=423
+
+
+
+https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_all_visit_plans_users&UserID=423
+
+2. Retrieve All Visit Plans - Done
+
+Endpoint: `GET https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_visit_plans
+
+Expected Response:
+```json
+[
+    {
+        "VisitPlanID": 1,
+        "VPInfo1": "VP-1001/01-25",
+        "VPInfo2": "2025-01-15 ",
+        "VPInfo3": "চেহেলগাজী শিক্ষা নিকেতন",
+        "VisitPlanNo": "VP-1001/01-25",
+        "VisitPlanDate": "2025-01-15 ",
+        "InstitutionTypeID": 12,
+        "InstitutionTypeName": "High-School",
+        "InstituteName": "চেহেলগাজী শিক্ষা নিকেতন",
+        "InstitutionID": 3273,
+        "PurposeID": 140,
+        "PurposeName": "High School Visit",
+        "VisitUserID": 501,
+        "VisitUserName": "Md. Anowar Hasan Salim",
+        "Status": 3,
+        "AppStatus": 3,
+        "UserID": 501,
+        "LogUserName": "Md. Anowar Hasan Salim",
+        "CreatedAt": "2025-01-13 00:00:00",
+        "ModifiedAt": "2025-01-20 10:39:24"
+    }
+]
+
+GET https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_visit_plans
+API Given:
+VisitPlanNo, VisitPlanDate, InstitutionTypeName, InstituteName, PurposeName, VisitUserName, AppStatusMeans
+Display Name:
+VisitPlanNo, VP_Date, Inst/Party_Type, Instition/Party_Name, Purpose_Name, Visit_User, App_Status
+
+
+```
+
+---
+
+3. Retrieve a Specific Visit Plan
+Endpoint: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=get_visit_plan&VisitPlanID=2
+
+Expected Response:
+```json
+{
+    "VisitPlan": {
+        "VisitPlanID": 2,
+        "VPInfo1": "VP-1002/01-25",
+        "VPInfo2": "2024-09-20 ",
+        "VPInfo3": "Raj Mushuri Govt Primary School",
+        "VisitPlanNo": "VP-1002/01-25",
+        "VisitPlanDate": "2024-09-20 ",
+        "InstitutionTypeID": 11,
+        "InstitutionTypeName": "Primary-School",
+        "InstituteName": "Raj Mushuri Govt Primary School",
+        "InstitutionID": 177,
+        "PurposeID": 140,
+        "PurposeName": "High School Visit",
+        "VisitUserID": 501,
+        "VisitUserName": "Md. Anowar Hasan Salim",
+        "Status": 2,
+        "AppStatus": 2,
+        "UserID": 501,
+        "LogUserName": "Md. Anowar Hasan Salim",
+        "CreatedAt": "2025-01-13 06:01:38",
+        "ModifiedAt": null
+    },
+    "Approvals": {
+        "AppDate": "2025-01-15 20:03:21",
+        "AppBy": "Md. Anowar Hasan Salim Divisional Sales Manager",
+        "AppComments": "cancelled",
+        "CancelledDate": "2025-01-15 19:34:10",
+        "CancelledBy": "Md. Anowar Hasan Salim Divisional Sales Manager",
+        "CanclledComments": "VisitPlan is cancelled due to..."
+    }
+}
+---
+
+4. Update a Visit Plan
+Endpoint: https://asianabpolymer.com/abpolymer/salesforce_api.php?action=update_visit_plan&VisitPlanID=2
+
+Request Body:
+```json
+{
+	"VisitPlanDate": "2024-09-20",
+    "InstitutionTypeID": 11,
+	"InstitutionID": 177,
+	"PurposeID": 140,
+	"VisitUserID": 501,
+    "UserID": 501
+}
+```
+
+Expected Response:
+```json
+{
+    "success": "Visit Plan updated successfully"
+}
+```
+
