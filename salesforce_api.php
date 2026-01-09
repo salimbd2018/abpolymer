@@ -8121,7 +8121,7 @@ or
     ORDER BY SalesOrderID DESC
     ";
 
-    $params = [$UserID, $UserID, $UserID, $UserID];
+    $params = [$UserID, $UserID, $UserID, $UserID,$UserID, $UserID, $UserID, $UserID];
 
     $stmt = sqlsrv_query($conn, $sql, $params);
 
