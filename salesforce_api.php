@@ -8034,94 +8034,82 @@ function get_salesordersApproval($conn, $UserID) {
     }
 
     $sql = "
-     SELECT userid,
-    ROW_NUMBER() OVER (ORDER BY SalesOrderID) AS SL, 
-    SalesOrderID,
-    Outstanding,
-OrderPending,
-TotalDeliveredAmount,
-TotalCollection,
-pertialchallanstatus,
-    SalesOrderNo,
-    SalesOrderNo AS SoInfo1,
-    CONCAT(CONVERT(CHAR(10), OrderDate, 105), ' - ', FORMAT(ISNULL(TotalAmount, 0), 'N2')) AS SoInfo2,
-    (SELECT TOP 1 partyname FROM sndPartyMaster WHERE PartyID = sndSalesOrders.PartyID) AS SoInfo3,
-    CONVERT(CHAR(11), OrderDate, 120) AS OrderDate, 
-    PartyID,
-    (SELECT TOP 1 DistrictID FROM sndPartyMaster WHERE PartyID = sndSalesOrders.PartyID) AS DistrictID,
-    (SELECT TOP 1 partyname FROM sndPartyMaster WHERE PartyID = sndSalesOrders.PartyID) AS partyname,
-    status,
-    (SELECT TOP 1 Statusmeans FROM sndStatus WHERE status = sndSalesOrders.status AND StatusTables = 'sndSalesOrders') AS Status,
-    (SELECT TOP 1 AppStatusmeans FROM sndApprovals WHERE AppStatus = sndSalesOrders.AppStatus AND ApprovalTables = 'sndSalesOrders') AS AppStatus,
-    FORMAT(ISNULL(TotalAmount, 0), 'N2') AS TotalAmount,
-    (SELECT TOP 1 EmpName FROM sndUsers WHERE UserID = sndSalesOrders.UserID) AS logUserName,
-    AppStatus,
+    SELECT 
+        userid,
+        ROW_NUMBER() OVER (ORDER BY SalesOrderID) AS SL, 
+        SalesOrderID,
+        Outstanding,
+        OrderPending,
+        TotalDeliveredAmount,
+        TotalCollection,
+        pertialchallanstatus,
+        SalesOrderNo,
+        SalesOrderNo AS SoInfo1,
+        CONCAT(CONVERT(CHAR(10), OrderDate, 105), ' - ', FORMAT(ISNULL(TotalAmount, 0), 'N2')) AS SoInfo2,
+        (SELECT TOP 1 partyname FROM sndPartyMaster WHERE PartyID = sndSalesOrders.PartyID) AS SoInfo3,
+        CONVERT(CHAR(11), OrderDate, 120) AS OrderDate, 
+        PartyID,
+        (SELECT TOP 1 DistrictID FROM sndPartyMaster WHERE PartyID = sndSalesOrders.PartyID) AS DistrictID,
+        (SELECT TOP 1 partyname FROM sndPartyMaster WHERE PartyID = sndSalesOrders.PartyID) AS partyname,
+        status,
+        (SELECT TOP 1 Statusmeans FROM sndStatus WHERE status = sndSalesOrders.status AND StatusTables = 'sndSalesOrders') AS Status,
+        (SELECT TOP 1 AppStatusmeans FROM sndApprovals WHERE AppStatus = sndSalesOrders.AppStatus AND ApprovalTables = 'sndSalesOrders') AS AppStatusText,
+        FORMAT(ISNULL(TotalAmount, 0), 'N2') AS TotalAmount,
+        (SELECT TOP 1 EmpName FROM sndUsers WHERE UserID = sndSalesOrders.UserID) AS logUserName,
+        AppStatus,
 
-    CASE 
-        WHEN AppStatus = (
-            SELECT TOP 1 AppStatus FROM sndApprovals 
-            WHERE RoleID IN (SELECT RoleID FROM sndUserRoleMapping WHERE UserID = ?) 
-            AND ApprovalTables = 'sndSalesOrders' 
-            AND AppStatusMeans = 'Authorized By' and Userid = ?
-        )
-    THEN 'Authorized'
-    ELSE 'Not Authorized'
-    END AS UserAuthorizedSatus,
+        CASE 
+            WHEN EXISTS (
+                SELECT 1 FROM sndApprovals a
+                INNER JOIN sndUserRoleMapping urm ON a.RoleID = urm.RoleID
+                WHERE a.ApprovalTables = 'sndSalesOrders' 
+                AND a.AppStatusMeans = 'Authorized By'
+                AND urm.UserID = ?
+                AND a.AppStatus = sndSalesOrders.AppStatus
+            )
+            THEN 'Authorized'
+            ELSE 'Not Authorized'
+        END AS UserAuthorizedSatus,
 
-    CASE 
-        WHEN AppStatus = (
-            SELECT TOP 1 AppStatus FROM sndApprovals 
-            WHERE RoleID IN (SELECT RoleID FROM sndUserRoleMapping WHERE UserID = ?) 
-            AND ApprovalTables = 'sndSalesOrders' 
-            AND AppStatusMeans = 'Approved By'  and Userid = ?
-        )
-    THEN 'Authorized'
-    ELSE 'Not Authorized'
-    END AS UserApprovalSatus
+        CASE 
+            WHEN EXISTS (
+                SELECT 1 FROM sndApprovals a
+                INNER JOIN sndUserRoleMapping urm ON a.RoleID = urm.RoleID
+                WHERE a.ApprovalTables = 'sndSalesOrders' 
+                AND a.AppStatusMeans = 'Approved By'
+                AND urm.UserID = ?
+                AND a.AppStatus = sndSalesOrders.AppStatus
+            )
+            THEN 'Authorized'
+            ELSE 'Not Authorized'
+        END AS UserApprovalSatus
 
     FROM [dbo].[sndSalesOrders] 
 
-    WHERE
-    (
-        OrderTypeID = 1 
-        AND Status IN (1) 
-        and
-        AppStatus = (
-    SELECT TOP 1 AppStatus FROM sndApprovals 
-    WHERE RoleID IN (SELECT RoleID FROM sndUserRoleMapping WHERE UserID = ?) 
-    AND ApprovalTables = 'sndSalesOrders' 
-    AND AppStatusMeans = 'Authorized By'  and Userid = ?
-)
-       
-        AND (
+    WHERE OrderTypeID = 1 
+        AND Status IN (1, 2)
+        AND EXISTS (
             SELECT COUNT(*) 
             FROM sndSalesOrderDetails sod 
             WHERE sod.SalesOrderID = sndSalesOrders.SalesOrderID
-        ) > 0
-    )
-or
-(
-        OrderTypeID = 1 
-        AND Status IN (2) 
-        and
-        AppStatus = (
-    SELECT TOP 1 AppStatus FROM sndApprovals 
-    WHERE RoleID IN (SELECT RoleID FROM sndUserRoleMapping WHERE UserID = ?) 
-    AND ApprovalTables = 'sndSalesOrders' 
-    AND AppStatusMeans = 'Approved By'  and Userid = ?
-)
-       
-        AND (
-            SELECT COUNT(*) 
-            FROM sndSalesOrderDetails sod 
-            WHERE sod.SalesOrderID = sndSalesOrders.SalesOrderID
-        ) > 0
-    )
-
+            HAVING COUNT(*) > 0
+        )
+        AND EXISTS (
+            SELECT 1 FROM sndApprovals a
+            INNER JOIN sndUserRoleMapping urm ON a.RoleID = urm.RoleID
+            WHERE a.ApprovalTables = 'sndSalesOrders' 
+            AND urm.UserID = ?
+            AND a.AppStatus = sndSalesOrders.AppStatus
+            AND (
+                (sndSalesOrders.Status = 1 AND a.AppStatusMeans = 'Authorized By')
+                OR
+                (sndSalesOrders.Status = 2 AND a.AppStatusMeans = 'Approved By')
+            )
+        )
     ORDER BY SalesOrderID DESC
     ";
 
-    $params = [$UserID, $UserID, $UserID, $UserID,$UserID, $UserID, $UserID, $UserID];
+    $params = [$UserID, $UserID, $UserID];
 
     $stmt = sqlsrv_query($conn, $sql, $params);
 
