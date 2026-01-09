@@ -8033,6 +8033,37 @@ function get_salesordersApproval($conn, $UserID) {
         return;
     }
 
+    // First, get the AppStatus values for this user
+    $appStatusSql = "
+        SELECT AppStatus, AppStatusMeans 
+        FROM sndApprovals 
+        WHERE RoleID IN (SELECT RoleID FROM sndUserRoleMapping WHERE UserID = ?) 
+        AND ApprovalTables = 'sndSalesOrders'
+        AND AppStatusMeans IN ('Authorized By', 'Approved By')
+    ";
+    
+    $appStatusParams = [$UserID];
+    $appStatusStmt = sqlsrv_query($conn, $appStatusSql, $appStatusParams);
+    
+    $authorizedStatus = null;
+    $approvedStatus = null;
+    
+    if ($appStatusStmt) {
+        while ($row = sqlsrv_fetch_array($appStatusStmt, SQLSRV_FETCH_ASSOC)) {
+            if ($row['AppStatusMeans'] == 'Authorized By') {
+                $authorizedStatus = $row['AppStatus'];
+            } elseif ($row['AppStatusMeans'] == 'Approved By') {
+                $approvedStatus = $row['AppStatus'];
+            }
+        }
+    }
+    
+    if (!$authorizedStatus && !$approvedStatus) {
+        echo json_encode([]);
+        return;
+    }
+    
+    // Build the main query
     $sql = "
     SELECT 
         userid,
@@ -8057,30 +8088,14 @@ function get_salesordersApproval($conn, $UserID) {
         FORMAT(ISNULL(TotalAmount, 0), 'N2') AS TotalAmount,
         (SELECT TOP 1 EmpName FROM sndUsers WHERE UserID = sndSalesOrders.UserID) AS logUserName,
         AppStatus,
-
+        
         CASE 
-            WHEN EXISTS (
-                SELECT 1 FROM sndApprovals a
-                INNER JOIN sndUserRoleMapping urm ON a.RoleID = urm.RoleID
-                WHERE a.ApprovalTables = 'sndSalesOrders' 
-                AND a.AppStatusMeans = 'Authorized By'
-                AND urm.UserID = ?
-                AND a.AppStatus = sndSalesOrders.AppStatus
-            )
-            THEN 'Authorized'
+            WHEN AppStatus = ? THEN 'Authorized'
             ELSE 'Not Authorized'
         END AS UserAuthorizedSatus,
-
+        
         CASE 
-            WHEN EXISTS (
-                SELECT 1 FROM sndApprovals a
-                INNER JOIN sndUserRoleMapping urm ON a.RoleID = urm.RoleID
-                WHERE a.ApprovalTables = 'sndSalesOrders' 
-                AND a.AppStatusMeans = 'Approved By'
-                AND urm.UserID = ?
-                AND a.AppStatus = sndSalesOrders.AppStatus
-            )
-            THEN 'Authorized'
+            WHEN AppStatus = ? THEN 'Authorized'
             ELSE 'Not Authorized'
         END AS UserApprovalSatus
 
@@ -8088,31 +8103,28 @@ function get_salesordersApproval($conn, $UserID) {
 
     WHERE OrderTypeID = 1 
         AND Status IN (1, 2)
-        AND EXISTS (
+        AND (
+            (Status = 1 AND AppStatus = ?)
+            OR
+            (Status = 2 AND AppStatus = ?)
+        )
+        AND (
             SELECT COUNT(*) 
             FROM sndSalesOrderDetails sod 
             WHERE sod.SalesOrderID = sndSalesOrders.SalesOrderID
-            HAVING COUNT(*) > 0
-        )
-        AND EXISTS (
-            SELECT 1 FROM sndApprovals a
-            INNER JOIN sndUserRoleMapping urm ON a.RoleID = urm.RoleID
-            WHERE a.ApprovalTables = 'sndSalesOrders' 
-            AND urm.UserID = ?
-            AND a.AppStatus = sndSalesOrders.AppStatus
-            AND (
-                (sndSalesOrders.Status = 1 AND a.AppStatusMeans = 'Authorized By')
-                OR
-                (sndSalesOrders.Status = 2 AND a.AppStatusMeans = 'Approved By')
-            )
-        )
+        ) > 0
     ORDER BY SalesOrderID DESC
     ";
-
-    $params = [$UserID, $UserID, $UserID];
-
+    
+    $params = [
+        $authorizedStatus, 
+        $approvedStatus,
+        $authorizedStatus,
+        $approvedStatus
+    ];
+    
     $stmt = sqlsrv_query($conn, $sql, $params);
-
+    
     if ($stmt === false) {
         echo json_encode(["error" => print_r(sqlsrv_errors(), true)]);
         return;
